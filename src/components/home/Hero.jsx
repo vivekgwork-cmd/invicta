@@ -12,7 +12,7 @@ export default function Hero() {
         transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
       >
         <img
-          src="/images/indian-college-students.jpg"
+          src={`${import.meta.env.BASE_URL}images/indian-college-students.jpg`}
           alt="Indian students studying abroad"
           className="w-full h-full object-cover object-[center_30%]"
         />
@@ -104,7 +104,7 @@ export default function Hero() {
           className="hidden lg:block relative"
         >
           <div className="relative rounded-3xl overflow-hidden border border-white/15 shadow-2xl">
-            <img src="/images/professional-lady.jpg" alt="Invicta admissions counsellor" className="w-full h-[420px] object-cover" />
+            <img src={`${import.meta.env.BASE_URL}images/professional-lady.jpg`} alt="Invicta admissions counsellor" className="w-full h-[420px] object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-transparent to-transparent" />
             <div className="absolute bottom-5 left-5 right-5 text-paper">
               <div className="text-sm font-semibold">Priya Nair</div>

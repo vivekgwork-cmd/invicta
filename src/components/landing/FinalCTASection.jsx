@@ -9,7 +9,7 @@ export default function FinalCTASection() {
   return (
     <section id="apply" className="py-24 bg-primary relative overflow-hidden scroll-mt-24">
       <div className="absolute inset-0">
-        <img src="/images/professional-lady.jpg" alt="" className="w-full h-full object-cover opacity-[0.08]" />
+        <img src={`${import.meta.env.BASE_URL}images/professional-lady.jpg`} alt="" className="w-full h-full object-cover opacity-[0.08]" />
       </div>
 
       <div className="relative mx-auto max-w-5xl px-5 sm:px-8 grid lg:grid-cols-[1fr_1fr] gap-12 items-center">

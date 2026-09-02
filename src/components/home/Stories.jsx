@@ -37,7 +37,7 @@ export default function Stories() {
       <div className="mx-auto max-w-7xl px-5 sm:px-8 grid lg:grid-cols-[0.9fr_1.1fr] gap-12 items-center">
         <Reveal direction="left" className="relative">
           <div className="rounded-3xl overflow-hidden aspect-[4/5]">
-            <img src="/images/college-pic.jpg" alt="Partner university campus" className="w-full h-full object-cover" />
+            <img src={`${import.meta.env.BASE_URL}images/college-pic.jpg`} alt="Partner university campus" className="w-full h-full object-cover" />
           </div>
           <div className="absolute -bottom-6 -right-6 bg-white rounded-2xl shadow-xl px-5 py-4">
             <Stars />

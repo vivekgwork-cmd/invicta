@@ -49,7 +49,7 @@ export default function CredentialsSection() {
         </div>
 
         <Reveal direction="right" className="relative rounded-3xl overflow-hidden aspect-[4/5]">
-          <img src="/images/MIT.jpg" alt="MIT campus, Boston" className="w-full h-full object-cover" />
+          <img src={`${import.meta.env.BASE_URL}images/MIT.jpg`} alt="MIT campus, Boston" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/15 to-primary/5" />
 
           <div className="absolute top-6 left-6 right-6 flex flex-wrap gap-2">

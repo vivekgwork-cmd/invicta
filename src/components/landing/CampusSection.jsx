@@ -21,13 +21,13 @@ export default function CampusSection() {
 
         <div className="mt-12 grid lg:grid-cols-2 gap-4">
           <Reveal direction="left" className="rounded-3xl overflow-hidden aspect-[16/11] lg:row-span-2">
-            <img src="/images/Tbilisi.jpg" alt="Tbilisi Old Town at night" className="w-full h-full object-cover" />
+            <img src={`${import.meta.env.BASE_URL}images/Tbilisi.jpg`} alt="Tbilisi Old Town at night" className="w-full h-full object-cover" />
           </Reveal>
           <Reveal direction="right" className="rounded-3xl overflow-hidden aspect-[16/9]">
-            <img src="/images/SEU.jpg" alt="SEU campus building" className="w-full h-full object-cover" />
+            <img src={`${import.meta.env.BASE_URL}images/SEU.jpg`} alt="SEU campus building" className="w-full h-full object-cover" />
           </Reveal>
           <Reveal direction="right" delay={0.1} className="rounded-3xl overflow-hidden aspect-[16/9]">
-            <img src="/images/indian-college-students.jpg" alt="Indian students abroad" className="w-full h-full object-cover" />
+            <img src={`${import.meta.env.BASE_URL}images/indian-college-students.jpg`} alt="Indian students abroad" className="w-full h-full object-cover" />
           </Reveal>
         </div>
 

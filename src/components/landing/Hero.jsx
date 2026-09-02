@@ -18,7 +18,7 @@ export default function Hero() {
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 1.8, ease: [0.22, 1, 0.36, 1] }}
       >
-        <img src="/images/Tbilisi.jpg" alt="Tbilisi, Georgia skyline at dusk" className="w-full h-full object-cover" />
+        <img src={`${import.meta.env.BASE_URL}images/Tbilisi.jpg`} alt="Tbilisi, Georgia skyline at dusk" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/90 to-primary/50" />
         <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/20 to-primary/70" />
       </motion.div>

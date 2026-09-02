@@ -15,7 +15,7 @@ export default function ProgramSpotlight() {
 
         <div className="grid lg:grid-cols-2 gap-10 items-center rounded-2xl border border-white/10 bg-ink-soft p-3 sm:p-4">
           <Reveal direction="left" className="relative rounded-lg overflow-hidden aspect-[4/3]">
-            <img src="/images/SEU.jpg" alt="Georgian National University SEU campus" className="w-full h-full object-cover" />
+            <img src={`${import.meta.env.BASE_URL}images/SEU.jpg`} alt="Georgian National University SEU campus" className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/10 to-transparent" />
             <div className="absolute top-4 left-4 text-xs font-semibold tracking-wide text-paper uppercase">
               Tbilisi, Georgia
