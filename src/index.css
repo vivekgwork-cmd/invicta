@@ -1,0 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400..700&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Source Serif 4", "Georgia", serif;
+
+  --color-ink: #0b0f19;
+  --color-ink-soft: #131a2a;
+  --color-paper: #faf8f4;
+  --color-paper-dim: #f1ede4;
+  --color-brand: #9c1c2e;
+  --color-brand-dark: #6f1220;
+  --color-brand-light: #c8394d;
+  --color-gold: #c69a4b;
+  --color-gold-soft: #e4cd9a;
+  --color-slate: #4b5265;
+
+  /* Landing page palette */
+  --color-primary: #1b365d;
+  --color-primary-soft: #24406b;
+  --color-secondary: #f8f9fa;
+  --color-secondary-dim: #eceef1;
+  --color-accent: #ff6b35;
+  --color-accent-light: #ff8f5e;
+  --color-accent-dark: #e0551f;
+  --color-accent-soft: #ffb896;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: var(--color-brand);
+  color: #fff;
+}
