@@ -13,22 +13,22 @@ const extras = [
   'Martin Trust Center for MIT Entrepreneurship framework built into how you learn.',
   'Ultra-modern AC hostels exclusively for Indian students, with Indian food.',
   'Legally work up to 20 hours per week while studying.',
-  'Cost of living in Tbilisi: approximately $300–400 per month.',
+  'Cost of living in Tbilisi: approximately $300 to $400 per month.',
   'Hostel starts at about $190 per month, Indian food included.',
 ]
 
 export default function USPSection() {
   return (
-    <section id="highlights" className="py-24 bg-primary scroll-mt-24">
+    <section id="highlights" className="py-20 bg-primary scroll-mt-24">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <Reveal className="max-w-2xl">
           <span className="text-sm font-semibold text-accent-soft uppercase tracking-wide">Program Highlights</span>
           <h2 className="font-display text-3xl sm:text-4xl mt-3 text-secondary text-balance">
-            Here's Exactly What That Gets You
+            Here's Exactly What That <span className="text-gold-soft">Gets You</span>
           </h2>
           <p className="mt-4 text-secondary/60 leading-relaxed">
             Now that you've seen the proof, here's what's actually included in the SEU x MIT
-            collaboration — no fine print, no vague promises.
+            collaboration. No fine print, no vague promises.
           </p>
         </Reveal>
 
@@ -45,7 +45,7 @@ export default function USPSection() {
         </Stagger>
 
         {/* divider that only draws in once the user scrolls further */}
-        <Reveal direction="fade" amount={0.6} className="mt-24 flex items-center gap-4">
+        <Reveal direction="fade" amount={0.6} className="mt-16 flex items-center gap-4">
           <span className="h-px flex-1 bg-white/10" />
           <span className="text-xs font-semibold text-accent-soft uppercase tracking-wide whitespace-nowrap">
             Plus, for Indian students

@@ -5,17 +5,17 @@ const points = [
   'Indian food hostels with AC and student amenities.',
   'Modern campus infrastructure, including high-tech lab environments.',
   'Part-time work legally allowed up to 20 hours per week.',
-  'Typical living cost about $300–400 per month.',
+  'Typical living cost about $300 to $400 per month.',
   'A safe, affordable, modern European capital city for international students.',
 ]
 
 export default function CampusSection() {
   return (
-    <section id="campus" className="py-24 bg-primary scroll-mt-24">
+    <section id="campus" className="py-20 bg-primary scroll-mt-24">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <Reveal className="max-w-2xl">
           <span className="text-sm font-semibold text-accent-soft uppercase tracking-wide">Life In Tbilisi</span>
-          <h2 className="font-display text-3xl sm:text-4xl mt-3 text-secondary text-balance">Once You Land, Here's Life</h2>
+          <h2 className="font-display text-3xl sm:text-4xl mt-3 text-secondary text-balance">Once You Land, <span className="text-gold-soft">Here's Life</span></h2>
           <p className="mt-4 text-secondary/60 leading-relaxed">Georgia becomes home for two years. Here's what that actually looks like day to day.</p>
         </Reveal>
 

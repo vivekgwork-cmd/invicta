@@ -7,7 +7,7 @@ export default function FinalCTASection() {
   const [submitted, setSubmitted] = useState(false)
 
   return (
-    <section id="apply" className="py-24 bg-primary relative overflow-hidden scroll-mt-24">
+    <section id="apply" className="py-20 bg-primary relative overflow-hidden scroll-mt-24">
       <div className="absolute inset-0">
         <img src={`${import.meta.env.BASE_URL}images/professional-lady.jpg`} alt="" className="w-full h-full object-cover opacity-[0.08]" />
       </div>
@@ -16,7 +16,7 @@ export default function FinalCTASection() {
         <Reveal direction="left">
           <span className="text-sm font-semibold text-accent-soft uppercase tracking-wide">Get Started</span>
           <h2 className="font-display text-3xl sm:text-4xl mt-3 text-secondary text-balance">
-            Ready To Start Your MIT-Aligned Master's Journey?
+            Ready To Start Your <span className="text-gold-soft">MIT-Aligned</span> Master's Journey?
           </h2>
           <p className="mt-4 text-secondary/65 leading-relaxed">
             Talk to our admissions team to check your eligibility, understand your scholarship,
@@ -30,7 +30,7 @@ export default function FinalCTASection() {
         <Reveal direction="right" delay={0.1} className="rounded-lg bg-primary-soft border border-white/10 p-6 sm:p-8">
           {submitted ? (
             <div className="text-center py-8">
-              <p className="font-display text-xl text-secondary">Thank you — this is a demo form.</p>
+              <p className="font-display text-xl text-secondary">Thank you. This is a demo form.</p>
               <p className="text-secondary/60 text-sm mt-1.5">A real Invicta admissions counsellor would follow up shortly.</p>
             </div>
           ) : (
@@ -53,7 +53,7 @@ export default function FinalCTASection() {
                   Check Eligibility
                 </motion.button>
               </div>
-              <p className="text-[11px] text-secondary/40 text-center mt-1">
+              <p className="text-[13px] text-secondary/40 text-center mt-1">
                 Free counselling conversation. No obligation to enroll on the first call.
               </p>
             </form>

@@ -7,6 +7,7 @@ import ProgramsSection from '../components/landing/ProgramsSection.jsx'
 import WhoForSection from '../components/landing/WhoForSection.jsx'
 import SupportSection from '../components/landing/SupportSection.jsx'
 import ProcessSection from '../components/landing/ProcessSection.jsx'
+import VisaSection from '../components/landing/VisaSection.jsx'
 import CampusSection from '../components/landing/CampusSection.jsx'
 import OutcomesSection from '../components/landing/OutcomesSection.jsx'
 import FAQSection from '../components/landing/FAQSection.jsx'
@@ -16,7 +17,7 @@ import StickyCTABar from '../components/landing/StickyCTABar.jsx'
 
 export default function LandingPage() {
   return (
-    <div className="bg-secondary">
+    <div className="bg-secondary lp-root">
       <LPNavbar />
       <Hero />
       <PathwaySection />
@@ -26,6 +27,7 @@ export default function LandingPage() {
       <WhoForSection />
       <SupportSection />
       <ProcessSection />
+      <VisaSection />
       <CampusSection />
       <OutcomesSection />
       <FAQSection />

@@ -12,13 +12,13 @@ const groups = [
 
 export default function OutcomesSection() {
   return (
-    <section id="outcomes" className="py-24 bg-secondary scroll-mt-24">
+    <section id="outcomes" className="py-20 bg-secondary scroll-mt-24">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="flex flex-wrap items-end justify-between gap-6 border-b border-primary/10 pb-10">
           <Reveal className="max-w-2xl">
             <span className="text-sm font-semibold text-accent uppercase tracking-wide">The Payoff</span>
             <h2 className="font-display text-3xl sm:text-4xl mt-3 text-primary text-balance">
-              From Tbilisi To The World's Best Companies
+              From Tbilisi To The World's <span className="text-gold-deep">Best Companies</span>
             </h2>
             <p className="mt-4 text-slate leading-relaxed max-w-xl">
               This is where the pathway leads. Graduates of the SEU Consortium build careers in

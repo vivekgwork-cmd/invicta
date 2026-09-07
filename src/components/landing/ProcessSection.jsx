@@ -4,10 +4,10 @@ import Reveal, { Stagger, StaggerItem } from '../shared/Reveal.jsx'
 
 const steps = [
   { title: 'Apply', desc: 'Submit soft copies (10th, 12th, passport, IELTS, photo).' },
-  { title: 'Interview', desc: 'University interview within 1–2 days.' },
+  { title: 'Interview', desc: 'University interview within 1 to 2 days.' },
   { title: 'Offer', desc: 'Conditional offer letter with scholarship in 7 days.' },
   { title: 'Secure Your Seat', desc: 'Registration fee + 1st installment.' },
-  { title: 'Documentation', desc: 'Apostille + Georgian Ministry processing (30–60 days).' },
+  { title: 'Documentation', desc: 'Apostille + Georgian Ministry processing (30 to 60 days).' },
   { title: 'Visa', desc: 'VFS Global + e-visa in approx. 45 working days.' },
   { title: 'Final Payment', desc: '2nd installment + hostel + TRC fee.' },
   { title: 'Fly To Georgia', desc: 'Arrive in Tbilisi and settle in.' },
@@ -15,12 +15,12 @@ const steps = [
 
 export default function ProcessSection() {
   return (
-    <section id="process" className="py-24 bg-secondary-dim/50 scroll-mt-24">
+    <section id="process" className="py-20 bg-secondary-dim/50 scroll-mt-24 border-t border-primary/8">
       <div className="mx-auto max-w-5xl px-5 sm:px-8">
         <Reveal className="max-w-2xl">
-          <span className="text-sm font-semibold text-accent uppercase tracking-wide">Your Journey — The Steps</span>
-          <h2 className="font-display text-3xl sm:text-4xl mt-3 text-primary text-balance">Here's Exactly How That Plays Out</h2>
-          <p className="mt-4 text-slate leading-relaxed">Eight steps, start to finish — from your first document to landing in Tbilisi.</p>
+          <span className="text-sm font-semibold text-accent uppercase tracking-wide">Your Journey, The Steps</span>
+          <h2 className="font-display text-3xl sm:text-4xl mt-3 text-primary text-balance">Here's Exactly How That <span className="text-gold-deep">Plays Out</span></h2>
+          <p className="mt-4 text-slate leading-relaxed">Eight steps, start to finish, from your first document to landing in Tbilisi.</p>
         </Reveal>
 
         <div className="mt-14 relative">
@@ -50,11 +50,8 @@ export default function ProcessSection() {
 
         <Reveal delay={0.1} className="mt-14 rounded-2xl bg-white border border-primary/8 border-l-2 border-l-accent p-6">
           <div className="text-sm text-slate leading-relaxed">
-            Admission is merit and interview based — <strong className="text-primary">no entrance exam required</strong>.
+            Admission is merit and interview based. <strong className="text-primary">No entrance exam required.</strong>{' '}
             English proficiency support: a bridge program is available where needed.
-            <br />
-            <span className="text-primary font-medium">No visa? No problem.</span> Our team manages the
-            entire documentation and visa process with you, end to end.
           </div>
         </Reveal>
 

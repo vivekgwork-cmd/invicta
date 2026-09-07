@@ -8,10 +8,10 @@ export default function PathwaySection() {
         <Reveal direction="left" className="max-w-2xl">
           <span className="text-sm font-semibold text-accent uppercase tracking-wide">Why SEU x MIT</span>
           <h2 className="font-display text-3xl sm:text-4xl mt-3 text-primary text-balance leading-tight">
-            Why Settle For Just Another Master's?
+            Why Settle For Just Another <span className="text-gold-deep">Master's</span>?
           </h2>
           <p className="mt-5 text-slate leading-relaxed max-w-xl">
-            Most students chase another ordinary Master's. Here is a smarter path — three
+            Most students chase another ordinary Master's. Here is a smarter path: three
             steps that take you from a recognised European degree to a real global career.
             Scroll on and watch how they stack up.
           </p>
@@ -19,7 +19,7 @@ export default function PathwaySection() {
           <div className="mt-8 border-l-2 border-accent pl-4 text-sm text-primary">
             <strong className="font-semibold">Georgian National University SEU</strong>
             <br />
-            <span className="text-slate">Tbilisi, Georgia — on-campus</span>
+            <span className="text-slate">Tbilisi, Georgia, on-campus</span>
           </div>
         </Reveal>
       </div>

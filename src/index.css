@@ -1,8 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&display=swap");
 @import "tailwindcss";
 
 @theme {
   --font-display: "Source Serif 4", "Georgia", serif;
+  --font-geist: "Geist", "Geist Fallback", ui-sans-serif, system-ui, sans-serif;
 
   --color-ink: #0b0f19;
   --color-ink-soft: #131a2a;
@@ -13,17 +15,18 @@
   --color-brand-light: #c8394d;
   --color-gold: #c69a4b;
   --color-gold-soft: #e4cd9a;
+  --color-gold-deep: #9c7a2f;
   --color-slate: #4b5265;
 
-  /* Landing page palette */
-  --color-primary: #1b365d;
-  --color-primary-soft: #24406b;
+  /* Landing page palette — brand kit: navy 60% / off-white 30% / orange 10% */
+  --color-primary: #183650;
+  --color-primary-soft: #234a6b;
   --color-secondary: #f8f9fa;
   --color-secondary-dim: #eceef1;
-  --color-accent: #ff6b35;
-  --color-accent-light: #ff8f5e;
-  --color-accent-dark: #e0551f;
-  --color-accent-soft: #ffb896;
+  --color-accent: #ff6835;
+  --color-accent-light: #ff8c5e;
+  --color-accent-dark: #e0521f;
+  --color-accent-soft: #ffb596;
 }
 
 html {
@@ -41,6 +44,35 @@ body {
 }
 
 ::selection {
-  background: var(--color-brand);
-  color: #fff;
+  background: var(--color-gold);
+  color: var(--color-ink);
+}
+
+/* Landing page runs on the Geist family, distinct from the Home page's serif display font */
+.lp-root {
+  font-family: var(--font-geist);
+}
+.lp-root .font-display {
+  font-family: var(--font-geist);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+/* Landing page type scale — Tailwind defaults scaled up ~15%, uniformly, to keep the size
+   hierarchy proportional while making everything easier to read. */
+.lp-root .text-xs { font-size: 0.875rem; }
+.lp-root .text-sm { font-size: 1rem; }
+.lp-root .text-base { font-size: 1.125rem; }
+.lp-root .text-lg { font-size: 1.3125rem; }
+.lp-root .text-xl { font-size: 1.4375rem; }
+.lp-root .text-2xl { font-size: 1.75rem; }
+.lp-root .text-3xl { font-size: 2.125rem; }
+.lp-root .text-4xl { font-size: 2.625rem; }
+
+@media (min-width: 640px) {
+  .lp-root .sm\:text-sm { font-size: 1rem; }
+  .lp-root .sm\:text-2xl { font-size: 1.75rem; }
+  .lp-root .sm\:text-3xl { font-size: 2.125rem; }
+  .lp-root .sm\:text-4xl { font-size: 2.625rem; }
+  .lp-root .sm\:text-5xl { font-size: 3.5rem; }
 }

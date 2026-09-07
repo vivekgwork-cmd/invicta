@@ -11,11 +11,11 @@ const items = [
 
 export default function WhoForSection() {
   return (
-    <section className="py-24 bg-secondary">
+    <section className="py-20 bg-secondary-dim/50 border-t border-primary/8">
       <div className="mx-auto max-w-4xl px-5 sm:px-8">
         <Reveal className="text-center max-w-2xl mx-auto">
           <span className="text-sm font-semibold text-accent uppercase tracking-wide">Is This For You?</span>
-          <h2 className="font-display text-3xl sm:text-4xl mt-3 text-primary text-balance">Before You Go Further, Check Yourself Off</h2>
+          <h2 className="font-display text-3xl sm:text-4xl mt-3 text-primary text-balance">Before You Go Further, <span className="text-gold-deep">Check Yourself Off</span></h2>
           <p className="mt-4 text-slate leading-relaxed">This path was built for a specific kind of student. See how many apply to you.</p>
         </Reveal>
 

@@ -9,6 +9,7 @@ const sections = [
   { id: 'programs', label: 'Programs & Fees' },
   { id: 'support', label: 'Support' },
   { id: 'process', label: 'Admission Process' },
+  { id: 'visa', label: 'Visa' },
   { id: 'campus', label: 'Campus' },
   { id: 'outcomes', label: 'Outcomes' },
   { id: 'faq', label: 'FAQs' },

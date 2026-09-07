@@ -22,7 +22,7 @@ const faqs = [
   },
   {
     q: 'What about food and hostel?',
-    a: 'Ultra-modern hostels for Indian students with Indian food options. Hostel starts around $190 per month. Living costs are about $300–400 per month.',
+    a: 'Ultra-modern hostels for Indian students with Indian food options. Hostel starts around $190 per month. Living costs are about $300 to $400 per month.',
   },
   {
     q: 'Is there an entrance exam?',
@@ -46,12 +46,12 @@ export default function FAQSection() {
   const [open, setOpen] = useState(0)
 
   return (
-    <section id="faq" className="py-24 bg-secondary-dim/50 scroll-mt-24">
+    <section id="faq" className="py-20 bg-secondary-dim/50 scroll-mt-24 border-t border-primary/8">
       <div className="mx-auto max-w-3xl px-5 sm:px-8">
         <Reveal className="text-center">
           <span className="text-sm font-semibold text-accent uppercase tracking-wide">FAQs</span>
           <h2 className="font-display text-3xl sm:text-4xl mt-3 text-primary text-balance">
-            Questions Families Ask Before Applying
+            Questions Families Ask <span className="text-gold-deep">Before Applying</span>
           </h2>
         </Reveal>
 

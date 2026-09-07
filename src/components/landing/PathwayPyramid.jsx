@@ -103,7 +103,7 @@ function ProgressRail({ progress, active }) {
       {tiers.map((t, i) => (
         <div
           key={t.n}
-          className="absolute left-1/2 flex items-center justify-center w-7 h-7 rounded-full border font-display text-[11px] transition-colors duration-300"
+          className="absolute left-1/2 flex items-center justify-center w-7 h-7 rounded-full border font-display text-[13px] transition-colors duration-300"
           style={{
             top: `${(i / (tiers.length - 1)) * 100}%`,
             transform: 'translate(-50%, -50%)',

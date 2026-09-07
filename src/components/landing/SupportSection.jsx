@@ -30,17 +30,17 @@ export default function SupportSection() {
   const [open, setOpen] = useState(false)
 
   return (
-    <section id="support" className="py-24 bg-primary scroll-mt-24">
+    <section id="support" className="py-20 bg-primary scroll-mt-24">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <Reveal className="max-w-2xl">
-          <span className="text-sm font-semibold text-accent-soft uppercase tracking-wide">Your Journey — Who's With You</span>
+          <span className="text-sm font-semibold text-accent-soft uppercase tracking-wide">Your Journey, Who's With You</span>
           <h2 className="font-display text-3xl sm:text-4xl mt-3 text-secondary text-balance">
-            We Don't Just Guide You. We Take Full Ownership.
+            We Don't Just Guide You. We Take <span className="text-gold-soft">Full Ownership</span>.
           </h2>
           <p className="mt-4 text-secondary/60 leading-relaxed">
             Applying to a foreign university can feel messy and uncertain. That is why our team
             takes complete responsibility for your entire journey, from the first conversation
-            until you are settled in Georgia — here's what that looks like, end to end.
+            until you are settled in Georgia. Here's what that looks like, end to end.
           </p>
         </Reveal>
 
