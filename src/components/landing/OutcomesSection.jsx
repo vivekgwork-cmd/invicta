@@ -1,14 +1,56 @@
-import Reveal, { Stagger, StaggerItem } from '../shared/Reveal.jsx'
+import Reveal from '../shared/Reveal.jsx'
 import CountUp from '../shared/CountUp.jsx'
 
-const groups = [
-  { title: 'Banking & Finance', companies: ['HSBC', 'Deutsche Bank', 'Citi', 'Visa', 'Mastercard', 'Bank of Georgia', 'TBC Bank', 'ProCredit Bank'] },
-  { title: 'Technology', companies: ['Microsoft', 'Amazon', 'Google', 'AWS', 'IBM', 'Cisco', 'SAP', 'Oracle', 'EPAM', 'Booking.com'] },
-  { title: 'FinTech', companies: ['Binance', 'Wise', 'PayPal', 'Revolut', 'Tether'] },
-  { title: 'Consulting', companies: ['EY', 'Deloitte', 'PwC', 'KPMG', 'Accenture', 'Grant Thornton', 'BDO'] },
-  { title: 'Global Business', companies: ['Emirates', 'Qatar Airways', 'Turkish Airlines', 'Coca-Cola', 'Unilever', 'P&G', 'Nestle', 'Marriott'] },
-  { title: 'International Organisations', companies: ['World Bank', 'IFC', 'UNDP', 'ADB', 'EBRD'] },
+// Only companies verified against the actual Simple Icons manifest make it in — no guessed
+// or fake logos, and no placeholder monograms for the rest. If it's not really there, it's skipped.
+const logos = [
+  { name: 'HSBC', slug: 'hsbc' },
+  { name: 'Deutsche Bank', slug: 'deutschebank' },
+  { name: 'Visa', slug: 'visa' },
+  { name: 'Mastercard', slug: 'mastercard' },
+  { name: 'Google', slug: 'google' },
+  { name: 'Cisco', slug: 'cisco' },
+  { name: 'SAP', slug: 'sap' },
+  { name: 'Booking.com', slug: 'bookingdotcom' },
+  { name: 'Binance', slug: 'binance' },
+  { name: 'Wise', slug: 'wise' },
+  { name: 'PayPal', slug: 'paypal' },
+  { name: 'Revolut', slug: 'revolut' },
+  { name: 'Tether', slug: 'tether' },
+  { name: 'Accenture', slug: 'accenture' },
+  { name: 'Emirates', slug: 'emirates' },
+  { name: 'Qatar Airways', slug: 'qatarairways' },
+  { name: 'Turkish Airlines', slug: 'turkishairlines' },
+  { name: 'Coca-Cola', slug: 'cocacola' },
+  { name: 'Unilever', slug: 'unilever' },
+  { name: 'Marriott', slug: 'marriott' },
 ]
+
+const row1 = logos.slice(0, 10)
+const row2 = logos.slice(10, 20)
+
+function LogoBand({ items, reverse = false }) {
+  const track = [...items, ...items]
+
+  return (
+    <div className="relative overflow-hidden">
+      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 sm:w-28 bg-gradient-to-r from-secondary to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 sm:w-28 bg-gradient-to-l from-secondary to-transparent" />
+
+      <div className={`lp-marquee flex w-max items-center gap-12 sm:gap-16 py-4 ${reverse ? 'lp-marquee-reverse' : ''}`}>
+        {track.map((c, i) => (
+          <img
+            key={`${c.slug}-${i}`}
+            src={`https://cdn.simpleicons.org/${c.slug}`}
+            alt={c.name}
+            title={c.name}
+            className="h-6 sm:h-8 w-auto shrink-0 object-contain grayscale opacity-50 transition-all duration-300 hover:grayscale-0 hover:opacity-100 hover:scale-110"
+          />
+        ))}
+      </div>
+    </div>
+  )
+}
 
 export default function OutcomesSection() {
   return (
@@ -34,29 +76,37 @@ export default function OutcomesSection() {
           </Reveal>
         </div>
 
-        <Stagger className="mt-12 grid sm:grid-cols-2 gap-x-10 gap-y-10">
-          {groups.map((g) => (
-            <StaggerItem key={g.title}>
-              <div>
-                <h3 className="font-display text-xl text-primary mb-3">{g.title}</h3>
-                <div className="flex flex-wrap gap-2">
-                  {g.companies.map((c) => (
-                    <span key={c} className="text-xs font-medium text-primary/75 bg-primary/[0.06] border border-primary/10 rounded-full px-3 py-1.5">
-                      {c}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </StaggerItem>
-          ))}
-        </Stagger>
+        <Reveal className="mt-12 space-y-2">
+          <LogoBand items={row1} />
+          <LogoBand items={row2} reverse />
+        </Reveal>
 
         <p className="mt-10 text-xs text-slate/70">
-          Representative employers of SEU Consortium alumni. Company names belong to their
-          respective owners. Salary and placement figures are SEU-reported illustrative ranges,
-          not a personal guarantee.
+          Representative employers of SEU Consortium alumni. Logos and company names belong to
+          their respective owners and do not imply endorsement. Salary and placement figures are
+          SEU-reported illustrative ranges, not a personal guarantee.
         </p>
       </div>
+
+      <style>{`
+        @keyframes lp-marquee-scroll {
+          from { transform: translateX(0); }
+          to { transform: translateX(-50%); }
+        }
+        .lp-marquee {
+          animation: lp-marquee-scroll 36s linear infinite;
+        }
+        .lp-marquee-reverse {
+          animation-direction: reverse;
+          animation-duration: 30s;
+        }
+        .lp-marquee:hover {
+          animation-play-state: paused;
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .lp-marquee { animation: none; }
+        }
+      `}</style>
     </section>
   )
 }

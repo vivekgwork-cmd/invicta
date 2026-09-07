@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Burger } from '../shared/Glyphs.jsx'
 import useActiveSection from '../../lib/useActiveSection.js'
@@ -35,24 +34,6 @@ export default function LPNavbar() {
 
   return (
     <div className="fixed top-0 inset-x-0 z-50">
-      <div className="bg-primary border-b border-white/10">
-        <div className="mx-auto max-w-7xl px-5 sm:px-8 h-16 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2 text-secondary/80 hover:text-secondary text-sm font-medium transition-colors">
-            <span aria-hidden="true">←</span> Invicta Global Education
-          </Link>
-          <a
-            href="#apply"
-            onClick={(e) => {
-              e.preventDefault()
-              scrollTo('apply')
-            }}
-            className="rounded-md bg-accent px-5 py-2 text-sm font-semibold text-white hover:bg-accent-light transition-colors"
-          >
-            Apply Now
-          </a>
-        </div>
-      </div>
-
       <AnimatePresence>
         {showSubNav && (
           <motion.div

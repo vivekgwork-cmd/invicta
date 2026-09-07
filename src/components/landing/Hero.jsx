@@ -17,7 +17,7 @@ export default function Hero() {
   const [submitted, setSubmitted] = useState(false)
 
   return (
-    <section className="relative overflow-hidden bg-primary pt-28">
+    <section className="relative overflow-hidden bg-primary pt-14 sm:pt-16">
       <motion.div
         className="absolute inset-0"
         initial={{ scale: 1.12, opacity: 0 }}
