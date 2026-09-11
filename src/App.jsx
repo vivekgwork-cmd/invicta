@@ -18,6 +18,9 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/landing-page" element={<LandingPage />} />
+        <Route path="/landing-page-charcoal" element={<LandingPage heroVariant="charcoal" />} />
+        <Route path="/landing-page-emerald" element={<LandingPage heroVariant="emerald" />} />
+        <Route path="/landing-page-maroon" element={<LandingPage heroVariant="maroon" />} />
       </Routes>
     </>
   )

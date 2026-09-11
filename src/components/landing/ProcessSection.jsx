@@ -28,11 +28,12 @@ export default function ProcessSection() {
         {/* Desktop: horizontal timeline, inspired by the upgrad reference. A 3-row grid (not
             absolute-positioned blocks) so every "top" label shares one row — bottom-aligned to
             the line regardless of how many lines its own description wraps to — and every
-            "bottom" label shares another, top-aligned. Fluid columns, no fixed min-width, so it
-            never needs its own horizontal scrollbar. */}
+            "bottom" label shares another, top-aligned. The step number lives inside the marker
+            itself (not a floating label), so there's nothing to collide with wrapped text.
+            Fluid columns, no fixed min-width, so it never needs its own horizontal scrollbar. */}
         <div
           className="hidden lg:grid mt-20"
-          style={{ gridTemplateColumns: 'repeat(8, 1fr)', gridTemplateRows: 'auto 32px auto', columnGap: '8px', rowGap: '14px' }}
+          style={{ gridTemplateColumns: 'repeat(8, 1fr)', gridTemplateRows: 'auto 40px auto', columnGap: '8px', rowGap: '28px' }}
         >
           <motion.div
             className="self-center h-0 border-t-2 border-dashed border-white/15"
@@ -43,22 +44,13 @@ export default function ProcessSection() {
             transition={{ duration: 1.2, ease: 'easeInOut' }}
           />
 
-          {steps.map((s, i) => {
-            const top = i % 2 === 0
-            return (
-              <div key={s.title} style={{ gridRow: 2, gridColumn: i + 1 }} className="relative z-10 flex flex-col items-center justify-self-center">
-                <span
-                  className="absolute text-[11px] font-semibold text-accent-soft tracking-wide"
-                  style={top ? { bottom: 'calc(100% + 6px)' } : { top: 'calc(100% + 6px)' }}
-                >
-                  {String(i + 1).padStart(2, '0')}
-                </span>
-                <span className="grid place-items-center w-4 h-4 rounded-full border-2 border-accent bg-[#0a0e18] ring-8 ring-[#0a0e18]">
-                  <span className="w-1.5 h-1.5 rounded-full bg-accent" />
-                </span>
-              </div>
-            )
-          })}
+          {steps.map((s, i) => (
+            <div key={s.title} style={{ gridRow: 2, gridColumn: i + 1 }} className="relative z-10 min-w-0 flex items-center justify-center">
+              <span className="grid place-items-center w-9 h-9 rounded-full border-2 border-accent bg-[#0a0e18] ring-8 ring-[#0a0e18] font-display text-xs text-accent-soft">
+                {String(i + 1).padStart(2, '0')}
+              </span>
+            </div>
+          ))}
 
           {steps.map((s, i) => {
             const top = i % 2 === 0
@@ -66,7 +58,7 @@ export default function ProcessSection() {
               <div
                 key={`${s.title}-label`}
                 style={{ gridRow: top ? 1 : 3, gridColumn: i + 1 }}
-                className={`text-center px-1 flex flex-col ${top ? 'justify-end' : 'justify-start'}`}
+                className={`min-w-0 text-center px-1 flex flex-col ${top ? 'justify-end pb-1' : 'justify-start pt-1'}`}
               >
                 <h3 className="font-display text-base text-secondary text-balance">{s.title}</h3>
                 <p className="text-xs text-secondary/55 mt-1.5 leading-snug">{s.desc}</p>

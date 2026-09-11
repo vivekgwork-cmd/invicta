@@ -58,22 +58,22 @@ export default function SupportSection() {
   const activeCategory = categories[active]
 
   return (
-    <section id="support" className="py-20 bg-primary scroll-mt-24">
+    <section id="support" className="py-20 bg-secondary scroll-mt-24">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <Reveal className="max-w-2xl">
-          <span className="text-sm font-semibold text-accent-soft uppercase tracking-wide">Your Journey, Who's With You</span>
-          <h2 className="font-display text-3xl sm:text-4xl mt-3 text-secondary text-balance">
-            We Don't Just Guide You. We Take <span className="text-gold-soft">Full Ownership</span>.
+          <span className="text-sm font-semibold text-accent uppercase tracking-wide">Your Journey, Who's With You</span>
+          <h2 className="font-display text-3xl sm:text-4xl mt-3 text-primary text-balance">
+            We Don't Just Guide You. We Take <span className="text-gold-deep">Full Ownership</span>.
           </h2>
-          <p className="mt-4 text-secondary/60 leading-relaxed">
+          <p className="mt-4 text-slate leading-relaxed">
             Applying to a foreign university can feel messy and uncertain. That is why our team
             takes complete responsibility for your entire journey, from the first conversation
             until you are settled in Georgia. Here's what that looks like, end to end.
           </p>
         </Reveal>
 
-        <Reveal delay={0.1} className="mt-12 rounded-2xl border border-white/10 bg-white/[0.02] p-6 sm:p-8">
-          <div className="text-xs font-semibold uppercase tracking-wide text-secondary/40 pb-4 mb-6 border-b border-white/10">
+        <Reveal delay={0.1} className="mt-12 rounded-2xl border border-primary/10 bg-white p-6 sm:p-8">
+          <div className="text-xs font-semibold uppercase tracking-wide text-slate/60 pb-4 mb-6 border-b border-primary/10">
             Your Support Package
           </div>
           <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-8 lg:gap-14">
@@ -88,8 +88,8 @@ export default function SupportSection() {
                   <span
                     className={`text-sm font-semibold pb-2 border-b-2 transition-colors ${
                       active === i
-                        ? 'text-accent-soft border-accent-soft'
-                        : 'text-secondary/50 border-transparent group-hover:text-secondary/80'
+                        ? 'text-accent border-accent'
+                        : 'text-slate/50 border-transparent group-hover:text-slate'
                     }`}
                   >
                     {c.title}
@@ -107,12 +107,12 @@ export default function SupportSection() {
                   exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
                 >
-                  <h3 className="font-display text-xl text-secondary">{activeCategory.subheading}</h3>
+                  <h3 className="font-display text-xl text-primary">{activeCategory.subheading}</h3>
                   <div className="mt-5 grid sm:grid-cols-2 gap-x-6 gap-y-4">
                   {activeCategory.items.map((item) => (
                     <div key={item} className="flex items-start gap-3">
-                      <Check className="bg-accent-soft/15 text-accent-soft shrink-0 w-6 h-6" />
-                      <p className="text-sm text-secondary/80 leading-relaxed">{item}</p>
+                      <Check className="bg-accent/10 text-accent shrink-0 w-6 h-6" />
+                      <p className="text-sm text-slate leading-relaxed">{item}</p>
                     </div>
                   ))}
                 </div>
@@ -122,7 +122,7 @@ export default function SupportSection() {
           </div>
         </Reveal>
 
-        <Reveal delay={0.15} className="mt-10 text-center font-display text-xl text-secondary/90">
+        <Reveal delay={0.15} className="mt-10 text-center font-display text-xl text-primary/90">
           "You focus on your future. We handle everything else, end to end."
         </Reveal>
       </div>

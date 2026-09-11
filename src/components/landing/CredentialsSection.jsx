@@ -4,9 +4,9 @@ import CountUp from '../shared/CountUp.jsx'
 import { PlayPill } from '../shared/Glyphs.jsx'
 
 const stats = [
-  { to: 84, suffix: '%', label: 'Graduates employed within 4 months', source: 'SEU Career Office', color: '#16233b' },
-  { to: 3, prefix: '#', label: "Among Europe's Top Business Schools in Georgia", source: 'Regional Ranking, 2024', color: '#ff6b35' },
-  { to: 1, prefix: '#', label: 'MIT-partnered Master’s program', source: 'QS World Rankings 2024', color: '#9c7a2f' },
+  { to: 84, suffix: '%', label: 'Graduates employed within 4 months', source: 'SEU Career Office' },
+  { to: 3, prefix: '#', label: "Among Europe's top business schools in Georgia", source: 'Regional Ranking, 2024' },
+  { to: 1, prefix: '#', label: 'MIT-partnered Master’s program', source: 'QS World Rankings 2024' },
 ]
 
 const badges = ['Martin Trust Center', 'GLEEN Member', 'MIT Orbit Access']
@@ -15,7 +15,7 @@ export default function CredentialsSection() {
   const [playing, setPlaying] = useState(false)
 
   return (
-    <section className="relative z-10 py-20 bg-secondary-dim/50 border-t border-primary/8 overflow-hidden">
+    <section className="relative z-10 rounded-t-[2rem] sm:rounded-t-[2.5rem] shadow-[0_-24px_48px_-24px_rgba(11,18,32,0.35)] py-20 bg-secondary border-t border-primary/8 overflow-hidden">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="grid lg:grid-cols-[1fr_0.85fr] gap-14 items-center">
           <div>
@@ -26,20 +26,27 @@ export default function CredentialsSection() {
               </h2>
             </Reveal>
 
-            <Stagger className="mt-10 grid sm:grid-cols-3 gap-5">
+            <Reveal delay={0.1} className="mt-6 rounded-xl bg-accent/8 border-l-4 border-accent pl-5 pr-5 py-4">
+              <p className="text-base text-primary leading-relaxed">
+                SEU partners with the{' '}
+                <span className="bg-gold-soft/70 text-primary font-semibold px-1 rounded-sm">
+                  Martin Trust Center for MIT Entrepreneurship
+                </span>
+                , giving students access to MIT's global innovation network.
+              </p>
+            </Reveal>
+
+            <Stagger className="mt-8 grid sm:grid-cols-3 gap-5">
               {stats.map((s) => (
                 <StaggerItem key={s.label} direction="up">
-                  <div
-                    className="h-full rounded-3xl p-6 transition-transform hover:-translate-y-0.5"
-                    style={{ backgroundColor: `${s.color}0F`, border: `1px solid ${s.color}33` }}
-                  >
-                    <span className="text-[12px] font-semibold uppercase tracking-wide" style={{ color: s.color }}>
-                      {s.source}
-                    </span>
-                    <div className="font-display text-4xl mt-3" style={{ color: s.color }}>
+                  <div className="h-full rounded-2xl bg-white border border-primary/10 p-6 transition-transform hover:-translate-y-0.5">
+                    <div className="font-display text-4xl text-accent">
                       <CountUp to={s.to} prefix={s.prefix} suffix={s.suffix} />
                     </div>
-                    <p className="text-xs text-slate mt-3 leading-relaxed">{s.label}</p>
+                    <p className="text-sm text-primary font-medium mt-3 leading-snug">{s.label}</p>
+                    <span className="block text-[11px] font-semibold uppercase tracking-wide text-slate/70 mt-3">
+                      {s.source}
+                    </span>
                   </div>
                 </StaggerItem>
               ))}
@@ -81,13 +88,6 @@ export default function CredentialsSection() {
                   {b}
                 </span>
               ))}
-            </div>
-
-            <div className="absolute bottom-0 inset-x-0 translate-y-0 opacity-100 group-hover:-translate-y-1 transition-transform duration-300 text-secondary bg-gradient-to-t from-primary/95 to-transparent px-6 pt-10 pb-6">
-              <p className="text-sm leading-relaxed text-secondary/90 border-l-4 border-accent pl-3">
-                SEU partners with the <strong>Martin Trust Center for MIT Entrepreneurship</strong>,
-                giving students access to MIT's global innovation network.
-              </p>
             </div>
           </Reveal>
         </div>

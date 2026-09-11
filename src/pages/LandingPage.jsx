@@ -15,12 +15,18 @@ import FinalCTASection from '../components/landing/FinalCTASection.jsx'
 import LPFooter from '../components/landing/LPFooter.jsx'
 import StickyCTABar from '../components/landing/StickyCTABar.jsx'
 
-export default function LandingPage() {
+export default function LandingPage({ heroVariant = 'original' }) {
   return (
     <div className="bg-secondary lp-root">
       <LPNavbar />
-      <Hero />
-      <CredentialsSection />
+      <div className="relative">
+        <div className="sticky top-0 z-0">
+          <Hero variant={heroVariant} />
+        </div>
+        <div className="relative z-10">
+          <CredentialsSection />
+        </div>
+      </div>
       <USPSection />
       <PathwaySection />
       <TestimonialsSection />

@@ -22,6 +22,31 @@ const streams = [
 
 const INTAKE_DEADLINE = '2026-10-01T00:00:00'
 
+const HERO_VARIANTS = {
+  original: {
+    image: 'Tbilisi.jpg',
+    alt: 'Tbilisi, Georgia skyline at dusk',
+    overlayRgb: '11,18,32', // #0b1220
+  },
+  charcoal: {
+    image: 'MIT.jpg',
+    alt: 'MIT Great Dome at dusk',
+    overlayRgb: '16,15,16', // #100f10
+  },
+  emerald: {
+    image: 'SEU.jpg',
+    alt: 'Georgian National University SEU campus, Tbilisi',
+    overlayRgb: '8,18,13', // #08120d
+    objectPosition: 'center 15%',
+    filter: 'saturate(0.75) contrast(1.08) brightness(0.92)',
+  },
+  maroon: {
+    image: 'college-pic.jpg',
+    alt: 'Historic university courtyard',
+    overlayRgb: '21,10,13', // #150a0d
+  },
+}
+
 function EligibilityForm() {
   const [step, setStep] = useState('form') // 'form' | 'otp' | 'done'
   const [otp, setOtp] = useState('')
@@ -115,7 +140,9 @@ function EligibilityForm() {
   )
 }
 
-export default function Hero() {
+export default function Hero({ variant = 'original' }) {
+  const { image, alt, overlayRgb, objectPosition = 'center', filter = 'none' } = HERO_VARIANTS[variant] ?? HERO_VARIANTS.original
+
   return (
     <section className="relative overflow-hidden bg-primary pt-14 sm:pt-16">
       <motion.div
@@ -124,10 +151,15 @@ export default function Hero() {
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 1.8, ease: [0.22, 1, 0.36, 1] }}
       >
-        <img src={`${import.meta.env.BASE_URL}images/Tbilisi.jpg`} alt="Tbilisi, Georgia skyline at dusk" className="w-full h-full object-cover" />
-        {/* Premium dark-charcoal treatment: less saturated blue, more black, subtle warm glow bottom-right */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0b1220] via-[#0b1220]/85 to-[#0b1220]/45" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0b1220] via-[#0b1220]/25 to-[#0b1220]/55" />
+        <img
+          src={`${import.meta.env.BASE_URL}images/${image}`}
+          alt={alt}
+          className="w-full h-full object-cover"
+          style={{ objectPosition, filter }}
+        />
+        {/* Premium dark treatment: overlay color swaps per variant, subtle warm glow bottom-right */}
+        <div className="absolute inset-0" style={{ background: `linear-gradient(to right, rgba(${overlayRgb},1) 0%, rgba(${overlayRgb},0.85) 45%, rgba(${overlayRgb},0.42) 100%)` }} />
+        <div className="absolute inset-0" style={{ background: `linear-gradient(to top, rgba(${overlayRgb},1) 0%, rgba(${overlayRgb},0.25) 45%, rgba(${overlayRgb},0.55) 100%)` }} />
         <div className="absolute inset-0" style={{ background: 'radial-gradient(60% 50% at 85% 100%, rgba(255,104,53,0.16), transparent)' }} />
       </motion.div>
 

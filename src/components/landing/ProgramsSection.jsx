@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Arrow } from '../shared/Glyphs.jsx'
 import Reveal, { Stagger, StaggerItem } from '../shared/Reveal.jsx'
 
@@ -45,61 +46,74 @@ const programs = [
 ]
 
 export default function ProgramsSection() {
+  const [active, setActive] = useState(0)
+
   return (
-    <section id="programs" className="py-20 bg-secondary scroll-mt-24 border-t border-primary/8">
-      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+    <section id="programs" className="relative py-20 scroll-mt-24 border-t border-gold-soft/25 overflow-hidden">
+      {/* One shared full-bleed photo behind the whole section — crossfades to match
+          whichever program card is hovered, per the innerflow.es studio-areas pattern. */}
+      <div className="absolute inset-0" aria-hidden="true">
+        {programs.map((p, i) => (
+          <img
+            key={p.code}
+            src={`${import.meta.env.BASE_URL}images/${p.image}`}
+            alt=""
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-out ${
+              i === active ? 'opacity-100' : 'opacity-0'
+            }`}
+          />
+        ))}
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/55 via-primary/65 to-primary/85" />
+      </div>
+
+      <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
         <Reveal className="max-w-2xl">
           <span className="text-sm font-semibold text-accent uppercase tracking-wide">Programs &amp; Fees</span>
-          <h2 className="font-display text-3xl sm:text-4xl mt-3 text-primary text-balance">
-            Pick Your <span className="text-gold-deep">Master's</span>
+          <h2 className="font-display text-3xl sm:text-4xl mt-3 text-secondary text-balance">
+            Pick Your <span className="text-gold-soft">Master's</span>
           </h2>
-          <p className="mt-4 text-slate leading-relaxed">
+          <p className="mt-4 text-secondary/70 leading-relaxed">
             Six programs run on the same SEU x MIT pathway. Here's the full course list, and exactly
             what it costs after your scholarship.
           </p>
         </Reveal>
 
-        {/* Full-width photo grid — the innerflow.es Shala-classes proportions, not squeezed beside a sidebar */}
-        <Stagger className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-5" stagger={0.08}>
-          {programs.map((p, i) => (
-            <StaggerItem key={p.code}>
-              <div className="group relative aspect-[3/4] rounded-2xl overflow-hidden bg-primary">
-                <img
-                  src={`${import.meta.env.BASE_URL}images/${p.image}`}
-                  alt=""
-                  className="absolute inset-0 w-full h-full object-cover transition-all duration-500 group-hover:scale-105 group-hover:blur-[2px] group-hover:brightness-[0.45]"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/15 to-primary/10 group-hover:from-primary/95 transition-colors duration-500" />
+        {/* Cards are a plain overlay on top of the shared photo — hovering one swaps the
+            background image above, it doesn't carry its own. */}
+        <div onMouseLeave={() => setActive(0)}>
+          <Stagger className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-5" stagger={0.08}>
+            {programs.map((p, i) => (
+              <StaggerItem key={p.code}>
+                <div
+                  onMouseEnter={() => setActive(i)}
+                  className={`h-full min-h-[240px] rounded-2xl border backdrop-blur-md p-6 flex flex-col justify-between transition-colors duration-300 cursor-default ${
+                    active === i ? 'bg-primary/60 border-accent/70' : 'bg-primary/30 border-secondary/20'
+                  }`}
+                >
+                  <div className="flex items-start justify-between gap-2">
+                    <span className="font-display text-sm text-secondary/70">{String(i + 1).padStart(2, '0')}</span>
+                    {p.tag && (
+                      <span className="text-[10px] font-semibold uppercase tracking-wide text-primary bg-accent-soft rounded-full px-2.5 py-1">
+                        {p.tag}
+                      </span>
+                    )}
+                  </div>
 
-                <div className="absolute top-4 left-4 right-4 flex items-start justify-between gap-2">
-                  <span className="font-display text-sm text-secondary/70">{String(i + 1).padStart(2, '0')}</span>
-                  {p.tag && (
-                    <span className="text-[10px] font-semibold uppercase tracking-wide text-primary bg-accent-soft rounded-full px-2.5 py-1">
-                      {p.tag}
-                    </span>
-                  )}
-                </div>
-
-                <span className="absolute bottom-4 right-4 w-8 h-8 rounded-full bg-white/15 backdrop-blur-sm grid place-items-center text-secondary text-lg font-light transition-all duration-300 group-hover:bg-accent group-hover:rotate-45">
-                  +
-                </span>
-
-                <div className="absolute bottom-4 left-4 right-14">
-                  <span className="text-[11px] font-semibold uppercase tracking-wide text-accent-soft">{p.code}</span>
-                  <h3 className="mt-1 text-base font-semibold text-secondary leading-snug text-balance">{p.title}</h3>
-                  <p className="mt-2 text-[13px] text-secondary/75 leading-relaxed max-h-0 opacity-0 group-hover:max-h-24 group-hover:opacity-100 transition-all duration-500 overflow-hidden">
-                    {p.desc}
-                  </p>
-                  <div className="mt-2 flex items-center gap-1.5 text-xs text-secondary/55 max-h-0 opacity-0 group-hover:max-h-6 group-hover:opacity-100 transition-all duration-500 delay-75 overflow-hidden">
-                    <span>2 Year Master's</span>
-                    <span aria-hidden="true">·</span>
-                    <span>Tbilisi campus</span>
+                  <div>
+                    <span className="text-[11px] font-semibold uppercase tracking-wide text-accent-soft">{p.code}</span>
+                    <h3 className="mt-1 text-lg font-semibold text-secondary leading-snug text-balance">{p.title}</h3>
+                    <p className="mt-2 text-[13px] text-secondary/75 leading-relaxed">{p.desc}</p>
+                    <div className="mt-3 flex items-center gap-1.5 text-xs text-secondary/55">
+                      <span>2 Year Master's</span>
+                      <span aria-hidden="true">·</span>
+                      <span>Tbilisi campus</span>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </StaggerItem>
-          ))}
-        </Stagger>
+              </StaggerItem>
+            ))}
+          </Stagger>
+        </div>
 
         {/* Fee Structure — a full-width bar under the grid, not a squeezed sidebar */}
         <Reveal delay={0.15} className="mt-6 rounded-3xl bg-primary text-secondary p-7 sm:p-8">
