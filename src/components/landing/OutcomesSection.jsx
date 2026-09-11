@@ -44,7 +44,7 @@ function LogoBand({ items, reverse = false }) {
             src={`https://cdn.simpleicons.org/${c.slug}`}
             alt={c.name}
             title={c.name}
-            className="h-6 sm:h-8 w-auto shrink-0 object-contain grayscale opacity-50 transition-all duration-300 hover:grayscale-0 hover:opacity-100 hover:scale-110"
+            className="h-9 sm:h-12 w-auto shrink-0 object-contain opacity-85 transition-all duration-300 hover:opacity-100 hover:scale-110"
           />
         ))}
       </div>

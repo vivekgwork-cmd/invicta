@@ -1,33 +1,61 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import Reveal, { Stagger, StaggerItem } from '../shared/Reveal.jsx'
+import Reveal from '../shared/Reveal.jsx'
+import { Check } from '../shared/Glyphs.jsx'
 
-const core = [
-  'We shortlist the right program and prepare you for the university interview.',
-  'We negotiate and lock in the best possible scholarship for you.',
-  'We handle your full documentation, apostille, and Georgian Ministry processing.',
-  'We prepare your complete visa file and guide you through VFS Global.',
-  'We assist with flights, airport pickup, hostel booking, and settling into Tbilisi.',
-  'You get a dedicated relationship manager who stays with you till the end.',
-]
-
-const packageItems = [
-  'College admission fee handling support',
-  "Admission letter and rector's letter support",
-  'Visa from India and Ministry invitation support',
-  'Apostille and authentication of documents',
-  'TRC and I-card assistance',
-  'Airport pickup',
-  'Travel coordination India to Georgia',
-  'Medical checkup and reports in Georgia',
-  'Bank account opening and forex debit card support',
-  'Mobile SIM in Georgia',
-  'Bank loan file preparation support',
-  'Digital study materials support',
+const categories = [
+  {
+    title: 'Program & Admission',
+    subheading: 'Getting you the offer',
+    items: [
+      'We shortlist the right program and prepare you for the university interview.',
+      'We negotiate and lock in the best possible scholarship for you.',
+      'College admission fee handling support.',
+      "Admission letter and rector's letter support.",
+    ],
+  },
+  {
+    title: 'Documentation & Visa',
+    subheading: 'Paperwork, sorted for you',
+    items: [
+      'We handle your full documentation, apostille, and Georgian Ministry processing.',
+      'We prepare your complete visa file and guide you through VFS Global.',
+      'Visa from India and Ministry invitation support.',
+      'Apostille and authentication of documents.',
+      'TRC and I-card assistance.',
+    ],
+  },
+  {
+    title: 'Travel & Settling In',
+    subheading: 'Landing in Georgia, covered',
+    items: [
+      'We assist with flights, airport pickup, hostel booking, and settling into Tbilisi.',
+      'Travel coordination from India to Georgia.',
+      'Medical checkup and reports in Georgia.',
+      'Mobile SIM in Georgia.',
+    ],
+  },
+  {
+    title: 'Finance & Banking',
+    subheading: 'Money matters, simplified',
+    items: [
+      'Bank account opening and forex debit card support.',
+      'Bank loan file preparation support.',
+    ],
+  },
+  {
+    title: 'Ongoing Relationship Manager',
+    subheading: 'One person, the whole way through',
+    items: [
+      'You get a dedicated relationship manager who stays with you till the end.',
+      'Digital study materials support.',
+    ],
+  },
 ]
 
 export default function SupportSection() {
-  const [open, setOpen] = useState(false)
+  const [active, setActive] = useState(0)
+  const activeCategory = categories[active]
 
   return (
     <section id="support" className="py-20 bg-primary scroll-mt-24">
@@ -44,46 +72,55 @@ export default function SupportSection() {
           </p>
         </Reveal>
 
-        <Stagger className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/10 rounded-2xl overflow-hidden">
-          {core.map((c, i) => (
-            <StaggerItem key={c}>
-              <div className="h-full bg-primary p-6">
-                <span className="font-display text-accent-soft/50 text-2xl">{String(i + 1).padStart(2, '0')}</span>
-                <p className="text-sm text-secondary/80 leading-relaxed mt-4">{c}</p>
-              </div>
-            </StaggerItem>
-          ))}
-        </Stagger>
+        <Reveal delay={0.1} className="mt-12 rounded-2xl border border-white/10 bg-white/[0.02] p-6 sm:p-8">
+          <div className="text-xs font-semibold uppercase tracking-wide text-secondary/40 pb-4 mb-6 border-b border-white/10">
+            Your Support Package
+          </div>
+          <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-8 lg:gap-14">
+            <div className="flex lg:flex-col gap-1 overflow-x-auto lg:overflow-visible -mx-1 px-1">
+              {categories.map((c, i) => (
+                <button
+                  key={c.title}
+                  type="button"
+                  onClick={() => setActive(i)}
+                  className="group text-left whitespace-nowrap lg:whitespace-normal py-3 transition-colors"
+                >
+                  <span
+                    className={`text-sm font-semibold pb-2 border-b-2 transition-colors ${
+                      active === i
+                        ? 'text-accent-soft border-accent-soft'
+                        : 'text-secondary/50 border-transparent group-hover:text-secondary/80'
+                    }`}
+                  >
+                    {c.title}
+                  </span>
+                </button>
+              ))}
+            </div>
 
-        <div className="mt-10">
-          <button
-            onClick={() => setOpen((v) => !v)}
-            className="inline-flex items-center gap-2 text-sm font-semibold text-accent-soft border-b border-accent-soft/40 pb-0.5"
-          >
-            {open ? 'Hide' : 'See'} everything included in your support package
-            <span className={`inline-block transition-transform duration-300 ${open ? '-rotate-180' : ''}`}>⌄</span>
-          </button>
-
-          <AnimatePresence>
-            {open && (
-              <motion.div
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ height: 'auto', opacity: 1 }}
-                exit={{ height: 0, opacity: 0 }}
-                transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-                className="overflow-hidden"
-              >
-                <div className="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                  {packageItems.map((p) => (
-                    <div key={p} className="rounded-lg bg-white/[0.03] px-4 py-3 text-xs text-secondary/65">
-                      {p}
+            <div>
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeCategory.title}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                >
+                  <h3 className="font-display text-xl text-secondary">{activeCategory.subheading}</h3>
+                  <div className="mt-5 grid sm:grid-cols-2 gap-x-6 gap-y-4">
+                  {activeCategory.items.map((item) => (
+                    <div key={item} className="flex items-start gap-3">
+                      <Check className="bg-accent-soft/15 text-accent-soft shrink-0 w-6 h-6" />
+                      <p className="text-sm text-secondary/80 leading-relaxed">{item}</p>
                     </div>
                   ))}
                 </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
+                </motion.div>
+              </AnimatePresence>
+            </div>
+          </div>
+        </Reveal>
 
         <Reveal delay={0.15} className="mt-10 text-center font-display text-xl text-secondary/90">
           "You focus on your future. We handle everything else, end to end."

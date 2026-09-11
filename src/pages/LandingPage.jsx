@@ -1,10 +1,10 @@
 import LPNavbar from '../components/landing/LPNavbar.jsx'
 import Hero from '../components/landing/Hero.jsx'
-import PathwaySection from '../components/landing/PathwaySection.jsx'
 import CredentialsSection from '../components/landing/CredentialsSection.jsx'
 import USPSection from '../components/landing/USPSection.jsx'
+import PathwaySection from '../components/landing/PathwaySection.jsx'
+import TestimonialsSection from '../components/landing/TestimonialsSection.jsx'
 import ProgramsSection from '../components/landing/ProgramsSection.jsx'
-import WhoForSection from '../components/landing/WhoForSection.jsx'
 import SupportSection from '../components/landing/SupportSection.jsx'
 import ProcessSection from '../components/landing/ProcessSection.jsx'
 import VisaSection from '../components/landing/VisaSection.jsx'
@@ -20,11 +20,11 @@ export default function LandingPage() {
     <div className="bg-secondary lp-root">
       <LPNavbar />
       <Hero />
-      <PathwaySection />
       <CredentialsSection />
       <USPSection />
+      <PathwaySection />
+      <TestimonialsSection />
       <ProgramsSection />
-      <WhoForSection />
       <SupportSection />
       <ProcessSection />
       <VisaSection />

@@ -2,12 +2,46 @@ import { Arrow } from '../shared/Glyphs.jsx'
 import Reveal, { Stagger, StaggerItem } from '../shared/Reveal.jsx'
 
 const programs = [
-  { code: 'MBA', title: 'Master of Business Administration', tag: 'Most popular' },
-  { code: 'MSC-AI', title: 'M.Sc. Artificial Intelligence', tag: 'In-demand' },
-  { code: 'MSC-DS', title: 'M.Sc. Data Science', tag: 'In-demand' },
-  { code: 'MSC-FT', title: 'M.Sc. Financial Technology (FinTech)' },
-  { code: 'MSC-BA', title: 'M.Sc. Business Analysis' },
-  { code: 'EMBA', title: 'Executive MBA', tag: '1 Year' },
+  {
+    code: 'MBA',
+    title: 'Master of Business Administration',
+    tag: 'Most popular',
+    image: 'professional-lady.jpg',
+    desc: 'Lead teams and strategy with a core business curriculum, mapped against MIT modules.',
+  },
+  {
+    code: 'MSC-AI',
+    title: 'M.Sc. Artificial Intelligence',
+    tag: 'In-demand',
+    image: 'MIT.jpg',
+    desc: 'Build and ship real ML systems, taught alongside MIT-trained faculty.',
+  },
+  {
+    code: 'MSC-DS',
+    title: 'M.Sc. Data Science',
+    tag: 'In-demand',
+    image: 'college-pic.jpg',
+    desc: 'Turn raw data into decisions, on a recognised European academic foundation.',
+  },
+  {
+    code: 'MSC-FT',
+    title: 'M.Sc. Financial Technology (FinTech)',
+    image: 'SEU.jpg',
+    desc: 'Where finance meets technology — payments, blockchain, and fintech strategy.',
+  },
+  {
+    code: 'MSC-BA',
+    title: 'M.Sc. Business Analysis',
+    image: 'indian-college-students.jpg',
+    desc: 'Analytics and decision science for real business problems, case by case.',
+  },
+  {
+    code: 'EMBA',
+    title: 'Executive MBA',
+    tag: '1 Year',
+    image: 'Tbilisi.jpg',
+    desc: 'An accelerated, 1-year track built for working professionals ready to lead.',
+  },
 ]
 
 export default function ProgramsSection() {
@@ -25,61 +59,82 @@ export default function ProgramsSection() {
           </p>
         </Reveal>
 
-        <div className="mt-12 grid lg:grid-cols-[1.15fr_0.85fr] gap-10 items-start">
-          <Stagger className="grid sm:grid-cols-2 gap-4">
-            {programs.map((p) => (
-              <StaggerItem key={p.code}>
-                <div className="group h-full rounded-2xl border border-primary/10 bg-white p-5 hover:border-accent/40 hover:shadow-md transition-all">
-                  <div className="flex items-start justify-between gap-3">
-                    <span className="inline-flex items-center justify-center min-w-11 h-11 px-2.5 rounded-xl bg-primary/[0.06] font-display text-sm text-primary whitespace-nowrap group-hover:bg-accent/10 group-hover:text-accent transition-colors">
-                      {p.code}
+        {/* Full-width photo grid — the innerflow.es Shala-classes proportions, not squeezed beside a sidebar */}
+        <Stagger className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-5" stagger={0.08}>
+          {programs.map((p, i) => (
+            <StaggerItem key={p.code}>
+              <div className="group relative aspect-[3/4] rounded-2xl overflow-hidden bg-primary">
+                <img
+                  src={`${import.meta.env.BASE_URL}images/${p.image}`}
+                  alt=""
+                  className="absolute inset-0 w-full h-full object-cover transition-all duration-500 group-hover:scale-105 group-hover:blur-[2px] group-hover:brightness-[0.45]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/15 to-primary/10 group-hover:from-primary/95 transition-colors duration-500" />
+
+                <div className="absolute top-4 left-4 right-4 flex items-start justify-between gap-2">
+                  <span className="font-display text-sm text-secondary/70">{String(i + 1).padStart(2, '0')}</span>
+                  {p.tag && (
+                    <span className="text-[10px] font-semibold uppercase tracking-wide text-primary bg-accent-soft rounded-full px-2.5 py-1">
+                      {p.tag}
                     </span>
-                    {p.tag && (
-                      <span className="text-[12px] font-semibold uppercase tracking-wide text-gold-deep bg-gold/10 rounded-full px-2.5 py-1">
-                        {p.tag}
-                      </span>
-                    )}
-                  </div>
-                  <h3 className="mt-4 text-sm font-semibold text-primary leading-snug">{p.title}</h3>
-                  <div className="mt-3 flex items-center gap-1.5 text-xs text-slate">
+                  )}
+                </div>
+
+                <span className="absolute bottom-4 right-4 w-8 h-8 rounded-full bg-white/15 backdrop-blur-sm grid place-items-center text-secondary text-lg font-light transition-all duration-300 group-hover:bg-accent group-hover:rotate-45">
+                  +
+                </span>
+
+                <div className="absolute bottom-4 left-4 right-14">
+                  <span className="text-[11px] font-semibold uppercase tracking-wide text-accent-soft">{p.code}</span>
+                  <h3 className="mt-1 text-base font-semibold text-secondary leading-snug text-balance">{p.title}</h3>
+                  <p className="mt-2 text-[13px] text-secondary/75 leading-relaxed max-h-0 opacity-0 group-hover:max-h-24 group-hover:opacity-100 transition-all duration-500 overflow-hidden">
+                    {p.desc}
+                  </p>
+                  <div className="mt-2 flex items-center gap-1.5 text-xs text-secondary/55 max-h-0 opacity-0 group-hover:max-h-6 group-hover:opacity-100 transition-all duration-500 delay-75 overflow-hidden">
                     <span>2 Year Master's</span>
                     <span aria-hidden="true">·</span>
                     <span>Tbilisi campus</span>
                   </div>
                 </div>
-              </StaggerItem>
-            ))}
-          </Stagger>
+              </div>
+            </StaggerItem>
+          ))}
+        </Stagger>
 
-          <Reveal direction="right" className="rounded-3xl bg-primary text-secondary p-8">
-            <h3 className="font-display text-xl">Fee Structure</h3>
-            <p className="text-xs text-secondary/50 mt-1">2-year Master's tracks, scholarship math</p>
+        {/* Fee Structure — a full-width bar under the grid, not a squeezed sidebar */}
+        <Reveal delay={0.15} className="mt-6 rounded-3xl bg-primary text-secondary p-7 sm:p-8">
+          <div className="flex flex-wrap items-center gap-x-10 gap-y-6 justify-between">
+            <div className="max-w-xs">
+              <h3 className="font-display text-xl">Fee Structure</h3>
+              <p className="text-xs text-secondary/50 mt-1.5 leading-relaxed">
+                2-year Master's tracks, scholarship math. Final fee in INR may vary with the
+                exchange rate at time of payment.
+              </p>
+            </div>
 
-            <div className="mt-7 flex items-center justify-between text-sm">
-              <span className="text-secondary/70">Tuition Fee</span>
-              <span className="font-display text-lg">$27,700</span>
+            <div className="flex flex-wrap items-center gap-4 sm:gap-6">
+              <div className="text-center">
+                <div className="text-[11px] uppercase tracking-wide text-secondary/50">Tuition Fee</div>
+                <div className="font-display text-xl mt-1">$27,700</div>
+              </div>
+              <span className="text-secondary/30 text-lg">−</span>
+              <div className="text-center">
+                <div className="text-[11px] uppercase tracking-wide text-secondary/50">Scholarship</div>
+                <div className="font-display text-xl mt-1 text-gold-soft">$12,800</div>
+              </div>
+              <span className="text-secondary/30 text-lg">=</span>
+              <div className="text-center rounded-xl bg-accent/15 border border-accent/30 px-5 py-2.5">
+                <div className="text-[11px] uppercase tracking-wide text-accent-soft">Final Fee (USD)</div>
+                <div className="font-display text-2xl mt-1 text-white">$14,900</div>
+              </div>
             </div>
-            <div className="text-center my-1 text-secondary/40 text-sm">−</div>
-            <div className="flex items-center justify-between text-sm">
-              <span className="text-secondary/70">Scholarship</span>
-              <span className="font-display text-lg text-gold-soft">$12,800</span>
-            </div>
-            <div className="text-center my-2 text-secondary/40 text-sm">=</div>
-            <div className="flex items-center justify-between rounded-xl bg-accent/15 border border-accent/30 px-4 py-4">
-              <span className="font-semibold text-sm">Final Fee (USD)</span>
-              <span className="font-display text-2xl text-white">$14,900</span>
-            </div>
-            <p className="text-[13px] text-secondary/40 mt-4 leading-relaxed">
-              Final fee in INR may vary with the exchange rate at time of payment. SEU materials
-              also frame total investment within about ₹15 lakhs for the full program context.
-            </p>
 
-            <a href="#apply" className="group mt-6 flex w-full items-center justify-center gap-2 rounded-md bg-accent-soft px-6 py-3.5 font-semibold text-primary hover:bg-accent transition-colors">
+            <a href="#hero-form" className="group inline-flex items-center justify-center gap-2 rounded-md bg-accent-soft px-6 py-3.5 font-semibold text-primary hover:bg-accent transition-colors whitespace-nowrap">
               Get Your Personalized Fee Breakdown
               <Arrow />
             </a>
-          </Reveal>
-        </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   )

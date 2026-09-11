@@ -1,11 +1,12 @@
 import Reveal, { Stagger, StaggerItem } from '../shared/Reveal.jsx'
+import { ProofIcon } from '../shared/Glyphs.jsx'
 
 const core = [
-  'Curriculum designed and mapped by MIT.',
-  'Faculty trained by MIT.',
-  '3-week immersion at MIT Boston.',
-  'Degree from SEU with MIT academic collaboration.',
-  'Career advantage powered by the MIT accent.',
+  { icon: 'curriculum', label: 'Curriculum', detail: 'Designed and mapped by MIT' },
+  { icon: 'faculty', label: 'Faculty', detail: 'Trained by MIT' },
+  { icon: 'immersion', label: 'Immersion', detail: '3 weeks at MIT Boston' },
+  { icon: 'degree', label: 'Degree', detail: 'SEU with MIT collaboration' },
+  { icon: 'career', label: 'Career Edge', detail: 'Powered by the MIT accent' },
 ]
 
 const extras = [
@@ -32,13 +33,18 @@ export default function USPSection() {
           </p>
         </Reveal>
 
-        {/* core points — the first thing revealed */}
-        <Stagger className="mt-14 grid sm:grid-cols-2 lg:grid-cols-5 gap-x-8" stagger={0.1}>
-          {core.map((c, i) => (
-            <StaggerItem key={c}>
-              <div className="border-t border-white/15 pt-5">
-                <span className="font-display text-accent-soft/50 text-2xl">{String(i + 1).padStart(2, '0')}</span>
-                <p className="text-secondary/90 leading-relaxed mt-3">{c}</p>
+        {/* core points, badge row — after the upgrad accreditation-strip reference */}
+        <Stagger className="mt-12 grid sm:grid-cols-2 lg:grid-cols-5 gap-3" stagger={0.08}>
+          {core.map((c) => (
+            <StaggerItem key={c.label}>
+              <div className="h-full flex items-center gap-3 rounded-xl bg-white/[0.05] border border-white/10 px-4 py-3.5">
+                <span className="grid place-items-center w-9 h-9 rounded-lg bg-accent-soft/15 text-accent-soft shrink-0">
+                  <ProofIcon name={c.icon} />
+                </span>
+                <span className="min-w-0">
+                  <span className="block text-sm font-semibold text-secondary leading-tight">{c.label}</span>
+                  <span className="block text-xs text-secondary/55 leading-tight mt-0.5">{c.detail}</span>
+                </span>
               </div>
             </StaggerItem>
           ))}
@@ -56,7 +62,7 @@ export default function USPSection() {
         {/* extras — revealed after the divider, as its own scroll moment */}
         <Reveal direction="up" amount={0.4} className="mt-10">
           <h3 className="font-display text-2xl sm:text-3xl text-secondary text-balance max-w-lg">
-            Additional SEU Advantages For Indian Students
+            Advantages For Indian Students
           </h3>
         </Reveal>
 

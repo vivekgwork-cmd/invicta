@@ -89,8 +89,9 @@ function StaticPyramid() {
   )
 }
 
-/** Vertical rail between the copy and the pyramid: fills with the accent color and lights up each numbered stop as `active` advances. */
-function ProgressRail({ progress, active }) {
+/** Vertical rail: fills with the accent color as `progress` advances, and is directly clickable —
+ * clicking a numbered stop jumps the active tier immediately. */
+function ProgressRail({ progress, active, onPick }) {
   const fillHeight = useTransform(progress, [0, 1], ['0%', '100%'])
 
   return (
@@ -101,9 +102,13 @@ function ProgressRail({ progress, active }) {
         style={{ height: fillHeight }}
       />
       {tiers.map((t, i) => (
-        <div
+        <button
           key={t.n}
-          className="absolute left-1/2 flex items-center justify-center w-7 h-7 rounded-full border font-display text-[13px] transition-colors duration-300"
+          type="button"
+          onClick={() => onPick(i)}
+          aria-label={`Show ${t.title}`}
+          aria-pressed={active === i}
+          className="absolute left-1/2 flex items-center justify-center w-7 h-7 rounded-full border font-display text-[13px] transition-colors duration-300 cursor-pointer hover:scale-110"
           style={{
             top: `${(i / (tiers.length - 1)) * 100}%`,
             transform: 'translate(-50%, -50%)',
@@ -113,28 +118,33 @@ function ProgressRail({ progress, active }) {
           }}
         >
           {t.n}
-        </div>
+        </button>
       ))}
     </div>
   )
 }
 
-/** Desktop hook: pyramid builds tier-by-tier as `progress` (0→1) advances through the scroll track. */
-function ScrollPyramid({ progress }) {
-  const b1Opacity = useTransform(progress, [0, 0.08], [0, 1])
-  const b1Y = useTransform(progress, [0, 0.08], [30, 0])
+const blockDefs = [b1, b2, b3]
 
-  const b2Opacity = useTransform(progress, [0.33, 0.42], [0, 1])
-  const b2Y = useTransform(progress, [0.33, 0.42], [30, 0])
-
-  const b3Opacity = useTransform(progress, [0.66, 0.75], [0, 1])
-  const b3Y = useTransform(progress, [0.66, 0.75], [30, 0])
-
-  const glowOpacity = useTransform(progress, [0.8, 1], [0, 0.55])
-  const glowScale = useTransform(progress, [0.8, 1], [0.7, 1.15])
+/**
+ * Desktop hook: pyramid builds tier-by-tier as `active` (0, 1, or 2) advances.
+ * Driven by plain state, not a scroll-linked transform, so a click reveals or hides the
+ * matching block immediately — the same state that scrolling advances.
+ *
+ * The blocks themselves are the click targets (not just the side rail): a not-yet-built
+ * block stays visible as a faint, clickable "ghost" outline rather than disappearing, so
+ * there's always something on the block to tap.
+ */
+function ScrollPyramid({ active, onPick }) {
+  const shown = (i) => active >= i
 
   return (
-    <svg viewBox={`0 0 320 ${VIEW_H}`} className="w-full h-auto max-w-[400px] mx-auto overflow-visible">
+    <>
+    <style>{`
+      .pyramid-tier { outline: none; }
+      .pyramid-tier:focus-visible { outline: 2px solid #ff6b35; outline-offset: 6px; border-radius: 4px; }
+    `}</style>
+    <svg viewBox={`0 0 320 ${VIEW_H}`} className="w-full h-auto max-w-[280px] mx-auto overflow-visible">
       <defs>
         <radialGradient id="pyramid-glow" cx="50%" cy="50%" r="50%">
           <stop offset="0%" stopColor="#ff6b35" stopOpacity="0.9" />
@@ -144,85 +154,121 @@ function ScrollPyramid({ progress }) {
 
       <ellipse cx={cx} cy={244} rx={128} ry={14} fill="#1b365d" opacity={0.12} />
 
-      <motion.circle cx={b3.labelPoint[0]} cy={b3.labelPoint[1] - 6} r={70} fill="url(#pyramid-glow)" style={{ opacity: glowOpacity, scale: glowScale }} />
+      <motion.circle
+        cx={b3.labelPoint[0]} cy={b3.labelPoint[1] - 6} r={70} fill="url(#pyramid-glow)"
+        initial={false}
+        animate={{ opacity: shown(2) ? 0.55 : 0, scale: shown(2) ? 1.15 : 0.7 }}
+        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+      />
 
-      <motion.g style={{ opacity: b1Opacity, y: b1Y }}>
-        <path d={b1.top} fill={tiers[0].top} />
-        <path d={b1.leftWall} fill={tiers[0].left} />
-        <path d={b1.rightWall} fill={tiers[0].right} />
-        <text x={b1.labelPoint[0]} y={b1.labelPoint[1]} textAnchor="middle" dominantBaseline="middle" fontFamily="Source Serif 4, Georgia, serif" fontSize={20} fill="#f8f9fa" opacity={0.85}>01</text>
-      </motion.g>
-
-      <motion.g style={{ opacity: b2Opacity, y: b2Y }}>
-        <path d={b2.top} fill={tiers[1].top} />
-        <path d={b2.leftWall} fill={tiers[1].left} />
-        <path d={b2.rightWall} fill={tiers[1].right} />
-        <text x={b2.labelPoint[0]} y={b2.labelPoint[1]} textAnchor="middle" dominantBaseline="middle" fontFamily="Source Serif 4, Georgia, serif" fontSize={17} fill="#f8f9fa" opacity={0.85}>02</text>
-      </motion.g>
-
-      <motion.g style={{ opacity: b3Opacity, y: b3Y }}>
-        <path d={b3.top} fill={tiers[2].top} />
-        <path d={b3.leftWall} fill={tiers[2].left} />
-        <path d={b3.rightWall} fill={tiers[2].right} />
-        <text x={b3.labelPoint[0]} y={b3.labelPoint[1]} textAnchor="middle" dominantBaseline="middle" fontFamily="Source Serif 4, Georgia, serif" fontSize={14} fill="#f8f9fa" opacity={0.85}>03</text>
-      </motion.g>
+      {tiers.map((t, i) => {
+        const shape = blockDefs[i]
+        const fontSize = i === 0 ? 20 : i === 1 ? 17 : 14
+        return (
+          <motion.g
+            key={t.n}
+            className="pyramid-tier"
+            role="button"
+            tabIndex={0}
+            aria-label={`Show ${t.title}`}
+            aria-pressed={active === i}
+            onClick={() => onPick(i)}
+            onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onPick(i) } }}
+            initial={false}
+            animate={{ opacity: shown(i) ? 1 : 0.16 }}
+            whileHover={{ scale: 1.045 }}
+            whileTap={{ scale: 0.98 }}
+            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            style={{
+              cursor: 'pointer',
+              WebkitTapHighlightColor: 'transparent',
+              transformOrigin: `${shape.labelPoint[0]}px ${shape.labelPoint[1]}px`,
+            }}
+          >
+            <path d={shape.top} fill={t.top} />
+            <path d={shape.leftWall} fill={t.left} />
+            <path d={shape.rightWall} fill={t.right} />
+            <text x={shape.labelPoint[0]} y={shape.labelPoint[1]} textAnchor="middle" dominantBaseline="middle" fontFamily="Source Serif 4, Georgia, serif" fontSize={fontSize} fill="#f8f9fa" opacity={0.85}>
+              {t.n}
+            </text>
+          </motion.g>
+        )
+      })}
     </svg>
+    </>
   )
 }
 
+/**
+ * Right-hand "box" — numbered rail + pyramid graphic, with the active tier's title and copy
+ * anchored at the bottom of the same box. Clickable (rail) and scroll-driven (track).
+ */
 export default function PathwayPyramid() {
   const trackRef = useRef(null)
   const { scrollYProgress } = useScroll({ target: trackRef, offset: ['start start', 'end end'] })
   const [active, setActive] = useState(0)
+  const lockedUntil = useRef(0)
 
+  // Scroll is the primary driver — except for a brief window right after a click, so a stray
+  // pixel of scroll momentum can't immediately snap the tier back to wherever the page
+  // happens to be scrolled.
   useMotionValueEvent(scrollYProgress, 'change', (v) => {
+    if (Date.now() < lockedUntil.current) return
     const idx = v < 0.33 ? 0 : v < 0.66 ? 1 : 2
     setActive((prev) => (prev === idx ? prev : idx))
   })
+
+  const handlePick = (idx) => {
+    lockedUntil.current = Date.now() + 1200
+    setActive(idx)
+  }
 
   const activeTier = tiers[active]
 
   return (
     <div>
-      {/* sm and up: sticky scroll-driven build sequence — the "hook" */}
-      <div ref={trackRef} className="hidden sm:block h-[280vh]">
-        <div className="sticky top-28 h-[600px] flex items-center overflow-hidden">
-          <div className="mx-auto max-w-7xl w-full px-5 sm:px-8 grid grid-cols-[1fr_28px_400px] gap-10 items-center">
+      {/* sm and up: sticky scroll-driven build sequence, box stays put while the left intro card is sticky beside it */}
+      <div ref={trackRef} className="hidden sm:block h-[220vh]">
+        <div className="sticky top-28">
+          <div className="rounded-3xl border border-primary/10 bg-white p-8 sm:p-10 shadow-sm">
+            <div className="flex items-center justify-center gap-8">
+              <ProgressRail progress={scrollYProgress} active={active} onPick={handlePick} />
+              <ScrollPyramid active={active} onPick={handlePick} />
+            </div>
+
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeTier.n}
-                initial={{ opacity: 0, y: 18 }}
+                initial={{ opacity: 0, y: 14 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -18 }}
+                exit={{ opacity: 0, y: -14 }}
                 transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-                className="border-l-2 pl-7"
-                style={{ borderColor: activeTier.left }}
+                className="mt-8 border-t border-primary/10 pt-6 border-l-2 pl-6"
+                style={{ borderLeftColor: activeTier.left }}
               >
                 <span className="font-display text-base" style={{ color: activeTier.left }}>{activeTier.n}</span>
-                <h4 className="font-display text-4xl sm:text-5xl text-primary mt-3">{activeTier.title}</h4>
-                <p className="text-lg text-slate leading-relaxed mt-5 max-w-md">{activeTier.copy}</p>
+                <h4 className="font-display text-2xl sm:text-3xl text-primary mt-2">{activeTier.title}</h4>
+                <p className="text-slate leading-relaxed mt-3 max-w-md">{activeTier.copy}</p>
               </motion.div>
             </AnimatePresence>
-
-            <ProgressRail progress={scrollYProgress} active={active} />
-
-            <ScrollPyramid progress={scrollYProgress} />
           </div>
         </div>
       </div>
 
-      {/* mobile fallback: pyramid on top, stacked rows below */}
-      <div className="sm:hidden mx-auto max-w-7xl px-5 sm:px-8">
+      {/* mobile fallback: pyramid on top, stacked rows below (each row doubles as a tap target) */}
+      <div className="sm:hidden">
         <StaticPyramid />
         <div className="grid gap-3 mt-8">
           {ordered.map((t, i) => (
-            <motion.div
+            <motion.button
+              type="button"
               key={t.n}
+              onClick={() => handlePick(tiers.indexOf(t))}
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.4 }}
               transition={{ duration: 0.5, delay: i * 0.12 }}
-              className="border-l-2 pl-4"
+              className="text-left border-l-2 pl-4"
               style={{ borderColor: t.left }}
             >
               <div className="flex items-baseline gap-2">
@@ -230,7 +276,7 @@ export default function PathwayPyramid() {
                 <h4 className="font-display text-base text-primary">{t.title}</h4>
               </div>
               <p className="text-sm text-slate leading-relaxed mt-1">{t.copy}</p>
-            </motion.div>
+            </motion.button>
           ))}
         </div>
       </div>

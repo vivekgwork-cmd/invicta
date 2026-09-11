@@ -1,4 +1,11 @@
 import Reveal, { Stagger, StaggerItem } from '../shared/Reveal.jsx'
+import { PlayPill } from '../shared/Glyphs.jsx'
+
+const photos = [
+  { src: 'Tbilisi.jpg', alt: 'Tbilisi Old Town at night', label: 'Life In Tbilisi', span: 'lg:row-span-2' },
+  { src: 'SEU.jpg', alt: 'SEU campus building', label: 'The Campus', span: '' },
+  { src: 'indian-college-students.jpg', alt: 'Indian students abroad', label: 'Student Life', span: '' },
+]
 
 const points = [
   'On-campus life at Georgian National University SEU with an active Indian student community.',
@@ -20,15 +27,25 @@ export default function CampusSection() {
         </Reveal>
 
         <div className="mt-12 grid lg:grid-cols-2 gap-4">
-          <Reveal direction="left" className="rounded-3xl overflow-hidden aspect-[16/11] lg:row-span-2">
-            <img src={`${import.meta.env.BASE_URL}images/Tbilisi.jpg`} alt="Tbilisi Old Town at night" className="w-full h-full object-cover" />
-          </Reveal>
-          <Reveal direction="right" className="rounded-3xl overflow-hidden aspect-[16/9]">
-            <img src={`${import.meta.env.BASE_URL}images/SEU.jpg`} alt="SEU campus building" className="w-full h-full object-cover" />
-          </Reveal>
-          <Reveal direction="right" delay={0.1} className="rounded-3xl overflow-hidden aspect-[16/9]">
-            <img src={`${import.meta.env.BASE_URL}images/indian-college-students.jpg`} alt="Indian students abroad" className="w-full h-full object-cover" />
-          </Reveal>
+          {photos.map((p, i) => (
+            <Reveal
+              key={p.src}
+              direction={i === 0 ? 'left' : 'right'}
+              delay={i === 2 ? 0.1 : 0}
+              className={`group relative rounded-3xl overflow-hidden ${i === 0 ? 'aspect-[16/11] lg:row-span-2' : 'aspect-[16/9]'} ${p.span}`}
+            >
+              <img
+                src={`${import.meta.env.BASE_URL}images/${p.src}`}
+                alt={p.alt}
+                className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105 group-hover:brightness-[0.6]"
+              />
+              <div className="absolute inset-0 grid place-items-center">
+                <span className="opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300">
+                  <PlayPill label={p.label} />
+                </span>
+              </div>
+            </Reveal>
+          ))}
         </div>
 
         <Stagger className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/10 rounded-2xl overflow-hidden">
