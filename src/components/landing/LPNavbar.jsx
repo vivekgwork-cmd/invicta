@@ -43,7 +43,12 @@ export default function LPNavbar() {
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
             className="bg-secondary border-b border-primary/10 shadow-sm"
           >
-            <div className="mx-auto max-w-7xl px-5 sm:px-8 h-12 flex items-center justify-between">
+            <div className="mx-auto max-w-7xl px-5 sm:px-8 h-12 flex items-center justify-between gap-4">
+              <img
+                src={`${import.meta.env.BASE_URL}images/logo-invitica.png`}
+                alt="Invicta"
+                className="h-6 w-auto shrink-0"
+              />
               <nav className="hidden lg:flex items-center gap-7">
                 {sections.map((s) => (
                   <button

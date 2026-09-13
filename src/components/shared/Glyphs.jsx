@@ -52,14 +52,6 @@ export function Stars({ count = 5, className = '' }) {
   )
 }
 
-export function Logo({ className = '' }) {
-  return (
-    <span className={`font-display font-semibold tracking-tight ${className}`}>
-      Invicta<span className="text-accent">.</span>
-    </span>
-  )
-}
-
 const iconPaths = {
   duration: 'M12 7v5l3.5 2M21 12a9 9 0 1 1-9-9 9 9 0 0 1 9 9Z',
   scholarship: 'M12 3 3 7.5 12 12l9-4.5L12 3ZM3 12l9 4.5 9-4.5M3 16.5l9 4.5 9-4.5',

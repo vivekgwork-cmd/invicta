@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Arrow } from '../shared/Glyphs.jsx'
 import Reveal, { Stagger, StaggerItem } from '../shared/Reveal.jsx'
@@ -14,6 +15,8 @@ const steps = [
 ]
 
 export default function ProcessSection() {
+  const [hovered, setHovered] = useState(null)
+
   return (
     <section id="process" className="py-20 bg-[#0a0e18] scroll-mt-24 border-t border-white/10">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
@@ -45,8 +48,18 @@ export default function ProcessSection() {
           />
 
           {steps.map((s, i) => (
-            <div key={s.title} style={{ gridRow: 2, gridColumn: i + 1 }} className="relative z-10 min-w-0 flex items-center justify-center">
-              <span className="grid place-items-center w-9 h-9 rounded-full border-2 border-accent bg-[#0a0e18] ring-8 ring-[#0a0e18] font-display text-xs text-accent-soft">
+            <div
+              key={s.title}
+              style={{ gridRow: 2, gridColumn: i + 1 }}
+              className="relative z-10 min-w-0 flex items-center justify-center cursor-default"
+              onMouseEnter={() => setHovered(i)}
+              onMouseLeave={() => setHovered((v) => (v === i ? null : v))}
+            >
+              <span
+                className={`grid place-items-center w-9 h-9 rounded-full border-2 bg-[#0a0e18] ring-8 ring-[#0a0e18] font-display text-xs transition-all duration-300 ${
+                  hovered === i ? 'border-accent-soft text-white scale-110 shadow-[0_0_0_4px_rgba(255,140,94,0.25)]' : 'border-accent text-accent-soft'
+                }`}
+              >
                 {String(i + 1).padStart(2, '0')}
               </span>
             </div>
@@ -58,9 +71,11 @@ export default function ProcessSection() {
               <div
                 key={`${s.title}-label`}
                 style={{ gridRow: top ? 1 : 3, gridColumn: i + 1 }}
-                className={`min-w-0 text-center px-1 flex flex-col ${top ? 'justify-end pb-1' : 'justify-start pt-1'}`}
+                className={`min-w-0 text-center px-1 flex flex-col cursor-default ${top ? 'justify-end pb-1' : 'justify-start pt-1'}`}
+                onMouseEnter={() => setHovered(i)}
+                onMouseLeave={() => setHovered((v) => (v === i ? null : v))}
               >
-                <h3 className="font-display text-base text-secondary text-balance">{s.title}</h3>
+                <h3 className={`font-display text-base text-balance transition-colors duration-300 ${hovered === i ? 'text-accent-soft' : 'text-secondary'}`}>{s.title}</h3>
                 <p className="text-xs text-secondary/55 mt-1.5 leading-snug">{s.desc}</p>
               </div>
             )
@@ -81,11 +96,11 @@ export default function ProcessSection() {
           <Stagger className="grid gap-8" stagger={0.1}>
             {steps.map((s, i) => (
               <StaggerItem key={s.title} direction="left">
-                <div className="relative pl-14">
-                  <span className="absolute left-0 top-0 w-10 h-10 rounded-md bg-accent text-white grid place-items-center font-display text-sm">
+                <div className="group relative pl-14 py-2 -my-2 rounded-xl transition-colors duration-300 hover:bg-white/[0.05]">
+                  <span className="absolute left-0 top-2 w-10 h-10 rounded-md bg-accent text-white grid place-items-center font-display text-sm transition-transform duration-300 group-hover:scale-110">
                     {i + 1}
                   </span>
-                  <h3 className="font-display text-lg text-secondary">{s.title}</h3>
+                  <h3 className="font-display text-lg text-secondary transition-colors duration-300 group-hover:text-accent-soft">{s.title}</h3>
                   <p className="text-sm text-secondary/60 mt-1">{s.desc}</p>
                 </div>
               </StaggerItem>

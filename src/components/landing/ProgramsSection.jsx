@@ -11,37 +11,30 @@ const programs = [
     desc: 'Lead teams and strategy with a core business curriculum, mapped against MIT modules.',
   },
   {
-    code: 'MSC-AI',
-    title: 'M.Sc. Artificial Intelligence',
+    code: 'MS-AI',
+    title: 'MS Artificial Intelligence',
     tag: 'In-demand',
     image: 'MIT.jpg',
     desc: 'Build and ship real ML systems, taught alongside MIT-trained faculty.',
   },
   {
-    code: 'MSC-DS',
-    title: 'M.Sc. Data Science',
+    code: 'MS-DS',
+    title: 'MS Data Science',
     tag: 'In-demand',
     image: 'college-pic.jpg',
     desc: 'Turn raw data into decisions, on a recognised European academic foundation.',
   },
   {
-    code: 'MSC-FT',
-    title: 'M.Sc. Financial Technology (FinTech)',
+    code: 'FINTECH',
+    title: 'MS Financial Technology (FinTech)',
     image: 'SEU.jpg',
     desc: 'Where finance meets technology — payments, blockchain, and fintech strategy.',
   },
   {
-    code: 'MSC-BA',
-    title: 'M.Sc. Business Analysis',
+    code: 'MS-BA',
+    title: 'MS Business Analysis',
     image: 'indian-college-students.jpg',
     desc: 'Analytics and decision science for real business problems, case by case.',
-  },
-  {
-    code: 'EMBA',
-    title: 'Executive MBA',
-    tag: '1 Year',
-    image: 'Tbilisi.jpg',
-    desc: 'An accelerated, 1-year track built for working professionals ready to lead.',
   },
 ]
 
@@ -73,7 +66,7 @@ export default function ProgramsSection() {
             Pick Your <span className="text-gold-soft">Master's</span>
           </h2>
           <p className="mt-4 text-secondary/70 leading-relaxed">
-            Six programs run on the same SEU x MIT pathway. Here's the full course list, and exactly
+            Five programs run on the same SEU x MIT pathway. Here's the full course list, and exactly
             what it costs after your scholarship.
           </p>
         </Reveal>
@@ -81,13 +74,13 @@ export default function ProgramsSection() {
         {/* Cards are a plain overlay on top of the shared photo — hovering one swaps the
             background image above, it doesn't carry its own. */}
         <div onMouseLeave={() => setActive(0)}>
-          <Stagger className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-5" stagger={0.08}>
+          <Stagger className="mt-12 flex flex-wrap justify-center gap-5" stagger={0.08}>
             {programs.map((p, i) => (
-              <StaggerItem key={p.code}>
+              <StaggerItem key={p.code} className="w-full sm:w-[calc(50%-10px)] lg:w-[calc(33.333%-14px)]">
                 <div
                   onMouseEnter={() => setActive(i)}
-                  className={`h-full min-h-[240px] rounded-2xl border backdrop-blur-md p-6 flex flex-col justify-between transition-colors duration-300 cursor-default ${
-                    active === i ? 'bg-primary/60 border-accent/70' : 'bg-primary/30 border-secondary/20'
+                  className={`lp-spin-card relative h-full min-h-[240px] rounded-2xl border backdrop-blur-md p-6 flex flex-col justify-between transition-colors duration-300 cursor-default ${
+                    active === i ? 'bg-primary/80 border-accent/70' : 'bg-primary/55 border-secondary/25'
                   }`}
                 >
                   <div className="flex items-start justify-between gap-2">
@@ -124,6 +117,10 @@ export default function ProgramsSection() {
                 2-year Master's tracks, scholarship math. Final fee in INR may vary with the
                 exchange rate at time of payment.
               </p>
+              <p className="text-xs text-secondary/50 mt-2 leading-relaxed">
+                Living costs: approx. <strong className="text-secondary/80">$200–$300/month</strong>,
+                hostel from <strong className="text-secondary/80">$215/month</strong> (Indian food available).
+              </p>
             </div>
 
             <div className="flex flex-wrap items-center gap-4 sm:gap-6">
@@ -150,6 +147,38 @@ export default function ProgramsSection() {
           </div>
         </Reveal>
       </div>
+
+      <style>{`
+        @property --lp-angle {
+          syntax: '<angle>';
+          initial-value: 0deg;
+          inherits: false;
+        }
+        .lp-spin-card::before {
+          content: '';
+          position: absolute;
+          inset: -1.5px;
+          border-radius: inherit;
+          padding: 1.5px;
+          background: conic-gradient(from var(--lp-angle), transparent 0%, #ff6835 12%, transparent 30%);
+          -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+          -webkit-mask-composite: xor;
+          mask-composite: exclude;
+          opacity: 0;
+          transition: opacity 0.3s ease;
+          pointer-events: none;
+        }
+        .lp-spin-card:hover::before {
+          opacity: 1;
+          animation: lp-spin 2.2s linear infinite;
+        }
+        @keyframes lp-spin {
+          to { --lp-angle: 360deg; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .lp-spin-card:hover::before { animation: none; }
+        }
+      `}</style>
     </section>
   )
 }

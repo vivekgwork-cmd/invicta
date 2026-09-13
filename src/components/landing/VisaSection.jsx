@@ -19,18 +19,31 @@ const handled = [
 
 export default function VisaSection() {
   return (
-    <section id="visa" className="py-20 bg-secondary scroll-mt-24 border-t border-primary/8">
-      <div className="mx-auto max-w-7xl px-5 sm:px-8">
-        <Reveal className="max-w-2xl">
-          <span className="text-sm font-semibold text-accent uppercase tracking-wide">Visa, Simplified</span>
-          <h2 className="font-display text-3xl sm:text-4xl mt-3 text-primary text-balance">
-            No Visa? <span className="text-gold-deep">No Problem.</span>
-          </h2>
-          <p className="mt-4 text-slate leading-relaxed">
-            Our team manages your entire visa file end to end, so you always know exactly what
-            stage you're at and what happens next.
-          </p>
-        </Reveal>
+    <section id="visa" className="relative py-20 bg-secondary scroll-mt-24 border-t border-primary/8 overflow-hidden">
+      <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
+        <div className="relative max-w-2xl">
+          <div
+            aria-hidden="true"
+            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none select-none opacity-20 z-0"
+          >
+            <img
+              src={`${import.meta.env.BASE_URL}images/invicta-bird.png`}
+              alt=""
+              className="lp-visa-bird w-[420px] sm:w-[520px] lg:w-[620px] h-auto"
+            />
+          </div>
+
+          <Reveal className="relative z-10">
+            <span className="text-sm font-semibold text-accent uppercase tracking-wide">Visa, Simplified</span>
+            <h2 className="font-display text-3xl sm:text-4xl mt-3 text-primary text-balance">
+              No Visa? <span className="text-gold-deep">No Problem.</span>
+            </h2>
+            <p className="mt-4 text-slate leading-relaxed">
+              Our team manages the entire documentation and visa process with you, end to end —
+              so you always know exactly what stage you're at and what happens next.
+            </p>
+          </Reveal>
+        </div>
 
         <Stagger className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {timeline.map((t) => (
@@ -53,7 +66,7 @@ export default function VisaSection() {
               Visa handled for you, start to finish. No forms to decode alone.
             </p>
             <p className="text-secondary/60 text-sm mt-3 leading-relaxed">
-              Scores low? We'll help you level up. Our team handles everything, start to finish.
+              Our team handles everything, start to finish.
             </p>
           </Reveal>
 
@@ -69,6 +82,19 @@ export default function VisaSection() {
           </Reveal>
         </div>
       </div>
+
+      <style>{`
+        @keyframes lp-visa-bird-float {
+          0%, 100% { transform: translateY(0) rotate(-4deg); }
+          50% { transform: translateY(-24px) rotate(2deg); }
+        }
+        .lp-visa-bird {
+          animation: lp-visa-bird-float 8s ease-in-out infinite;
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .lp-visa-bird { animation: none; }
+        }
+      `}</style>
     </section>
   )
 }

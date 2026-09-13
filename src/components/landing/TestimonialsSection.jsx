@@ -1,84 +1,120 @@
 import { useState } from 'react'
-import Reveal, { Stagger, StaggerItem } from '../shared/Reveal.jsx'
-import { Check, PlayPill } from '../shared/Glyphs.jsx'
+import Reveal from '../shared/Reveal.jsx'
+import { PlayPill } from '../shared/Glyphs.jsx'
 
-// Placeholder quotes and poster stills — Arpit to share the real testimonial videos and one-liners.
+// Real student video testimonials, self-hosted under public/videos so playback is a plain
+// <video> element — no third-party chrome, no controls, no way to navigate off the page.
+// Only the small poster JPEG loads up front; the video file itself is fetched on click.
 const testimonials = [
-  {
-    name: 'Priya',
-    tenure: 'MBA, Batch 2025',
-    quote: 'The MIT-mapped curriculum made my resume stand out in every interview.',
-    poster: 'professional-lady.jpg',
-    offset: 'sm:mt-0',
-  },
-  {
-    name: 'Arjun',
-    tenure: 'M.Sc. Data Science, Batch 2024',
-    quote: 'Tbilisi felt like home within a month. The support team handled everything.',
-    poster: 'indian-college-students.jpg',
-    offset: 'sm:mt-10',
-  },
-  {
-    name: 'Sana',
-    tenure: 'M.Sc. FinTech, Batch 2025',
-    quote: 'I landed a fintech internship in Europe before I even graduated.',
-    poster: 'college-pic.jpg',
-    offset: 'sm:-mt-4',
-  },
+  { name: 'Akhila Narra', tenure: 'Georgian National University SEU', slug: 'akhila-narra' },
+  { name: 'Chakravathi Peddireddy', tenure: 'Georgian National University SEU', slug: 'chakravathi-peddireddy' },
+  { name: 'Rithika Gullapali', tenure: 'Georgian National University SEU', slug: 'rithika-gullapali' },
+  { name: 'Dev Sharma', tenure: 'Rajasthan', slug: 'dev-sharma' },
+  { name: 'Rohan Sandy', tenure: 'Vijayawada', slug: 'rohan-sandy' },
+  { name: 'Vaishnavi', tenure: 'Vijayawada', slug: 'vaishnavi' },
+  { name: 'Satwik', tenure: 'Visakhapatnam', slug: 'satwik' },
+  { name: 'Srinidhi', tenure: 'Student Testimonial', slug: 'srinidhi' },
+  { name: 'Mohith', tenure: 'Student Testimonial', slug: 'mohith' },
 ]
 
-function TestimonialCard({ t, isPlaying, onToggle }) {
+// Three lanes of three, so each column loops a different trio.
+const lanes = [
+  [testimonials[0], testimonials[3], testimonials[6]],
+  [testimonials[1], testimonials[4], testimonials[7]],
+  [testimonials[2], testimonials[5], testimonials[8]],
+]
+
+function TestimonialCard({ t, playing, onToggle }) {
+  const base = import.meta.env.BASE_URL
+
   return (
-    <div className="group/card h-full rounded-2xl overflow-hidden border border-primary/10 bg-white">
-      {/* Dummy video card — swap the poster image for a <video> source once Arpit shares the clips */}
-      <div className="relative aspect-[4/5] overflow-hidden">
-        <img
-          src={`${import.meta.env.BASE_URL}images/${t.poster}`}
-          alt={`${t.name}, ${t.tenure}`}
-          className="w-full h-full object-cover transition-all duration-500 group-hover/card:scale-105 group-hover/card:brightness-[0.55]"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/20 to-primary/10" />
+    <div className="group/card w-full rounded-2xl overflow-hidden border border-primary/10 bg-white">
+      <div className="relative aspect-[4/5] overflow-hidden bg-primary">
+        {playing ? (
+          <video
+            src={`${base}videos/${t.slug}.mp4`}
+            className="absolute inset-0 w-full h-full object-cover cursor-pointer"
+            autoPlay
+            playsInline
+            onClick={onToggle}
+            onEnded={onToggle}
+          />
+        ) : (
+          <>
+            <img
+              src={`${base}videos/posters/${t.slug}.jpg`}
+              alt={`${t.name}, ${t.tenure}`}
+              loading="lazy"
+              className="w-full h-full object-cover transition-all duration-500 group-hover/card:scale-105 group-hover/card:brightness-[0.55]"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/25 to-primary/15" />
 
-        <button
-          type="button"
-          onClick={onToggle}
-          aria-label={isPlaying ? `Pause ${t.name}'s testimonial video` : `Play ${t.name}'s testimonial video`}
-          className="absolute inset-0 grid place-items-center"
-        >
-          <span
-            className={`transition-all duration-300 ${
-              isPlaying ? 'opacity-100 scale-100' : 'opacity-0 scale-90 group-hover/card:opacity-100 group-hover/card:scale-100'
-            }`}
-          >
-            <PlayPill label={isPlaying ? 'Playing…' : 'Play Reel'} />
-          </span>
-        </button>
+            <button
+              type="button"
+              onClick={onToggle}
+              aria-label={`Play ${t.name}'s testimonial video`}
+              className="absolute inset-0 grid place-items-center"
+            >
+              <span className="transition-all duration-300 opacity-90 scale-95 group-hover/card:opacity-100 group-hover/card:scale-100">
+                <PlayPill label="Play Video" />
+              </span>
+            </button>
 
-        {isPlaying && (
-          <div className="absolute inset-x-0 bottom-0 h-0.5 bg-white/20">
-            <div className="h-full bg-gold-soft animate-[lp-video-progress_6s_linear_infinite]" />
-          </div>
+            <div className="absolute bottom-4 left-5 right-5">
+              <span className="font-display text-lg text-white leading-tight block">{t.name}</span>
+              <span className="text-xs text-white/60">{t.tenure}</span>
+            </div>
+          </>
         )}
-
-        <div className="absolute bottom-4 left-5 right-5 flex items-center gap-1.5">
-          <span className="font-display text-lg text-white">{t.name}</span>
-          <span className="scale-[0.6] origin-left -mx-1">
-            <Check className="bg-gold-soft text-primary" />
-          </span>
-        </div>
       </div>
+    </div>
+  )
+}
 
-      <div className="p-5">
-        <p className="text-slate leading-relaxed">"{t.quote}"</p>
-        <div className="text-xs text-slate/60 mt-3">{t.tenure}</div>
+// One vertical lane: its 3 cards loop endlessly upward (the list is rendered twice back to
+// back and translated by exactly one set's height, so the loop point is invisible), softly
+// fading in/out at the top and bottom edge via a mask rather than scrolling — there is no
+// scrollbar and nothing for a visitor to manually scroll. Clicking a card freezes the whole
+// lane in place (so the clicked card stays put) and plays its video inline.
+function TestimonialLane({ items, duration, onActivityChange }) {
+  const [playingSlug, setPlayingSlug] = useState(null)
+  const paused = playingSlug !== null
+  const track = [...items, ...items]
+
+  const handleToggle = (slug) => {
+    setPlayingSlug((cur) => {
+      const next = cur === slug ? null : slug
+      onActivityChange?.(next !== null)
+      return next
+    })
+  }
+
+  return (
+    <div className="lp-lane-mask relative h-[420px] sm:h-[520px] lg:h-[600px] overflow-hidden">
+      <div
+        className="lp-lane-track flex flex-col gap-5"
+        style={{ animationDuration: `${duration}s`, animationPlayState: paused ? 'paused' : 'running' }}
+      >
+        {track.map((t, i) => (
+          <div key={`${t.slug}-${i}`} className="shrink-0">
+            <TestimonialCard t={t} playing={playingSlug === t.slug} onToggle={() => handleToggle(t.slug)} />
+          </div>
+        ))}
       </div>
     </div>
   )
 }
 
 export default function TestimonialsSection() {
-  const [activeIndex, setActiveIndex] = useState(null)
-  const anyPlaying = activeIndex !== null
+  const [activeLanes, setActiveLanes] = useState([false, false, false])
+  const anyPlaying = activeLanes.some(Boolean)
+
+  const setLaneActive = (i) => (active) =>
+    setActiveLanes((cur) => {
+      const next = [...cur]
+      next[i] = active
+      return next
+    })
 
   return (
     <section className="relative py-24 bg-secondary overflow-hidden">
@@ -101,53 +137,49 @@ export default function TestimonialsSection() {
         <Reveal className="max-w-2xl">
           <span className="text-gold-deep tracking-[2px]" aria-hidden="true">★★★★★</span>
           <h2 className="font-display text-3xl sm:text-4xl mt-3 text-primary text-balance">
-            Our Students Get Real <span className="text-gold-deep">Results</span>
+            Our Students Get <span className="text-gold-deep">Real Results</span>
           </h2>
+          <p className="mt-4 text-slate leading-relaxed">
+            Hear it directly from students who made the move to SEU x MIT.
+          </p>
         </Reveal>
 
-        <Stagger className="mt-14 grid sm:grid-cols-3 gap-6">
-          {testimonials.map((t, i) => (
-            <StaggerItem key={t.name} direction="up" className={t.offset}>
-              <div
-                className="lp-card-loop h-full"
-                style={{ animationDelay: `${i * -2.7}s`, animationPlayState: anyPlaying ? 'paused' : 'running' }}
-              >
-                <TestimonialCard
-                  t={t}
-                  isPlaying={activeIndex === i}
-                  onToggle={() => setActiveIndex((cur) => (cur === i ? null : i))}
-                />
-              </div>
-            </StaggerItem>
+        <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-5">
+          {lanes.map((items, i) => (
+            <TestimonialLane
+              key={i}
+              items={items}
+              duration={24 + i * 5}
+              onActivityChange={setLaneActive(i)}
+            />
           ))}
-        </Stagger>
+        </div>
       </div>
 
       <style>{`
-        @keyframes lp-video-progress {
-          from { width: 0%; }
-          to { width: 100%; }
-        }
         @keyframes lp-marquee {
           from { transform: translateX(0); }
           to { transform: translateX(-50%); }
-        }
-        @keyframes lp-card-loop {
-          0%   { transform: translateY(26px); opacity: 0.35; }
-          20%  { opacity: 1; }
-          50%  { transform: translateY(-26px); opacity: 1; }
-          80%  { opacity: 1; }
-          100% { transform: translateY(26px); opacity: 0.35; }
         }
         .lp-marquee {
           width: max-content;
           animation: lp-marquee 26s linear infinite;
         }
-        .lp-card-loop {
-          animation: lp-card-loop 8s ease-in-out infinite;
+        .lp-lane-mask {
+          -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 14%, black 86%, transparent 100%);
+          mask-image: linear-gradient(to bottom, transparent 0%, black 14%, black 86%, transparent 100%);
+        }
+        .lp-lane-track {
+          animation-name: lp-lane-scroll;
+          animation-timing-function: linear;
+          animation-iteration-count: infinite;
+        }
+        @keyframes lp-lane-scroll {
+          from { transform: translateY(0); }
+          to { transform: translateY(-50%); }
         }
         @media (prefers-reduced-motion: reduce) {
-          .lp-marquee, .lp-card-loop {
+          .lp-marquee, .lp-lane-track {
             animation: none;
           }
         }

@@ -116,17 +116,17 @@ function EligibilityForm() {
         <input required type="tel" placeholder="Phone Number" className="lp-hero-input" />
         <input required type="email" placeholder="Email" className="lp-hero-input" />
         <input required placeholder="City" className="lp-hero-input" />
-        <select required defaultValue="" className="lp-hero-input">
+        <select required defaultValue="" className="lp-hero-input lp-hero-select">
           <option value="" disabled>Are you a Parent or Student?</option>
           <option value="Parent">Parent</option>
           <option value="Student">Student</option>
         </select>
-        <select required defaultValue="" className="lp-hero-input">
+        <select required defaultValue="" className="lp-hero-input lp-hero-select">
           <option value="" disabled>Have you completed your bachelor's?</option>
           <option value="Yes">Yes</option>
           <option value="No">No</option>
         </select>
-        <select required defaultValue="" className="lp-hero-input">
+        <select required defaultValue="" className="lp-hero-input lp-hero-select">
           <option value="" disabled>Preferred Stream</option>
           {streams.map((s) => (
             <option key={s} value={s}>{s}</option>
@@ -144,7 +144,7 @@ export default function Hero({ variant = 'original' }) {
   const { image, alt, overlayRgb, objectPosition = 'center', filter = 'none' } = HERO_VARIANTS[variant] ?? HERO_VARIANTS.original
 
   return (
-    <section className="relative overflow-hidden bg-primary pt-14 sm:pt-16">
+    <section className="relative overflow-hidden bg-primary pt-14 sm:pt-16 min-h-screen flex flex-col justify-center">
       <motion.div
         className="absolute inset-0"
         initial={{ scale: 1.12, opacity: 0 }}
@@ -244,7 +244,7 @@ export default function Hero({ variant = 'original' }) {
           {proof.map((p) => (
             <div key={p.label} className="rounded-xl border border-primary/8 px-4 py-4 text-center sm:text-left">
               <ProofIcon name={p.icon} className="text-accent hidden sm:inline-block mb-1.5" />
-              <div className="font-display text-xl sm:text-2xl text-accent">{p.value}</div>
+              <div className="font-display text-accent lp-proof-value">{p.value}</div>
               <div className="text-xs text-slate mt-1 leading-tight">{p.label}</div>
             </div>
           ))}
@@ -264,6 +264,8 @@ export default function Hero({ variant = 'original' }) {
         }
         .lp-hero-input::placeholder { color: rgba(22,35,59,0.4); }
         .lp-hero-input:focus { border-color: #ff6b35; }
+        .lp-hero-select { color: rgba(22,35,59,0.4); }
+        .lp-proof-value { font-size: 1.4rem; }
       `}</style>
     </section>
   )

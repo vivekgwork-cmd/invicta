@@ -47,7 +47,7 @@ const categories = [
     title: 'Ongoing Relationship Manager',
     subheading: 'One person, the whole way through',
     items: [
-      'You get a dedicated relationship manager who stays with you till the end.',
+      'We will send you a dedicated counsellor.',
       'Digital study materials support.',
     ],
   },
@@ -63,7 +63,7 @@ export default function SupportSection() {
         <Reveal className="max-w-2xl">
           <span className="text-sm font-semibold text-accent uppercase tracking-wide">Your Journey, Who's With You</span>
           <h2 className="font-display text-3xl sm:text-4xl mt-3 text-primary text-balance">
-            We Don't Just Guide You. We Take <span className="text-gold-deep">Full Ownership</span>.
+            We Don't Just Guide You. We Take <span className="text-gold-deep">Full Responsibility</span>.
           </h2>
           <p className="mt-4 text-slate leading-relaxed">
             Applying to a foreign university can feel messy and uncertain. That is why our team
@@ -72,24 +72,26 @@ export default function SupportSection() {
           </p>
         </Reveal>
 
-        <Reveal delay={0.1} className="mt-12 rounded-2xl border border-primary/10 bg-white p-6 sm:p-8">
+        <Reveal delay={0.1} className="mt-12 rounded-2xl border border-primary/10 bg-white p-6 sm:p-8 transition-shadow duration-300 hover:shadow-[0_24px_48px_-24px_rgba(24,54,80,0.28)]">
           <div className="text-xs font-semibold uppercase tracking-wide text-slate/60 pb-4 mb-6 border-b border-primary/10">
             Your Support Package
           </div>
           <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-8 lg:gap-14">
-            <div className="flex lg:flex-col gap-1 overflow-x-auto lg:overflow-visible -mx-1 px-1">
+            <div className="flex lg:flex-col gap-2 overflow-x-auto lg:overflow-visible -mx-1 px-1">
               {categories.map((c, i) => (
                 <button
                   key={c.title}
                   type="button"
                   onClick={() => setActive(i)}
-                  className="group text-left whitespace-nowrap lg:whitespace-normal py-3 transition-colors"
+                  className={`group cursor-pointer text-left whitespace-nowrap lg:whitespace-normal rounded-xl px-4 py-3 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md ${
+                    active === i
+                      ? 'bg-accent/10 border border-accent/30 shadow-[0_8px_20px_-10px_rgba(255,104,53,0.5)]'
+                      : 'bg-secondary-dim/60 border border-transparent hover:border-accent/20 hover:bg-accent/5'
+                  }`}
                 >
                   <span
-                    className={`text-sm font-semibold pb-2 border-b-2 transition-colors ${
-                      active === i
-                        ? 'text-accent border-accent'
-                        : 'text-slate/50 border-transparent group-hover:text-slate'
+                    className={`text-sm font-semibold transition-colors ${
+                      active === i ? 'text-accent' : 'text-slate/70 group-hover:text-primary'
                     }`}
                   >
                     {c.title}

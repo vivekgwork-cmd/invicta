@@ -22,7 +22,7 @@ const faqs = [
   },
   {
     q: 'What about food and hostel?',
-    a: 'Ultra-modern hostels for Indian students with Indian food options. Hostel starts around $190 per month. Living costs are about $300 to $400 per month.',
+    a: 'Ultra-modern hostels for Indian students with Indian food available. Hostel starts around $215 per month. Living costs are about $200 to $300 per month.',
   },
   {
     q: 'Is there an entrance exam?',
@@ -38,7 +38,7 @@ const faqs = [
   },
   {
     q: 'How long is the program?',
-    a: '2 years for most Master’s programs. Executive MBA is 1 year.',
+    a: '2 years for most Master’s programs.',
   },
 ]
 
@@ -59,13 +59,17 @@ export default function FAQSection() {
           {faqs.map((f, i) => {
             const isOpen = open === i
             return (
-              <Reveal key={f.q} delay={i * 0.03} className="rounded-2xl bg-white border border-primary/8 overflow-hidden">
+              <Reveal
+                key={f.q}
+                delay={i * 0.03}
+                className={`rounded-2xl bg-white border overflow-hidden transition-colors duration-300 ${isOpen ? 'border-accent/30' : 'border-primary/8'}`}
+              >
                 <button
                   onClick={() => setOpen(isOpen ? -1 : i)}
-                  className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left"
+                  className="w-full flex items-start justify-between gap-4 px-6 py-5 text-left"
                 >
-                  <span className="font-medium text-primary">{f.q}</span>
-                  <span className="shrink-0 text-accent">
+                  <span className="font-medium text-primary leading-relaxed">{f.q}</span>
+                  <span className="shrink-0 grid place-items-center w-7 h-7 rounded-full bg-accent/10 text-accent mt-0.5">
                     <PlusMinus open={isOpen} />
                   </span>
                 </button>
@@ -78,7 +82,7 @@ export default function FAQSection() {
                       transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
                       className="overflow-hidden"
                     >
-                      <p className="px-6 pb-5 text-sm text-slate leading-relaxed">{f.a}</p>
+                      <p className="px-6 pb-5 pr-14 text-sm text-slate leading-relaxed">{f.a}</p>
                     </motion.div>
                   )}
                 </AnimatePresence>

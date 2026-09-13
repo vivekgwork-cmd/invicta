@@ -14,8 +14,8 @@ const extras = [
   'Martin Trust Center for MIT Entrepreneurship framework built into how you learn.',
   'Ultra-modern AC hostels exclusively for Indian students, with Indian food.',
   'Legally work up to 20 hours per week while studying.',
-  'Cost of living in Tbilisi: approximately $300 to $400 per month.',
-  'Hostel starts at about $190 per month, Indian food included.',
+  'Cost of living in Tbilisi: approximately $200 to $300 per month.',
+  'Hostel starts at about $215 per month, Indian food available.',
 ]
 
 export default function USPSection() {
@@ -37,8 +37,8 @@ export default function USPSection() {
         <Stagger className="mt-12 grid sm:grid-cols-2 lg:grid-cols-5 gap-3" stagger={0.08}>
           {core.map((c) => (
             <StaggerItem key={c.label}>
-              <div className="h-full flex items-center gap-3 rounded-xl bg-white/[0.05] border border-white/10 px-4 py-3.5">
-                <span className="grid place-items-center w-9 h-9 rounded-lg bg-accent-soft/15 text-accent-soft shrink-0">
+              <div className="group h-full flex items-center gap-3 rounded-xl bg-white/[0.05] border border-white/10 px-4 py-3.5 transition-all duration-300 hover:-translate-y-1 hover:bg-white/[0.09] hover:border-accent-soft/40 hover:shadow-[0_12px_28px_-12px_rgba(255,140,94,0.35)]">
+                <span className="grid place-items-center w-9 h-9 rounded-lg bg-accent-soft/15 text-accent-soft shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:bg-accent-soft/25">
                   <ProofIcon name={c.icon} />
                 </span>
                 <span className="min-w-0">
@@ -69,7 +69,7 @@ export default function USPSection() {
         <Stagger className="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-5" stagger={0.09} amount={0.15}>
           {extras.map((e) => (
             <StaggerItem key={e} direction="up">
-              <div className="h-full rounded-2xl bg-white/[0.04] border border-white/10 p-6 hover:bg-white/[0.07] hover:border-white/20 transition-colors">
+              <div className="h-full rounded-2xl bg-white/[0.04] border border-white/10 p-6 transition-all duration-300 hover:-translate-y-1 hover:bg-white/[0.08] hover:border-accent-soft/30 hover:shadow-[0_16px_32px_-16px_rgba(0,0,0,0.5)]">
                 <p className="text-secondary/75 text-sm leading-relaxed">{e}</p>
               </div>
             </StaggerItem>

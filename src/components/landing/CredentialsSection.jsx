@@ -5,7 +5,7 @@ import { PlayPill } from '../shared/Glyphs.jsx'
 
 const stats = [
   { to: 84, suffix: '%', label: 'Graduates employed within 4 months', source: 'SEU Career Office' },
-  { to: 3, prefix: '#', label: "Among Europe's top business schools in Georgia", source: 'Regional Ranking, 2024' },
+  { to: 3, prefix: '#', label: "Among Europe's top business schools in Georgia", source: "World's Safest Country Ranking" },
   { to: 1, prefix: '#', label: 'MIT-partnered Master’s program', source: 'QS World Rankings 2024' },
 ]
 
@@ -15,7 +15,7 @@ export default function CredentialsSection() {
   const [playing, setPlaying] = useState(false)
 
   return (
-    <section className="relative z-10 rounded-t-[2rem] sm:rounded-t-[2.5rem] shadow-[0_-24px_48px_-24px_rgba(11,18,32,0.35)] py-20 bg-secondary border-t border-primary/8 overflow-hidden">
+    <section className="relative z-10 rounded-t-[2rem] sm:rounded-t-[2.5rem] shadow-[0_-24px_48px_-24px_rgba(11,18,32,0.35)] py-20 bg-gradient-to-br from-[#fdf3e2] via-[#faeed9] to-[#f7e6cb] border-t border-primary/8 overflow-hidden">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="grid lg:grid-cols-[1fr_0.85fr] gap-14 items-center">
           <div>
@@ -39,7 +39,7 @@ export default function CredentialsSection() {
             <Stagger className="mt-8 grid sm:grid-cols-3 gap-5">
               {stats.map((s) => (
                 <StaggerItem key={s.label} direction="up">
-                  <div className="h-full rounded-2xl bg-white border border-primary/10 p-6 transition-transform hover:-translate-y-0.5">
+                  <div className="h-full rounded-2xl bg-white border border-primary/10 p-6 shadow-[10px_12px_0_-2px_rgba(24,54,80,0.06),16px_20px_32px_-14px_rgba(24,54,80,0.28)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[10px_12px_0_-2px_rgba(24,54,80,0.08),20px_26px_36px_-12px_rgba(24,54,80,0.32)]">
                     <div className="font-display text-4xl text-accent">
                       <CountUp to={s.to} prefix={s.prefix} suffix={s.suffix} />
                     </div>

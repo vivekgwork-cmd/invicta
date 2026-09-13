@@ -63,7 +63,7 @@ export default function OutcomesSection() {
               From Tbilisi To The World's <span className="text-gold-deep">Best Companies</span>
             </h2>
             <p className="mt-4 text-slate leading-relaxed max-w-xl">
-              This is where the pathway leads. Graduates of the SEU Consortium build careers in
+              This is where the pathway leads. Graduates of the SEU Georgian National University build careers in
               banking, technology, consulting, fintech, and global business across Europe, the
               Gulf, India, and beyond.
             </p>
@@ -82,7 +82,7 @@ export default function OutcomesSection() {
         </Reveal>
 
         <p className="mt-10 text-xs text-slate/70">
-          Representative employers of SEU Consortium alumni. Logos and company names belong to
+          Representative employers of SEU Georgian National University alumni. Logos and company names belong to
           their respective owners and do not imply endorsement. Salary and placement figures are
           SEU-reported illustrative ranges, not a personal guarantee.
         </p>

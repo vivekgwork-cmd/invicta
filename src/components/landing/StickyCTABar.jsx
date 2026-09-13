@@ -1,17 +1,15 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { Logo } from '../shared/Glyphs.jsx'
 
 export default function StickyCTABar() {
-  const [visible, setVisible] = useState(false)
+  const [visible, setVisible] = useState(true)
 
   useEffect(() => {
     const onScroll = () => {
       const applySection = document.getElementById('apply')
-      // Visible from the very first scroll, not after the full hero has passed.
-      const pastFirstScroll = window.scrollY > 80
+      // Visible at all times, only hiding once the user reaches the final application section.
       const beforeApply = applySection ? window.scrollY + window.innerHeight < applySection.offsetTop : true
-      setVisible(pastFirstScroll && beforeApply)
+      setVisible(beforeApply)
     }
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
@@ -33,9 +31,13 @@ export default function StickyCTABar() {
           transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
           className="fixed bottom-0 inset-x-0 z-40 bg-primary border-t border-accent-soft/20"
         >
-          <div className="mx-auto max-w-7xl px-5 sm:px-8 py-3 flex items-center justify-between gap-4">
-            <div className="flex items-center gap-4 min-w-0">
-              <Logo className="hidden sm:inline text-secondary text-lg shrink-0" />
+          <div className="mx-auto max-w-7xl px-4 sm:px-8 py-2.5 sm:py-3 flex items-center justify-between gap-3 sm:gap-4">
+            <div className="flex items-center gap-3 sm:gap-4 min-w-0">
+              <img
+                src={`${import.meta.env.BASE_URL}images/logo-invitica.png`}
+                alt="Invicta"
+                className="hidden sm:inline-block h-6 w-auto shrink-0"
+              />
               <div className="text-secondary text-xs sm:text-sm leading-tight truncate">
                 <span className="hidden sm:inline">Next intake </span>
                 <strong className="text-accent-soft">Oct 2026</strong>
@@ -45,7 +47,7 @@ export default function StickyCTABar() {
             </div>
             <button
               onClick={scrollToBrochure}
-              className="shrink-0 rounded-md bg-accent px-5 py-2.5 text-xs sm:text-sm font-semibold text-white hover:bg-accent-light transition-colors"
+              className="shrink-0 rounded-md bg-accent px-4 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm font-semibold text-white hover:bg-accent-light transition-colors whitespace-nowrap"
             >
               Download Brochure
             </button>

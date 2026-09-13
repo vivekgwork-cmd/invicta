@@ -26,7 +26,7 @@ const VIEW_H = 262
 export const tiers = [
   {
     n: '01',
-    title: 'SEU Degree',
+    title: 'SEU Georgian University',
     copy: 'A recognised European Master’s, at a cost that often undercuts private universities in India.',
     shape: b1,
     top: '#2c4a73',
@@ -175,7 +175,7 @@ function ScrollPyramid({ active, onPick }) {
             onClick={() => onPick(i)}
             onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onPick(i) } }}
             initial={false}
-            animate={{ opacity: shown(i) ? 1 : 0.16 }}
+            animate={{ opacity: shown(i) ? 1 : 0.5 }}
             whileHover={{ scale: 1.045 }}
             whileTap={{ scale: 0.98 }}
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
@@ -228,7 +228,7 @@ export default function PathwayPyramid() {
   return (
     <div>
       {/* sm and up: sticky scroll-driven build sequence, box stays put while the left intro card is sticky beside it */}
-      <div ref={trackRef} className="hidden sm:block h-[220vh]">
+      <div ref={trackRef} className="hidden sm:block h-[150vh]">
         <div className="sticky top-28">
           <div className="rounded-3xl border border-primary/10 bg-white p-8 sm:p-10 shadow-sm">
             <div className="flex items-center justify-center gap-8">

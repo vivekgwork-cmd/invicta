@@ -23,7 +23,7 @@ export default function FinalCTASection() {
             and get a clear roadmap to Georgian National University SEU.
           </p>
           <div className="mt-6 border-l-2 border-accent-soft/50 pl-4 text-sm text-secondary/70">
-            No visa? No problem. Scores low? We'll help you level up.
+            We will help you with the visa problem.
           </div>
         </Reveal>
 
@@ -41,20 +41,16 @@ export default function FinalCTASection() {
               }}
               className="grid gap-4"
             >
+              <h3 className="font-display text-lg text-secondary">Unlock Your $12,800 Program Scholarship</h3>
               <input required placeholder="Name" className="lp-input" />
               <input required type="tel" placeholder="Phone Number" className="lp-input" />
               <input required type="email" placeholder="Email" className="lp-input" />
               <input placeholder="City" className="lp-input" />
-              <div className="grid sm:grid-cols-2 gap-3 mt-1">
-                <motion.button whileTap={{ scale: 0.97 }} type="submit" className="group inline-flex items-center justify-center gap-2 rounded-md bg-accent py-3.5 font-semibold text-white hover:bg-accent-light transition-colors">
-                  Apply Now <Arrow />
-                </motion.button>
-                <motion.button whileTap={{ scale: 0.97 }} type="submit" className="inline-flex items-center justify-center gap-2 rounded-md bg-white/10 py-3.5 font-semibold text-secondary border border-white/15 hover:bg-white/15 transition-colors">
-                  Check Eligibility
-                </motion.button>
-              </div>
+              <motion.button whileTap={{ scale: 0.97 }} type="submit" className="group mt-1 inline-flex items-center justify-center gap-2 rounded-md bg-accent py-3.5 font-semibold text-white hover:bg-accent-light transition-colors">
+                Get Your Fee Breakdown <Arrow />
+              </motion.button>
               <p className="text-[13px] text-secondary/40 text-center mt-1">
-                Free counselling conversation. No obligation to enroll on the first call.
+                Get a free consultation and check your scholarship eligibility now.
               </p>
             </form>
           )}
