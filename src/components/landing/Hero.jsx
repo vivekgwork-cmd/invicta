@@ -110,7 +110,7 @@ function EligibilityForm() {
           e.preventDefault()
           setStep('otp')
         }}
-        className="mt-5 grid gap-3"
+        className="mt-3 grid gap-2"
       >
         <input required placeholder="Name" className="lp-hero-input" />
         <input required type="tel" placeholder="Phone Number" className="lp-hero-input" />
@@ -132,7 +132,7 @@ function EligibilityForm() {
             <option key={s} value={s}>{s}</option>
           ))}
         </select>
-        <button type="submit" className="group mt-1 inline-flex items-center justify-center gap-2 rounded-md bg-accent py-3.5 font-semibold text-white hover:bg-accent-light transition-colors">
+        <button type="submit" className="group mt-1 inline-flex items-center justify-center gap-2 rounded-md bg-accent py-2.5 font-semibold text-white hover:bg-accent-light transition-colors">
           Get My Fee Breakdown <Arrow />
         </button>
       </form>
@@ -144,7 +144,7 @@ export default function Hero({ variant = 'original' }) {
   const { image, alt, overlayRgb, objectPosition = 'center', filter = 'none' } = HERO_VARIANTS[variant] ?? HERO_VARIANTS.original
 
   return (
-    <section className="relative overflow-hidden bg-primary pt-14 sm:pt-16 min-h-screen flex flex-col justify-center">
+    <section className="relative overflow-hidden bg-primary pt-14 sm:pt-16 min-h-[95vh] flex flex-col justify-center">
       <motion.div
         className="absolute inset-0"
         initial={{ scale: 1.12, opacity: 0 }}
@@ -163,13 +163,13 @@ export default function Hero({ variant = 'original' }) {
         <div className="absolute inset-0" style={{ background: 'radial-gradient(60% 50% at 85% 100%, rgba(255,104,53,0.16), transparent)' }} />
       </motion.div>
 
-      <div className="relative mx-auto max-w-7xl px-5 sm:px-8 w-full grid lg:grid-cols-[1.05fr_0.85fr] gap-10 items-center pb-8 pt-6">
+      <div className="relative mx-auto max-w-7xl px-5 sm:px-8 w-full grid lg:grid-cols-[1.05fr_0.85fr] gap-8 items-center pb-4 pt-4">
         <div>
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-xs font-semibold tracking-[0.14em] text-gold-soft uppercase mb-7"
+            className="text-xs font-semibold tracking-[0.14em] text-gold-soft uppercase mb-4"
           >
             In Collaboration With MIT, USA
           </motion.div>
@@ -178,11 +178,11 @@ export default function Hero({ variant = 'original' }) {
             initial={{ opacity: 0, y: 26 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="font-display max-w-4xl text-4xl sm:text-5xl lg:text-[4rem] leading-[1.08] text-secondary text-balance"
+            className="font-display max-w-4xl text-3xl sm:text-4xl lg:text-5xl leading-[1.08] text-secondary text-balance"
           >
             Study Masters in Georgia
             <br />
-            <span className="text-3xl sm:text-4xl lg:text-5xl">
+            <span className="text-2xl sm:text-3xl lg:text-4xl">
               With the <span className="text-gold-soft">MIT</span> Advantage
             </span>
           </motion.h1>
@@ -191,7 +191,7 @@ export default function Hero({ variant = 'original' }) {
             initial={{ opacity: 0, y: 26 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
-            className="mt-6 max-w-xl text-lg text-secondary/70 leading-relaxed"
+            className="mt-4 max-w-xl text-base sm:text-lg text-secondary/70 leading-relaxed"
           >
             Earn your Master's at Georgian National University SEU with an MIT-mapped
             curriculum, MIT-trained faculty, and a 3-week immersion at MIT Boston.
@@ -201,9 +201,9 @@ export default function Hero({ variant = 'original' }) {
             initial={{ opacity: 0, y: 26 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.4 }}
-            className="mt-9 flex flex-wrap items-center gap-4"
+            className="mt-6 flex flex-wrap items-center gap-4"
           >
-            <a href="#hero-form" className="group inline-flex items-center gap-2 rounded-md bg-accent px-7 py-3.5 font-semibold text-white hover:bg-accent-light transition-colors">
+            <a href="#hero-form" className="group inline-flex items-center gap-2 rounded-md bg-accent px-7 py-3 font-semibold text-white hover:bg-accent-light transition-colors">
               Get Your Fee Breakdown
               <Arrow />
             </a>
@@ -213,7 +213,7 @@ export default function Hero({ variant = 'original' }) {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.5 }}
-            className="mt-10 inline-flex flex-wrap items-center gap-5 rounded-2xl border border-gold-soft/25 bg-white/5 px-5 py-4"
+            className="mt-6 inline-flex flex-wrap items-center gap-5 rounded-2xl border border-gold-soft/25 bg-white/5 px-5 py-3"
           >
             <div className="text-xs text-secondary/60 leading-tight max-w-[7rem]">
               Oct 2026 intake closes in
@@ -227,7 +227,7 @@ export default function Hero({ variant = 'original' }) {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.5 }}
-          className="rounded-2xl bg-white text-primary p-6 sm:p-7 shadow-2xl shadow-black/30 scroll-mt-28"
+          className="rounded-2xl bg-white text-primary p-5 sm:p-6 shadow-2xl shadow-black/30 scroll-mt-28"
         >
           <EligibilityForm />
         </motion.div>
@@ -238,11 +238,11 @@ export default function Hero({ variant = 'original' }) {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, delay: 0.6 }}
-        className="relative z-10 mx-auto max-w-7xl px-5 sm:px-8 pb-10 sm:pb-14"
+        className="relative z-10 mx-auto max-w-7xl px-5 sm:px-8 pb-6 sm:pb-8"
       >
-        <div className="rounded-2xl bg-white shadow-xl shadow-black/25 p-4 sm:p-5 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
+        <div className="rounded-2xl bg-white shadow-xl shadow-black/25 p-3 sm:p-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
           {proof.map((p) => (
-            <div key={p.label} className="rounded-xl border border-primary/8 px-4 py-4 text-center sm:text-left">
+            <div key={p.label} className="rounded-xl border border-primary/8 px-4 py-3 text-center sm:text-left">
               <ProofIcon name={p.icon} className="text-accent hidden sm:inline-block mb-1.5" />
               <div className="font-display text-accent lp-proof-value">{p.value}</div>
               <div className="text-xs text-slate mt-1 leading-tight">{p.label}</div>
@@ -256,7 +256,7 @@ export default function Hero({ variant = 'original' }) {
           background: #f8f9fa;
           border: 1px solid rgba(22,35,59,0.12);
           border-radius: 0.375rem;
-          padding: 0.8rem 1rem;
+          padding: 0.6rem 1rem;
           color: #16233b;
           font-size: 0.9rem;
           outline: none;
