@@ -24,12 +24,15 @@ export default function VisaSection() {
         <div className="relative max-w-2xl">
           <div
             aria-hidden="true"
-            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none select-none opacity-20 z-0"
+            className="absolute -inset-20 sm:-inset-28 pointer-events-none select-none overflow-hidden z-0 flex items-center justify-center"
           >
-            <img
-              src={`${import.meta.env.BASE_URL}images/invicta-bird.png`}
-              alt=""
-              className="lp-visa-bird w-[420px] sm:w-[520px] lg:w-[620px] h-auto"
+            <video
+              src={`${import.meta.env.BASE_URL}images/visa-bird-flying.mp4`}
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full object-contain opacity-30 mix-blend-multiply"
             />
           </div>
 
@@ -83,18 +86,6 @@ export default function VisaSection() {
         </div>
       </div>
 
-      <style>{`
-        @keyframes lp-visa-bird-float {
-          0%, 100% { transform: translateY(0) rotate(-4deg); }
-          50% { transform: translateY(-24px) rotate(2deg); }
-        }
-        .lp-visa-bird {
-          animation: lp-visa-bird-float 8s ease-in-out infinite;
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .lp-visa-bird { animation: none; }
-        }
-      `}</style>
     </section>
   )
 }
