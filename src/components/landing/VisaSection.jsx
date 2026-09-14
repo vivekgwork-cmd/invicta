@@ -27,7 +27,7 @@ export default function VisaSection() {
             className="absolute -inset-20 sm:-inset-28 pointer-events-none select-none overflow-hidden z-0 flex items-center justify-center"
           >
             <video
-              src={`${import.meta.env.BASE_URL}images/visa-bird-flying.mp4`}
+              src={`${import.meta.env.BASE_URL}images/visa-bird-flying-2.mp4`}
               autoPlay
               loop
               muted
