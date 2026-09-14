@@ -24,17 +24,17 @@ const INTAKE_DEADLINE = '2026-10-01T00:00:00'
 
 const HERO_VARIANTS = {
   original: {
-    image: 'Tbilisi.jpg',
+    image: 'hero-section-1.jpg',
     alt: 'Tbilisi, Georgia skyline at dusk',
     overlayRgb: '11,18,32', // #0b1220
   },
   charcoal: {
-    image: 'MIT.jpg',
+    image: 'hero-section-2.jpg',
     alt: 'MIT Great Dome at dusk',
     overlayRgb: '16,15,16', // #100f10
   },
   emerald: {
-    image: 'SEU.jpg',
+    image: 'hero-section-3.jpg',
     alt: 'Georgian National University SEU campus, Tbilisi',
     overlayRgb: '8,18,13', // #08120d
     objectPosition: 'center 15%',

@@ -90,7 +90,7 @@ function TestimonialLane({ items, duration, onActivityChange }) {
   }
 
   return (
-    <div className="lp-lane-mask relative h-[420px] sm:h-[520px] lg:h-[600px] overflow-hidden">
+    <div className="lp-lane-mask relative h-[500px] sm:h-[620px] lg:h-[720px] overflow-hidden">
       <div
         className="lp-lane-track flex flex-col gap-5"
         style={{ animationDuration: `${duration}s`, animationPlayState: paused ? 'paused' : 'running' }}
