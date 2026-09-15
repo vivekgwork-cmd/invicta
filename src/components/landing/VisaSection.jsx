@@ -39,7 +39,7 @@ export default function VisaSection() {
           <Reveal className="relative z-10">
             <span className="text-sm font-semibold text-accent uppercase tracking-wide">Visa, Simplified</span>
             <h2 className="font-display text-3xl sm:text-4xl mt-3 text-primary text-balance">
-              No Visa? <span className="text-gold-deep">No Problem.</span>
+              Visa, <span className="text-gold-deep">Fully Handled.</span>
             </h2>
             <p className="mt-4 text-slate leading-relaxed">
               Our team manages the entire documentation and visa process with you, end to end —

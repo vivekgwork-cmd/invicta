@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { motion } from 'framer-motion'
 import Reveal from '../shared/Reveal.jsx'
 import { PlayPill } from '../shared/Glyphs.jsx'
 
@@ -120,9 +121,13 @@ export default function TestimonialsSection() {
     <section className="relative py-24 bg-secondary overflow-hidden">
       {/* Oversized background wordmark, drifting in a slow horizontal loop — in the spirit of
           the coachsportifecublens.com testimonial wall. Freezes the moment a video plays. */}
-      <div
+      <motion.div
         aria-hidden="true"
         className="absolute inset-x-0 top-8 sm:top-2 overflow-hidden pointer-events-none select-none"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
       >
         <div
           className="lp-marquee flex whitespace-nowrap font-display font-semibold text-primary/[0.05] leading-none"
@@ -131,7 +136,7 @@ export default function TestimonialsSection() {
           <span className="pr-16">Real Results</span>
           <span className="pr-16">Real Results</span>
         </div>
-      </div>
+      </motion.div>
 
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
         <Reveal className="max-w-2xl">

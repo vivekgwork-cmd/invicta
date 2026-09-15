@@ -8,8 +8,7 @@ export default function LPFooter() {
           className="h-7 w-auto shrink-0"
         />
         <p className="text-center sm:text-right">
-          © {new Date().getFullYear()} Invicta Global Education. Programs shown in collaboration
-          with a fictional "SEU x MIT" partnership, created for demo purposes only.
+          © {new Date().getFullYear()} Invicta Global Education. All rights reserved.
         </p>
       </div>
     </footer>

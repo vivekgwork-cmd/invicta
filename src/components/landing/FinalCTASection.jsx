@@ -22,9 +22,6 @@ export default function FinalCTASection() {
             Talk to our admissions team to check your eligibility, understand your scholarship,
             and get a clear roadmap to Georgian National University SEU.
           </p>
-          <div className="mt-6 border-l-2 border-accent-soft/50 pl-4 text-sm text-secondary/70">
-            We will help you with the visa problem.
-          </div>
         </Reveal>
 
         <Reveal direction="right" delay={0.1} className="rounded-lg bg-primary-soft border border-white/10 p-6 sm:p-8">

@@ -29,10 +29,6 @@ const faqs = [
     a: 'No. Admission is merit and interview based.',
   },
   {
-    q: 'What if visa feels difficult?',
-    a: 'No visa? No problem. Our team manages the entire documentation and visa process with you, end to end.',
-  },
-  {
     q: 'What is the next intake?',
     a: 'October 2026.',
   },

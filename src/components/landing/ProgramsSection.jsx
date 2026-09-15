@@ -25,7 +25,7 @@ const programs = [
     desc: 'Turn raw data into decisions, on a recognised European academic foundation.',
   },
   {
-    code: 'FINTECH',
+    code: 'MS-FINTECH',
     title: 'MS Financial Technology (FinTech)',
     image: 'fintech.jpg',
     desc: 'Where finance meets technology — payments, blockchain, and fintech strategy.',
@@ -110,7 +110,7 @@ export default function ProgramsSection() {
 
         {/* Fee Structure — a full-width bar under the grid, not a squeezed sidebar */}
         <Reveal delay={0.15} className="mt-6 rounded-3xl bg-primary text-secondary p-7 sm:p-8">
-          <div className="flex flex-wrap items-center gap-x-10 gap-y-6 justify-between">
+          <div className="flex flex-wrap items-center gap-x-8 gap-y-6">
             <div className="max-w-xs">
               <h3 className="font-display text-xl">Fee Structure</h3>
               <p className="text-xs text-secondary/50 mt-1.5 leading-relaxed">
@@ -134,13 +134,13 @@ export default function ProgramsSection() {
                 <div className="font-display text-xl mt-1 text-gold-soft">$12,800</div>
               </div>
               <span className="text-secondary/30 text-lg">=</span>
-              <div className="text-center rounded-xl bg-accent/15 border border-accent/30 px-5 py-2.5">
-                <div className="text-[11px] uppercase tracking-wide text-accent-soft">Final Fee (USD)</div>
-                <div className="font-display text-2xl mt-1 text-white">$14,900</div>
+              <div className="text-center rounded-xl bg-gold-soft px-5 py-2.5 shadow-lg shadow-black/20">
+                <div className="text-[11px] uppercase tracking-wide text-primary/70">Final Fee (USD)</div>
+                <div className="font-display text-2xl mt-1 text-primary">$14,900</div>
               </div>
             </div>
 
-            <a href="#hero-form" className="group inline-flex items-center justify-center gap-2 rounded-md bg-accent-soft px-6 py-3.5 font-semibold text-primary hover:bg-accent transition-colors whitespace-nowrap">
+            <a href="#hero-form" className="group inline-flex items-center justify-center gap-2 rounded-md bg-accent-soft px-6 py-3.5 font-semibold text-primary hover:bg-accent transition-colors whitespace-nowrap ml-auto">
               Get Your Personalized Fee Breakdown
               <Arrow />
             </a>

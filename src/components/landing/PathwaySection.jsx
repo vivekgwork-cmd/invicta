@@ -13,7 +13,6 @@ export default function PathwaySection() {
           <p className="mt-5 text-slate leading-relaxed max-w-xl mx-auto">
             Most students chase another ordinary Master's. Here is a smarter path: three
             steps that take you from a recognised European degree to a real global career.
-            Scroll on, or tap a block, and watch how they stack up.
           </p>
         </Reveal>
 

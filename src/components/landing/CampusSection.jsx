@@ -49,7 +49,9 @@ export default function CampusSection() {
 
                 <div className="absolute left-4 right-4 bottom-4 flex items-center justify-between transition-transform duration-500 translate-y-1 group-hover:translate-y-0">
                   <span className="font-display text-white text-sm tracking-wide">{p.label}</span>
-                  <span className="h-px flex-1 mx-3 bg-gold-soft/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  {i !== 1 && (
+                    <span className="h-px flex-1 mx-3 bg-gold-soft/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  )}
                   <span className="text-[11px] font-semibold text-gold-soft/80 uppercase tracking-wide">{String(i + 1).padStart(2, '0')}</span>
                 </div>
               </Reveal>

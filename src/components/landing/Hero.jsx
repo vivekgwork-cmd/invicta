@@ -133,7 +133,7 @@ function EligibilityForm() {
           ))}
         </select>
         <button type="submit" className="group mt-1 inline-flex items-center justify-center gap-2 rounded-md bg-accent py-2.5 font-semibold text-white hover:bg-accent-light transition-colors">
-          Get My Fee Breakdown <Arrow />
+          Check Your Eligibility <Arrow />
         </button>
       </form>
     </>
@@ -183,7 +183,7 @@ export default function Hero({ variant = 'original' }) {
             Study Masters in Georgia
             <br />
             <span className="text-2xl sm:text-3xl lg:text-4xl">
-              With the <span className="text-gold-soft">MIT</span> Advantage
+              With the <span className="text-gold-soft">MIT Advantage</span>
             </span>
           </motion.h1>
 
@@ -264,7 +264,8 @@ export default function Hero({ variant = 'original' }) {
         }
         .lp-hero-input::placeholder { color: rgba(22,35,59,0.4); }
         .lp-hero-input:focus { border-color: #ff6b35; }
-        .lp-hero-select { color: rgba(22,35,59,0.4); }
+        .lp-hero-select { color: #16233b; }
+        .lp-hero-select option { color: #16233b; }
         .lp-proof-value { font-size: 1.4rem; }
       `}</style>
     </section>

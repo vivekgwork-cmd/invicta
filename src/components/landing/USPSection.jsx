@@ -1,5 +1,5 @@
 import Reveal, { Stagger, StaggerItem } from '../shared/Reveal.jsx'
-import { ProofIcon } from '../shared/Glyphs.jsx'
+import { ProofIcon, Arrow } from '../shared/Glyphs.jsx'
 
 const core = [
   { icon: 'curriculum', label: 'Curriculum', detail: 'Designed and mapped by MIT' },
@@ -25,7 +25,7 @@ export default function USPSection() {
         <Reveal className="max-w-2xl">
           <span className="text-sm font-semibold text-accent-soft uppercase tracking-wide">Program Highlights</span>
           <h2 className="font-display text-3xl sm:text-4xl mt-3 text-secondary text-balance">
-            Here's Exactly What That <span className="text-gold-soft">Gets You</span>
+            Here's What You Will Get <span className="text-gold-soft">With The Program</span>
           </h2>
           <p className="mt-4 text-secondary/60 leading-relaxed">
             Now that you've seen the proof, here's what's actually included in the SEU x MIT
@@ -75,6 +75,13 @@ export default function USPSection() {
             </StaggerItem>
           ))}
         </Stagger>
+
+        <Reveal direction="fade" amount={0.6} className="mt-12 flex justify-center">
+          <a href="#hero-form" className="group inline-flex items-center gap-2 rounded-md bg-accent px-7 py-3 font-semibold text-white hover:bg-accent-light transition-colors">
+            Let's Start Your Journey
+            <Arrow />
+          </a>
+        </Reveal>
       </div>
     </section>
   )

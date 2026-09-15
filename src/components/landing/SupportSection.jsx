@@ -61,7 +61,7 @@ export default function SupportSection() {
     <section id="support" className="py-20 bg-secondary scroll-mt-24">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <Reveal className="max-w-2xl">
-          <span className="text-sm font-semibold text-accent uppercase tracking-wide">Your Journey, Who's With You</span>
+          <span className="text-sm font-semibold text-accent uppercase tracking-wide">End To End Support</span>
           <h2 className="font-display text-3xl sm:text-4xl mt-3 text-primary text-balance">
             We Don't Just Guide You. We Take <span className="text-gold-deep">Full Responsibility</span>.
           </h2>

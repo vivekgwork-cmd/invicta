@@ -26,7 +26,7 @@ const VIEW_H = 262
 export const tiers = [
   {
     n: '01',
-    title: 'SEU Georgian University',
+    title: 'SEU Georgian National University',
     copy: 'A recognised European Master’s, at a cost that often undercuts private universities in India.',
     shape: b1,
     top: '#2c4a73',
