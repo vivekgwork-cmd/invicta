@@ -117,7 +117,7 @@ export default function ProcessSection() {
 
         <div className="mt-10 text-center">
           <a href="#apply" className="group inline-flex items-center gap-2 rounded-md bg-accent px-7 py-3.5 font-semibold text-white hover:bg-accent-light transition-colors">
-            Start My Application <Arrow />
+            Let's Start Your Journey <Arrow />
           </a>
         </div>
       </div>

@@ -39,13 +39,21 @@ const programs = [
 ]
 
 export default function ProgramsSection() {
-  const [active, setActive] = useState(0)
+  const [active, setActive] = useState(null)
 
   return (
     <section id="programs" className="relative py-20 scroll-mt-24 border-t border-gold-soft/25 overflow-hidden">
-      {/* One shared full-bleed photo behind the whole section — crossfades to match
-          whichever program card is hovered, per the innerflow.es studio-areas pattern. */}
+      {/* One shared full-bleed photo behind the whole section — defaults to the MIT campus
+          shot, crossfading to match whichever program card is hovered, per the
+          innerflow.es studio-areas pattern. */}
       <div className="absolute inset-0" aria-hidden="true">
+        <img
+          src={`${import.meta.env.BASE_URL}images/MIT.jpg`}
+          alt=""
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-out ${
+            active === null ? 'opacity-100' : 'opacity-0'
+          }`}
+        />
         {programs.map((p, i) => (
           <img
             key={p.code}
@@ -73,7 +81,7 @@ export default function ProgramsSection() {
 
         {/* Cards are a plain overlay on top of the shared photo — hovering one swaps the
             background image above, it doesn't carry its own. */}
-        <div onMouseLeave={() => setActive(0)}>
+        <div onMouseLeave={() => setActive(null)}>
           <Stagger className="mt-12 flex flex-wrap justify-center gap-5" stagger={0.08}>
             {programs.map((p, i) => (
               <StaggerItem key={p.code} className="w-full sm:w-[calc(50%-10px)] lg:w-[calc(33.333%-14px)]">

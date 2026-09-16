@@ -233,7 +233,10 @@ export default function Hero({ variant = 'original' }) {
         </motion.div>
       </div>
 
-      {/* Proof strip — merged into the banner as an overlapping card, not a separate section */}
+      {/* Proof strip — merged into the banner as an overlapping card, not a separate section.
+          Lives in normal flow (Hero itself is not sticky) so on any viewport where the hero
+          content runs taller than the screen, this is still just an ordinary scroll away
+          instead of being frozen off-screen and covered by the next section. */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -264,7 +267,8 @@ export default function Hero({ variant = 'original' }) {
         }
         .lp-hero-input::placeholder { color: rgba(22,35,59,0.4); }
         .lp-hero-input:focus { border-color: #ff6b35; }
-        .lp-hero-select { color: #16233b; }
+        .lp-hero-select { color: rgba(22,35,59,0.4); }
+        .lp-hero-select:valid { color: #16233b; }
         .lp-hero-select option { color: #16233b; }
         .lp-proof-value { font-size: 1.4rem; }
       `}</style>

@@ -20,9 +20,7 @@ export default function LandingPage({ heroVariant = 'original' }) {
     <div className="bg-secondary lp-root">
       <LPNavbar />
       <div className="relative">
-        <div className="sticky top-0 z-0">
-          <Hero variant={heroVariant} />
-        </div>
+        <Hero variant={heroVariant} />
         <div className="relative z-10">
           <CredentialsSection />
         </div>

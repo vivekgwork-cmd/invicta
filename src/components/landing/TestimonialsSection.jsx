@@ -169,6 +169,8 @@ export default function TestimonialsSection() {
         .lp-marquee {
           width: max-content;
           animation: lp-marquee 26s linear infinite;
+          will-change: transform;
+          backface-visibility: hidden;
         }
         .lp-lane-mask {
           -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 14%, black 86%, transparent 100%);
@@ -178,6 +180,8 @@ export default function TestimonialsSection() {
           animation-name: lp-lane-scroll;
           animation-timing-function: linear;
           animation-iteration-count: infinite;
+          will-change: transform;
+          backface-visibility: hidden;
         }
         @keyframes lp-lane-scroll {
           from { transform: translateY(0); }

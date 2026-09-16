@@ -78,7 +78,7 @@ export default function USPSection() {
 
         <Reveal direction="fade" amount={0.6} className="mt-12 flex justify-center">
           <a href="#hero-form" className="group inline-flex items-center gap-2 rounded-md bg-accent px-7 py-3 font-semibold text-white hover:bg-accent-light transition-colors">
-            Let's Start Your Journey
+            Start My Application
             <Arrow />
           </a>
         </Reveal>
