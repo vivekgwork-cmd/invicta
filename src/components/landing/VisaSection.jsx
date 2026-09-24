@@ -1,5 +1,6 @@
 import Reveal, { Stagger, StaggerItem } from '../shared/Reveal.jsx'
 import { Check } from '../shared/Glyphs.jsx'
+import { motion } from 'framer-motion'
 
 const timeline = [
   { step: '01', title: 'Documentation', desc: 'Apostille and Georgian Ministry processing.', time: '30 to 60 days' },
@@ -20,21 +21,22 @@ const handled = [
 export default function VisaSection() {
   return (
     <section id="visa" className="relative py-20 bg-secondary scroll-mt-24 border-t border-primary/8 overflow-hidden">
+      <motion.div
+        aria-hidden="true"
+        className="absolute inset-x-0 top-8 sm:top-2 overflow-hidden pointer-events-none select-none"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
+      >
+        <div className="lp-visa-marquee flex whitespace-nowrap font-display font-semibold text-primary/[0.05] leading-none">
+          <span className="pr-16">Visa, Fully Handled</span>
+          <span className="pr-16">Visa, Fully Handled</span>
+        </div>
+      </motion.div>
+
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
         <div className="relative max-w-2xl">
-          <div
-            aria-hidden="true"
-            className="absolute -inset-20 sm:-inset-28 pointer-events-none select-none overflow-hidden z-0 flex items-center justify-center"
-          >
-            <video
-              src={`${import.meta.env.BASE_URL}images/visa-bird-flying-2.mp4`}
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="w-full h-full object-contain opacity-30 mix-blend-multiply"
-            />
-          </div>
 
           <Reveal className="relative z-10">
             <span className="text-sm font-semibold text-accent uppercase tracking-wide">Visa, Simplified</span>
@@ -85,6 +87,23 @@ export default function VisaSection() {
           </Reveal>
         </div>
       </div>
+
+      <style>{`
+        @keyframes lp-visa-marquee {
+          from { transform: translateX(0); }
+          to { transform: translateX(-50%); }
+        }
+        .lp-visa-marquee {
+          width: max-content;
+          font-size: clamp(5rem, 16vw, 13rem);
+          animation: lp-visa-marquee 26s linear infinite;
+          will-change: transform;
+          backface-visibility: hidden;
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .lp-visa-marquee { animation: none; }
+        }
+      `}</style>
 
     </section>
   )

@@ -144,7 +144,7 @@ export default function Hero({ variant = 'original' }) {
   const { image, alt, overlayRgb, objectPosition = 'center', filter = 'none' } = HERO_VARIANTS[variant] ?? HERO_VARIANTS.original
 
   return (
-    <section className="relative overflow-hidden bg-primary pt-14 sm:pt-16 min-h-[95vh] flex flex-col justify-center">
+    <section className="sticky top-0 z-0 relative overflow-hidden bg-primary pt-14 sm:pt-16 min-h-[95vh] flex flex-col justify-center">
       <motion.div
         className="absolute inset-0"
         initial={{ scale: 1.12, opacity: 0 }}

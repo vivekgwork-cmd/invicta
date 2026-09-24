@@ -68,16 +68,16 @@ export default function ProgramsSection() {
       </div>
 
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
-        <Reveal className="max-w-2xl">
-          <span className="text-sm font-semibold text-accent uppercase tracking-wide">Programs &amp; Fees</span>
-          <h2 className="font-display text-3xl sm:text-4xl mt-3 text-secondary text-balance">
+        <div className="relative z-10 max-w-2xl rounded-2xl border border-white/15 bg-primary/85 p-5 shadow-xl backdrop-blur-md sm:p-6">
+          <span className="text-sm font-semibold text-accent-soft uppercase tracking-wide">Programs &amp; Fees</span>
+          <h2 className="font-display text-3xl sm:text-4xl mt-3 text-white text-balance drop-shadow-md">
             Pick Your <span className="text-gold-soft">Master's</span>
           </h2>
-          <p className="mt-4 text-secondary/70 leading-relaxed">
+          <p className="mt-4 text-white leading-relaxed drop-shadow-sm">
             Five programs run on the same SEU x MIT pathway. Here's the full course list, and exactly
             what it costs after your scholarship.
           </p>
-        </Reveal>
+        </div>
 
         {/* Cards are a plain overlay on top of the shared photo — hovering one swaps the
             background image above, it doesn't carry its own. */}
@@ -105,7 +105,7 @@ export default function ProgramsSection() {
                     <h3 className="mt-1 text-lg font-semibold text-secondary leading-snug text-balance">{p.title}</h3>
                     <p className="mt-2 text-[13px] text-secondary/75 leading-relaxed">{p.desc}</p>
                     <div className="mt-3 flex items-center gap-1.5 text-xs text-secondary/55">
-                      <span>2 Year Master's</span>
+                      <span>18 to 24 Months</span>
                       <span aria-hidden="true">·</span>
                       <span>Tbilisi campus</span>
                     </div>
@@ -117,34 +117,34 @@ export default function ProgramsSection() {
         </div>
 
         {/* Fee Structure — a full-width bar under the grid, not a squeezed sidebar */}
-        <Reveal delay={0.15} className="mt-6 rounded-3xl bg-primary text-secondary p-7 sm:p-8">
+        <Reveal delay={0.15} className="relative mt-6 rounded-3xl border border-gold-soft/60 bg-gradient-to-br from-white via-[#fffdf7] to-[#fff8e8] text-primary p-7 sm:p-8 shadow-[0_12px_32px_-20px_rgba(24,54,80,0.32)] overflow-hidden">
           <div className="flex flex-wrap items-center gap-x-8 gap-y-6">
             <div className="max-w-xs">
               <h3 className="font-display text-xl">Fee Structure</h3>
-              <p className="text-xs text-secondary/50 mt-1.5 leading-relaxed">
-                2-year Master's tracks, scholarship math. Final fee in INR may vary with the
+              <p className="text-xs text-primary/70 mt-1.5 leading-relaxed">
+                18 to 24 month Master's tracks, scholarship math. Final fee in INR may vary with the
                 exchange rate at time of payment.
               </p>
-              <p className="text-xs text-secondary/50 mt-2 leading-relaxed">
-                Living costs: approx. <strong className="text-secondary/80">$200–$300/month</strong>,
-                hostel from <strong className="text-secondary/80">$215/month</strong> (Indian food available).
+              <p className="text-xs text-primary/70 mt-2 leading-relaxed">
+                Living costs: approx. <strong className="text-primary">$200–$300/month</strong>,
+                hostel from <strong className="text-primary">$215/month</strong> (Indian food available).
               </p>
             </div>
 
             <div className="flex flex-wrap items-center gap-4 sm:gap-6">
               <div className="text-center">
-                <div className="text-[11px] uppercase tracking-wide text-secondary/50">Tuition Fee</div>
-                <div className="font-display text-xl mt-1">$27,700</div>
+                <div className="text-[11px] uppercase tracking-wide text-primary/65">Tuition Fee</div>
+                <div className="font-display text-xl mt-1 text-primary">$27,700</div>
               </div>
-              <span className="text-secondary/30 text-lg">−</span>
+              <span className="text-primary/40 text-lg">−</span>
               <div className="text-center">
-                <div className="text-[11px] uppercase tracking-wide text-secondary/50">Scholarship</div>
-                <div className="font-display text-xl mt-1 text-gold-soft">$12,800</div>
+                <div className="text-[11px] uppercase tracking-wide text-primary/65">Scholarship</div>
+                <div className="font-display text-xl mt-1 text-accent-dark">$12,800</div>
               </div>
-              <span className="text-secondary/30 text-lg">=</span>
-              <div className="text-center rounded-xl bg-gold-soft px-5 py-2.5 shadow-lg shadow-black/20">
-                <div className="text-[11px] uppercase tracking-wide text-primary/70">Final Fee (USD)</div>
-                <div className="font-display text-2xl mt-1 text-primary">$14,900</div>
+              <span className="text-primary/40 text-lg">=</span>
+              <div className="text-center rounded-xl bg-primary px-5 py-2.5 shadow-lg shadow-primary/20">
+                <div className="text-[11px] uppercase tracking-wide text-secondary/70">Final Fee (USD)</div>
+                <div className="font-display text-2xl mt-1 text-gold-soft">$14,900</div>
               </div>
             </div>
 

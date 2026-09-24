@@ -30,11 +30,11 @@ const faqs = [
   },
   {
     q: 'What is the next intake?',
-    a: 'October 2026.',
+    a: 'October 2026 and January 2027.',
   },
   {
     q: 'How long is the program?',
-    a: '2 years for most Master’s programs.',
+    a: '18 to 24 months for most Master’s programs.',
   },
 ]
 

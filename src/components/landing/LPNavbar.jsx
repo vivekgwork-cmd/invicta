@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Burger } from '../shared/Glyphs.jsx'
 import useActiveSection from '../../lib/useActiveSection.js'
@@ -15,46 +15,35 @@ const sections = [
 ]
 
 export default function LPNavbar() {
-  const [showSubNav, setShowSubNav] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const active = useActiveSection(sections.map((s) => s.id))
-
-  useEffect(() => {
-    const onScroll = () => setShowSubNav(window.scrollY > window.innerHeight * 0.72)
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
 
   const scrollTo = (id) => {
     setMobileOpen(false)
     const el = document.getElementById(id)
-    if (el) window.scrollTo({ top: el.offsetTop - 96, behavior: 'smooth' })
+    if (el) window.scrollTo({ top: el.offsetTop - 64, behavior: 'smooth' })
   }
 
   return (
     <div className="fixed top-0 inset-x-0 z-50">
-      <AnimatePresence>
-        {showSubNav && (
-          <motion.div
-            initial={{ y: -60, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: -60, opacity: 0 }}
-            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="bg-secondary border-b border-primary/10 shadow-sm"
-          >
-            <div className="mx-auto max-w-7xl px-5 sm:px-8 h-12 flex items-center justify-between gap-4">
+      <motion.div
+        initial={{ y: -60, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+        className="bg-secondary border-b border-primary/10 shadow-sm"
+      >
+            <div className="mx-auto max-w-7xl px-5 sm:px-8 h-12 flex items-center justify-between gap-3">
               <img
                 src={`${import.meta.env.BASE_URL}images/logo-invitica.png`}
                 alt="Invicta"
                 className="h-6 w-auto shrink-0"
               />
-              <nav className="hidden lg:flex items-center gap-7">
+              <nav className="hidden lg:flex items-center gap-3 xl:gap-6">
                 {sections.map((s) => (
                   <button
                     key={s.id}
                     onClick={() => scrollTo(s.id)}
-                    className={`relative text-sm font-medium whitespace-nowrap py-3 transition-colors ${
+                    className={`relative text-xs font-medium whitespace-nowrap py-3 transition-colors ${
                       active === s.id ? 'text-accent' : 'text-slate hover:text-primary'
                     }`}
                   >
@@ -74,7 +63,7 @@ export default function LPNavbar() {
                   e.preventDefault()
                   scrollTo('apply')
                 }}
-                className="hidden lg:inline-flex rounded-md bg-primary px-5 py-2 text-sm font-semibold text-secondary hover:bg-accent transition-colors"
+                className="inline-flex rounded-md bg-primary px-3 sm:px-5 py-1.5 sm:py-2 text-xs sm:text-sm font-semibold text-secondary hover:bg-accent transition-colors"
               >
                 Check Eligibility
               </a>
@@ -97,9 +86,7 @@ export default function LPNavbar() {
                 </motion.div>
               )}
             </AnimatePresence>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      </motion.div>
     </div>
   )
 }

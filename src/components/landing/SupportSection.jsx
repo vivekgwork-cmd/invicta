@@ -58,7 +58,21 @@ export default function SupportSection() {
   const activeCategory = categories[active]
 
   return (
-    <section id="support" className="py-20 bg-secondary scroll-mt-24">
+    <section id="support" className="relative py-20 bg-secondary scroll-mt-24 overflow-hidden">
+      <motion.div
+        aria-hidden="true"
+        className="absolute -top-14 left-0 h-28 w-2/3 rounded-full bg-gradient-to-r from-transparent via-accent/25 to-transparent blur-2xl pointer-events-none"
+        animate={{ x: ['-35%', '135%'], opacity: [0.25, 0.9, 0.25] }}
+        transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
+      />
+      <motion.div
+        aria-hidden="true"
+        className="absolute inset-x-0 top-0 h-1.5 origin-left bg-gradient-to-r from-accent/0 via-accent/80 to-gold-soft/0"
+        initial={{ scaleX: 0 }}
+        whileInView={{ scaleX: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+      />
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <Reveal className="max-w-2xl">
           <span className="text-sm font-semibold text-accent uppercase tracking-wide">End To End Support</span>
