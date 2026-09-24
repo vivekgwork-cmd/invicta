@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Arrow } from '../shared/Glyphs.jsx'
 import Reveal, { Stagger, StaggerItem } from '../shared/Reveal.jsx'
+import mitCollegeBuilding from '../../../assets/MIT-college-building.jpg'
 
 const programs = [
   {
@@ -48,7 +49,7 @@ export default function ProgramsSection() {
           innerflow.es studio-areas pattern. */}
       <div className="absolute inset-0" aria-hidden="true">
         <img
-          src={`${import.meta.env.BASE_URL}images/MIT.jpg`}
+          src={mitCollegeBuilding}
           alt=""
           className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-out ${
             active === null ? 'opacity-100' : 'opacity-0'
