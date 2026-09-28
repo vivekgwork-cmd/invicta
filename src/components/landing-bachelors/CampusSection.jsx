@@ -24,7 +24,7 @@ export default function CampusSection() {
     <section id="campus" className="relative py-20 bg-primary scroll-mt-24 overflow-hidden">
       <motion.div
         aria-hidden="true"
-        className="absolute inset-x-0 top-0 z-20 h-2 origin-left bg-gradient-to-r from-accent via-gold-soft to-accent shadow-[0_0_24px_rgba(253,194,4,0.7)] pointer-events-none"
+        className="absolute inset-x-0 top-0 z-20 h-2 origin-left bg-gradient-to-r from-accent via-gold-soft to-accent shadow-[0_0_24px_rgba(252,211,77,0.7)] pointer-events-none"
         initial={{ scaleX: 0 }}
         whileInView={{ scaleX: 1 }}
         viewport={{ once: true }}
@@ -69,7 +69,7 @@ export default function CampusSection() {
           />
           <motion.circle
             r="6"
-            fill="#ff8c5e"
+            fill="#fb923c"
             initial={{ cx: 0, cy: 235, opacity: 0 }}
             whileInView={{ cx: 700, cy: 165, opacity: 1 }}
             viewport={{ once: true, amount: 0.15 }}

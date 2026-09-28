@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Arrow, ProofIcon } from '../shared/Glyphs.jsx'
 import Countdown from '../shared/Countdown.jsx'
+import useStickyTop from '../../lib/useStickyTop.js'
 
 const proof = [
   { value: '18-24 Months', label: 'Program Duration', icon: 'duration' },
@@ -141,10 +142,11 @@ function EligibilityForm() {
 }
 
 export default function Hero({ variant = 'original' }) {
+  const [sectionRef, stickyTop] = useStickyTop()
   const { image, alt, overlayRgb, objectPosition = 'center', filter = 'none' } = HERO_VARIANTS[variant] ?? HERO_VARIANTS.original
 
   return (
-    <section className="sticky top-0 z-0 relative overflow-hidden bg-primary pt-14 sm:pt-16 min-h-[95vh] flex flex-col justify-center">
+    <section ref={sectionRef} style={{ top: stickyTop }} className="sticky z-0 overflow-hidden bg-primary pt-14 sm:pt-16 min-h-[95vh] flex flex-col justify-center">
       <motion.div
         className="absolute inset-0"
         initial={{ scale: 1.12, opacity: 0 }}

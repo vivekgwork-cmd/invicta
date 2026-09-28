@@ -15,7 +15,7 @@ export default function CredentialsSection() {
   const [playing, setPlaying] = useState(false)
 
   return (
-    <section className="relative z-10 rounded-t-[2rem] sm:rounded-t-[2.5rem] shadow-[0_-24px_48px_-24px_rgba(11,18,32,0.35)] py-20 bg-gradient-to-br from-[#fdf3e2] via-[#faeed9] to-[#f7e6cb] border-t border-primary/8 overflow-hidden">
+    <section className="relative z-10 rounded-t-[2rem] sm:rounded-t-[2.5rem] shadow-[0_-24px_48px_-24px_rgba(10,16,40,0.35)] py-20 bg-gradient-to-br from-[#fff7ec] via-[#fdf0e0] to-[#f9e4cc] border-t border-primary/8 overflow-hidden">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="grid lg:grid-cols-[1fr_0.85fr] gap-14 items-center">
           <div>
@@ -40,7 +40,7 @@ export default function CredentialsSection() {
             <Stagger className="mt-8 grid sm:grid-cols-3 gap-5">
               {stats.map((s) => (
                 <StaggerItem key={s.label} direction="up">
-                  <div className="h-full rounded-2xl bg-white border border-primary/10 p-6 shadow-[10px_12px_0_-2px_rgba(24,54,80,0.06),16px_20px_32px_-14px_rgba(24,54,80,0.28)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[10px_12px_0_-2px_rgba(24,54,80,0.08),20px_26px_36px_-12px_rgba(24,54,80,0.32)]">
+                  <div className="h-full rounded-2xl bg-white border border-primary/10 p-6 shadow-[10px_12px_0_-2px_rgba(26,43,94,0.06),16px_20px_32px_-14px_rgba(26,43,94,0.28)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[10px_12px_0_-2px_rgba(26,43,94,0.08),20px_26px_36px_-12px_rgba(26,43,94,0.32)]">
                     <div className="font-display text-4xl text-accent">
                       <CountUp to={s.to} from={s.from} prefix={s.prefix} suffix={s.suffix} />
                     </div>

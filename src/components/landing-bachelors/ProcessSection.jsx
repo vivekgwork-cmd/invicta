@@ -18,7 +18,7 @@ export default function ProcessSection() {
   const [hovered, setHovered] = useState(null)
 
   return (
-    <section id="process" className="py-20 bg-[#0a0e18] scroll-mt-24 border-t border-white/10">
+    <section id="process" className="py-20 bg-[#0e1638] scroll-mt-24 border-t border-white/10">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <Reveal className="max-w-2xl">
           <span className="text-sm font-semibold text-accent-soft uppercase tracking-wide">Your Journey, The Steps</span>
@@ -56,8 +56,8 @@ export default function ProcessSection() {
               onMouseLeave={() => setHovered((v) => (v === i ? null : v))}
             >
               <span
-                className={`grid place-items-center w-9 h-9 rounded-full border-2 bg-[#0a0e18] ring-8 ring-[#0a0e18] font-display text-xs transition-all duration-300 ${
-                  hovered === i ? 'border-accent-soft text-white scale-110 shadow-[0_0_0_4px_rgba(255,140,94,0.25)]' : 'border-accent text-accent-soft'
+                className={`grid place-items-center w-9 h-9 rounded-full border-2 bg-[#0e1638] ring-8 ring-[#0e1638] font-display text-xs transition-all duration-300 ${
+                  hovered === i ? 'border-accent-soft text-white scale-110 shadow-[0_0_0_4px_rgba(251,146,60,0.25)]' : 'border-accent text-accent-soft'
                 }`}
               >
                 {String(i + 1).padStart(2, '0')}

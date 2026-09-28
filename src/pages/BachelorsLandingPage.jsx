@@ -38,7 +38,7 @@ export default function BachelorsLandingPage({ heroVariant = 'original' }) {
   usePageMeta(TITLE, DESCRIPTION)
 
   return (
-    <div className="bg-secondary lp-root">
+    <div className="bg-secondary lp-root lp-theme-bachelors">
       <LPNavbar />
       <div className="relative">
         <Hero variant={heroVariant} />

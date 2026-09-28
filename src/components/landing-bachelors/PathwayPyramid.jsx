@@ -29,27 +29,27 @@ export const tiers = [
     title: 'SEU Georgian National University',
     copy: 'World-class education that often costs less than many private universities in India.',
     shape: b1,
-    top: '#2c4a73',
-    left: '#1b365d',
-    right: '#12233f',
+    top: '#34478a',
+    left: '#1a2b5e',
+    right: '#111c42',
   },
   {
     n: '02',
     title: 'MIT Academic Edge',
     copy: 'An MIT-mapped curriculum, MIT-trained faculty, and a 3-week internship opportunity at MIT Boston.',
     shape: b2,
-    top: '#ff8f5e',
-    left: '#ff6b35',
-    right: '#e0551f',
+    top: '#fb923c',
+    left: '#f97316',
+    right: '#ea580c',
   },
   {
     n: '03',
     title: 'Global Career',
     copy: 'Don’t just get a degree. Get a real global edge, right from your first year.',
     shape: b3,
-    top: '#ffd9c2',
-    left: '#ffb896',
-    right: '#ff8f5e',
+    top: '#fed7aa',
+    left: '#fdba74',
+    right: '#fb923c',
   },
 ]
 
@@ -59,7 +59,7 @@ const ordered = [...tiers].reverse() // read top (apex) to bottom (base), for th
 function StaticPyramid() {
   return (
     <svg viewBox={`0 0 320 ${VIEW_H}`} className="w-full h-auto max-w-[260px] mx-auto overflow-visible">
-      <ellipse cx={cx} cy={244} rx={128} ry={14} fill="#1b365d" opacity={0.12} />
+      <ellipse cx={cx} cy={244} rx={128} ry={14} fill="#1a2b5e" opacity={0.12} />
       {tiers.map((t, i) => (
         <motion.g
           key={t.n}
@@ -112,7 +112,7 @@ function ProgressRail({ progress, active, onPick }) {
           style={{
             top: `${(i / (tiers.length - 1)) * 100}%`,
             transform: 'translate(-50%, -50%)',
-            borderColor: active >= i ? t.left : 'rgba(27,54,93,0.15)',
+            borderColor: active >= i ? t.left : 'rgba(26,43,94,0.15)',
             backgroundColor: active >= i ? t.left : '#ffffff',
             color: active >= i ? '#f8f9fa' : '#94a3b8',
           }}
@@ -142,17 +142,17 @@ function ScrollPyramid({ active, onPick }) {
     <>
     <style>{`
       .pyramid-tier { outline: none; }
-      .pyramid-tier:focus-visible { outline: 2px solid #ff6b35; outline-offset: 6px; border-radius: 4px; }
+      .pyramid-tier:focus-visible { outline: 2px solid #f97316; outline-offset: 6px; border-radius: 4px; }
     `}</style>
     <svg viewBox={`0 0 320 ${VIEW_H}`} className="w-full h-auto max-w-[280px] mx-auto overflow-visible">
       <defs>
         <radialGradient id="pyramid-glow" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="#ff6b35" stopOpacity="0.9" />
-          <stop offset="100%" stopColor="#ff6b35" stopOpacity="0" />
+          <stop offset="0%" stopColor="#f97316" stopOpacity="0.9" />
+          <stop offset="100%" stopColor="#f97316" stopOpacity="0" />
         </radialGradient>
       </defs>
 
-      <ellipse cx={cx} cy={244} rx={128} ry={14} fill="#1b365d" opacity={0.12} />
+      <ellipse cx={cx} cy={244} rx={128} ry={14} fill="#1a2b5e" opacity={0.12} />
 
       <motion.circle
         cx={b3.labelPoint[0]} cy={b3.labelPoint[1] - 6} r={70} fill="url(#pyramid-glow)"

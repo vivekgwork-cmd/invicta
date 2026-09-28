@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Arrow, ProofIcon } from '../shared/Glyphs.jsx'
 import Countdown from '../shared/Countdown.jsx'
+import useStickyTop from '../../lib/useStickyTop.js'
 
 const proof = [
   { value: '3 Years', label: 'Program Duration', icon: 'duration' },
@@ -25,7 +26,7 @@ const HERO_VARIANTS = {
   original: {
     image: 'hero-section-1.jpg',
     alt: 'Tbilisi, Georgia skyline at dusk',
-    overlayRgb: '11,18,32', // #0b1220
+    overlayRgb: '10,16,40', // #0a1028
   },
   charcoal: {
     image: 'hero-section-2.jpg',
@@ -140,10 +141,11 @@ function EligibilityForm() {
 }
 
 export default function Hero({ variant = 'original' }) {
+  const [sectionRef, stickyTop] = useStickyTop()
   const { image, alt, overlayRgb, objectPosition = 'center', filter = 'none' } = HERO_VARIANTS[variant] ?? HERO_VARIANTS.original
 
   return (
-    <section className="sticky top-0 z-0 relative overflow-hidden bg-primary pt-14 sm:pt-16 min-h-[95vh] flex flex-col justify-center">
+    <section ref={sectionRef} style={{ top: stickyTop }} className="sticky z-0 overflow-hidden bg-primary pt-14 sm:pt-16 min-h-[95vh] flex flex-col justify-center">
       <motion.div
         className="absolute inset-0"
         initial={{ scale: 1.12, opacity: 0 }}
@@ -159,7 +161,7 @@ export default function Hero({ variant = 'original' }) {
         {/* Premium dark treatment: overlay color swaps per variant, subtle warm glow bottom-right */}
         <div className="absolute inset-0" style={{ background: `linear-gradient(to right, rgba(${overlayRgb},1) 0%, rgba(${overlayRgb},0.85) 45%, rgba(${overlayRgb},0.42) 100%)` }} />
         <div className="absolute inset-0" style={{ background: `linear-gradient(to top, rgba(${overlayRgb},1) 0%, rgba(${overlayRgb},0.25) 45%, rgba(${overlayRgb},0.55) 100%)` }} />
-        <div className="absolute inset-0" style={{ background: 'radial-gradient(60% 50% at 85% 100%, rgba(255,104,53,0.16), transparent)' }} />
+        <div className="absolute inset-0" style={{ background: 'radial-gradient(60% 50% at 85% 100%, rgba(249,115,22,0.16), transparent)' }} />
       </motion.div>
 
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8 w-full grid lg:grid-cols-[1.05fr_0.85fr] gap-8 items-center pb-4 pt-4">
@@ -271,19 +273,19 @@ export default function Hero({ variant = 'original' }) {
       <style>{`
         .lp-hero-input {
           background: #f8f9fa;
-          border: 1px solid rgba(22,35,59,0.12);
+          border: 1px solid rgba(26,43,94,0.12);
           border-radius: 0.375rem;
           padding: 0.6rem 1rem;
-          color: #16233b;
+          color: #1a2b5e;
           font-size: 0.9rem;
           outline: none;
           transition: border-color .2s;
         }
-        .lp-hero-input::placeholder { color: rgba(22,35,59,0.4); }
-        .lp-hero-input:focus { border-color: #ff6b35; }
-        .lp-hero-select { color: rgba(22,35,59,0.4); }
-        .lp-hero-select:valid { color: #16233b; }
-        .lp-hero-select option { color: #16233b; }
+        .lp-hero-input::placeholder { color: rgba(26,43,94,0.4); }
+        .lp-hero-input:focus { border-color: #f97316; }
+        .lp-hero-select { color: rgba(26,43,94,0.4); }
+        .lp-hero-select:valid { color: #1a2b5e; }
+        .lp-hero-select option { color: #1a2b5e; }
         .lp-proof-value { font-size: 1.4rem; }
       `}</style>
     </section>

@@ -86,7 +86,7 @@ export default function SupportSection() {
           </p>
         </Reveal>
 
-        <Reveal delay={0.1} className="mt-12 rounded-2xl border border-primary/10 bg-white p-6 sm:p-8 transition-shadow duration-300 hover:shadow-[0_24px_48px_-24px_rgba(24,54,80,0.28)]">
+        <Reveal delay={0.1} className="mt-12 rounded-2xl border border-primary/10 bg-white p-6 sm:p-8 transition-shadow duration-300 hover:shadow-[0_24px_48px_-24px_rgba(26,43,94,0.28)]">
           <div className="text-xs font-semibold uppercase tracking-wide text-slate/60 pb-4 mb-6 border-b border-primary/10">
             Your Support Package
           </div>
@@ -99,7 +99,7 @@ export default function SupportSection() {
                   onClick={() => setActive(i)}
                   className={`group cursor-pointer text-left whitespace-nowrap lg:whitespace-normal rounded-xl px-4 py-3 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md ${
                     active === i
-                      ? 'bg-accent/10 border border-accent/30 shadow-[0_8px_20px_-10px_rgba(255,104,53,0.5)]'
+                      ? 'bg-accent/10 border border-accent/30 shadow-[0_8px_20px_-10px_rgba(249,115,22,0.5)]'
                       : 'bg-secondary-dim/60 border border-transparent hover:border-accent/20 hover:bg-accent/5'
                   }`}
                 >

@@ -36,7 +36,7 @@ export default function USPSection() {
         <Stagger className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-3" stagger={0.08}>
           {core.map((c) => (
             <StaggerItem key={c.label}>
-              <div className="group h-full flex items-center gap-3 rounded-xl bg-white/[0.05] border border-white/10 px-4 py-3.5 transition-all duration-300 hover:-translate-y-1 hover:bg-white/[0.09] hover:border-accent-soft/40 hover:shadow-[0_12px_28px_-12px_rgba(255,140,94,0.35)]">
+              <div className="group h-full flex items-center gap-3 rounded-xl bg-white/[0.05] border border-white/10 px-4 py-3.5 transition-all duration-300 hover:-translate-y-1 hover:bg-white/[0.09] hover:border-accent-soft/40 hover:shadow-[0_12px_28px_-12px_rgba(251,146,60,0.35)]">
                 <span className="grid place-items-center w-9 h-9 rounded-lg bg-accent-soft/15 text-accent-soft shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:bg-accent-soft/25">
                   <ProofIcon name={c.icon} />
                 </span>
