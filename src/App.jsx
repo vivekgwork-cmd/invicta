@@ -2,6 +2,7 @@ import { Routes, Route, useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
 import Home from './pages/Home.jsx'
 import LandingPage from './pages/LandingPage.jsx'
+import BachelorsLandingPage from './pages/BachelorsLandingPage.jsx'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -21,6 +22,7 @@ export default function App() {
         <Route path="/landing-page-charcoal" element={<LandingPage heroVariant="charcoal" />} />
         <Route path="/landing-page-emerald" element={<LandingPage heroVariant="emerald" />} />
         <Route path="/landing-page-maroon" element={<LandingPage heroVariant="maroon" />} />
+        <Route path="/landing-page-bachelors" element={<BachelorsLandingPage />} />
       </Routes>
     </>
   )

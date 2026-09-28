@@ -1,0 +1,93 @@
+import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { Burger } from '../shared/Glyphs.jsx'
+import useActiveSection from '../../lib/useActiveSection.js'
+
+const sections = [
+  { id: 'highlights', label: 'Highlights' },
+  { id: 'programs', label: 'Programs & Fees' },
+  { id: 'who', label: "Who It's For" },
+  { id: 'support', label: 'Support' },
+  { id: 'process', label: 'Admission Process' },
+  { id: 'visa', label: 'Visa' },
+  { id: 'campus', label: 'Campus' },
+  { id: 'outcomes', label: 'Outcomes' },
+  { id: 'faq', label: 'FAQs' },
+]
+
+export default function LPNavbar() {
+  const [mobileOpen, setMobileOpen] = useState(false)
+  const active = useActiveSection(sections.map((s) => s.id))
+
+  const scrollTo = (id) => {
+    setMobileOpen(false)
+    const el = document.getElementById(id)
+    if (el) window.scrollTo({ top: el.offsetTop - 64, behavior: 'smooth' })
+  }
+
+  return (
+    <div className="fixed top-0 inset-x-0 z-50">
+      <motion.div
+        initial={{ y: -60, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+        className="bg-secondary border-b border-primary/10 shadow-sm"
+      >
+            <div className="mx-auto max-w-7xl px-5 sm:px-8 h-12 flex items-center justify-between gap-3">
+              <img
+                src={`${import.meta.env.BASE_URL}images/logo-invitica.png`}
+                alt="Invicta"
+                className="h-6 w-auto shrink-0"
+              />
+              <nav className="hidden lg:flex items-center gap-3 xl:gap-6">
+                {sections.map((s) => (
+                  <button
+                    key={s.id}
+                    onClick={() => scrollTo(s.id)}
+                    className={`relative text-xs font-medium whitespace-nowrap py-3 transition-colors ${
+                      active === s.id ? 'text-accent' : 'text-slate hover:text-primary'
+                    }`}
+                  >
+                    {s.label}
+                    {active === s.id && (
+                      <motion.span layoutId="lp-subnav-underline" className="absolute left-0 right-0 -bottom-px h-0.5 bg-accent" />
+                    )}
+                  </button>
+                ))}
+              </nav>
+              <button className="lg:hidden text-primary p-2" onClick={() => setMobileOpen((v) => !v)} aria-label="Toggle sections">
+                <Burger open={mobileOpen} />
+              </button>
+              <a
+                href="#apply"
+                onClick={(e) => {
+                  e.preventDefault()
+                  scrollTo('apply')
+                }}
+                className="inline-flex rounded-md bg-primary px-3 sm:px-5 py-1.5 sm:py-2 text-xs sm:text-sm font-semibold text-secondary hover:bg-accent transition-colors"
+              >
+                Check Eligibility
+              </a>
+            </div>
+            <AnimatePresence>
+              {mobileOpen && (
+                <motion.div
+                  initial={{ height: 0 }}
+                  animate={{ height: 'auto' }}
+                  exit={{ height: 0 }}
+                  className="lg:hidden overflow-hidden border-t border-primary/10"
+                >
+                  <div className="flex flex-col px-5 py-3">
+                    {sections.map((s) => (
+                      <button key={s.id} onClick={() => scrollTo(s.id)} className="text-left py-2.5 text-sm font-medium text-slate">
+                        {s.label}
+                      </button>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+      </motion.div>
+    </div>
+  )
+}
