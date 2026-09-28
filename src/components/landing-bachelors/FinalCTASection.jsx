@@ -63,7 +63,7 @@ export default function FinalCTASection() {
 
       <style>{`
         .lp-input {
-          background: #2c3f82;
+          background: #16504b;
           border: 1px solid rgba(255,255,255,0.12);
           border-radius: 0.375rem;
           padding: 0.85rem 1rem;
@@ -73,7 +73,7 @@ export default function FinalCTASection() {
           transition: border-color .2s;
         }
         .lp-input::placeholder { color: rgba(248,249,250,0.4); }
-        .lp-input:focus { border-color: #f97316; }
+        .lp-input:focus { border-color: #e11d48; }
       `}</style>
     </section>
   )

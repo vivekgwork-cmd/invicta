@@ -77,19 +77,19 @@ body {
   .lp-root .sm\:text-5xl { font-size: 3.5rem; }
 }
 
-/* Bachelor's landing page theme: deep indigo base with a warmer amber-orange accent.
+/* Bachelor's landing page theme: deep teal-emerald base, rose-crimson accent, warm gold highlights.
    Scoped to the page wrapper so the Master's landing page keeps the original navy/orange kit. */
 .lp-theme-bachelors {
-  --color-primary: #1a2b5e;
-  --color-primary-soft: #26397a;
-  --color-secondary: #f8f9fc;
-  --color-secondary-dim: #eceef6;
-  --color-accent: #f97316;
-  --color-accent-light: #fb923c;
-  --color-accent-dark: #ea580c;
-  --color-accent-soft: #fdba74;
-  --color-gold: #fbbf24;
-  --color-gold-soft: #fcd34d;
-  --color-gold-deep: #b45309;
-  --color-slate: #4a5173;
+  --color-primary: #0b3d3a;
+  --color-primary-soft: #16504b;
+  --color-secondary: #f7faf9;
+  --color-secondary-dim: #e8f0ee;
+  --color-accent: #e11d48;
+  --color-accent-light: #f43f5e;
+  --color-accent-dark: #be123c;
+  --color-accent-soft: #fda4af;
+  --color-gold: #f5c451;
+  --color-gold-soft: #f5c451;
+  --color-gold-deep: #a16207;
+  --color-slate: #43524f;
 }

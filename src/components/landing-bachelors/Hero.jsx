@@ -26,7 +26,7 @@ const HERO_VARIANTS = {
   original: {
     image: 'hero-section-1.jpg',
     alt: 'Tbilisi, Georgia skyline at dusk',
-    overlayRgb: '10,16,40', // #0a1028
+    overlayRgb: '5,32,30', // #05201e
   },
   charcoal: {
     image: 'hero-section-2.jpg',
@@ -110,29 +110,29 @@ function EligibilityForm() {
           e.preventDefault()
           setStep('otp')
         }}
-        className="mt-3 grid gap-2"
+        className="mt-3 grid grid-cols-2 gap-2"
       >
         <input required placeholder="Name" className="lp-hero-input" />
         <input required type="tel" placeholder="Phone Number" className="lp-hero-input" />
         <input required type="email" placeholder="Email" className="lp-hero-input" />
         <input required placeholder="City" className="lp-hero-input" />
-        <select required defaultValue="" className="lp-hero-input lp-hero-select">
+        <select required defaultValue="" className="lp-hero-input lp-hero-select col-span-2">
           <option value="" disabled>Are you a Parent or Student?</option>
           <option value="Parent">Parent</option>
           <option value="Student">Student</option>
         </select>
-        <select required defaultValue="" className="lp-hero-input lp-hero-select">
+        <select required defaultValue="" className="lp-hero-input lp-hero-select col-span-2">
           <option value="" disabled>Have you completed 12th grade?</option>
           <option value="Yes">Yes</option>
           <option value="No">No</option>
         </select>
-        <select required defaultValue="" className="lp-hero-input lp-hero-select">
+        <select required defaultValue="" className="lp-hero-input lp-hero-select col-span-2">
           <option value="" disabled>Preferred Program</option>
           {streams.map((s) => (
             <option key={s} value={s}>{s}</option>
           ))}
         </select>
-        <button type="submit" className="group mt-1 inline-flex items-center justify-center gap-2 rounded-md bg-accent py-2.5 font-semibold text-white hover:bg-accent-light transition-colors">
+        <button type="submit" className="col-span-2 group mt-1 inline-flex items-center justify-center gap-2 rounded-md bg-accent py-2.5 font-semibold text-white hover:bg-accent-light transition-colors">
           Check Your Eligibility <Arrow />
         </button>
       </form>
@@ -145,7 +145,7 @@ export default function Hero({ variant = 'original' }) {
   const { image, alt, overlayRgb, objectPosition = 'center', filter = 'none' } = HERO_VARIANTS[variant] ?? HERO_VARIANTS.original
 
   return (
-    <section ref={sectionRef} style={{ top: stickyTop }} className="sticky z-0 overflow-hidden bg-primary pt-14 sm:pt-16 min-h-[95vh] flex flex-col justify-center">
+    <section ref={sectionRef} style={{ top: stickyTop }} className="sticky z-0 overflow-hidden bg-primary pt-14 sm:pt-16 min-h-[100svh] flex flex-col">
       <motion.div
         className="absolute inset-0"
         initial={{ scale: 1.12, opacity: 0 }}
@@ -161,16 +161,16 @@ export default function Hero({ variant = 'original' }) {
         {/* Premium dark treatment: overlay color swaps per variant, subtle warm glow bottom-right */}
         <div className="absolute inset-0" style={{ background: `linear-gradient(to right, rgba(${overlayRgb},1) 0%, rgba(${overlayRgb},0.85) 45%, rgba(${overlayRgb},0.42) 100%)` }} />
         <div className="absolute inset-0" style={{ background: `linear-gradient(to top, rgba(${overlayRgb},1) 0%, rgba(${overlayRgb},0.25) 45%, rgba(${overlayRgb},0.55) 100%)` }} />
-        <div className="absolute inset-0" style={{ background: 'radial-gradient(60% 50% at 85% 100%, rgba(249,115,22,0.16), transparent)' }} />
+        <div className="absolute inset-0" style={{ background: 'radial-gradient(60% 50% at 85% 100%, rgba(225,29,72,0.16), transparent)' }} />
       </motion.div>
 
-      <div className="relative mx-auto max-w-7xl px-5 sm:px-8 w-full grid lg:grid-cols-[1.05fr_0.85fr] gap-8 items-center pb-4 pt-4">
+      <div className="relative mx-auto max-w-7xl px-5 sm:px-8 w-full flex-1 grid lg:grid-cols-[1.05fr_0.85fr] gap-8 content-center items-center py-4 lp-hero-body">
         <div>
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-xs font-semibold tracking-[0.14em] text-gold-soft uppercase mb-4"
+            className="text-xs font-semibold tracking-[0.14em] text-gold-soft uppercase mb-4 lp-hero-eyebrow"
           >
             In Collaboration With MIT, USA
           </motion.div>
@@ -179,11 +179,11 @@ export default function Hero({ variant = 'original' }) {
             initial={{ opacity: 0, y: 26 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="font-display max-w-4xl text-3xl sm:text-4xl lg:text-5xl leading-[1.08] text-secondary text-balance"
+            className="font-display max-w-4xl text-3xl sm:text-4xl lg:text-5xl leading-[1.08] text-secondary text-balance lp-hero-h1"
           >
             A Global European Bachelor's.
             <br />
-            <span className="text-2xl sm:text-3xl lg:text-4xl">
+            <span className="text-2xl sm:text-3xl lg:text-4xl lp-hero-h1-sub">
               With Real <span className="text-gold-soft">MIT Advantage</span>.
             </span>
           </motion.h1>
@@ -192,7 +192,7 @@ export default function Hero({ variant = 'original' }) {
             initial={{ opacity: 0, y: 26 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
-            className="mt-4 max-w-xl text-base sm:text-lg text-secondary/70 leading-relaxed"
+            className="mt-4 max-w-xl text-base sm:text-lg text-secondary/70 leading-relaxed lp-hero-gap"
           >
             Earn your BBA or BS at Georgian National University SEU with an MIT-mapped
             curriculum, MIT-trained faculty, and a 3-week internship opportunity at MIT Boston.
@@ -202,7 +202,7 @@ export default function Hero({ variant = 'original' }) {
             initial={{ opacity: 0, y: 26 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.4 }}
-            className="mt-6 flex flex-wrap items-center gap-4"
+            className="mt-6 flex flex-wrap items-center gap-4 lp-hero-gap"
           >
             <a href="#hero-form" className="group inline-flex items-center gap-2 rounded-md bg-accent px-7 py-3 font-semibold text-white hover:bg-accent-light transition-colors">
               Check Your Eligibility
@@ -218,7 +218,7 @@ export default function Hero({ variant = 'original' }) {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.45 }}
-            className="mt-5 flex flex-wrap items-center gap-2 text-xs sm:text-sm text-secondary/70"
+            className="mt-5 flex flex-wrap items-center gap-2 text-xs sm:text-sm text-secondary/70 lp-hero-gap"
           >
             <span className="font-semibold text-gold-soft">MIT + SEU</span>
             <span className="text-secondary/30">|</span>
@@ -229,7 +229,7 @@ export default function Hero({ variant = 'original' }) {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.5 }}
-            className="mt-6 inline-flex flex-wrap items-center gap-5 rounded-2xl border border-gold-soft/25 bg-white/5 px-5 py-3"
+            className="mt-6 inline-flex flex-wrap items-center gap-5 rounded-2xl lp-hero-gap border border-gold-soft/25 bg-white/5 px-5 py-3"
           >
             <div className="text-xs text-secondary/60 leading-tight max-w-[7rem]">
               Oct 2026 intake closes in
@@ -243,28 +243,30 @@ export default function Hero({ variant = 'original' }) {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.5 }}
-          className="rounded-2xl bg-white text-primary p-5 sm:p-6 shadow-2xl shadow-black/30 scroll-mt-28"
+          className="rounded-2xl bg-white text-primary p-5 sm:p-6 lp-hero-card shadow-2xl shadow-black/30 scroll-mt-28"
         >
           <EligibilityForm />
         </motion.div>
       </div>
 
-      {/* Proof strip — merged into the banner as an overlapping card, not a separate section.
-          Lives in normal flow (Hero itself is not sticky) so on any viewport where the hero
-          content runs taller than the screen, this is still just an ordinary scroll away
-          instead of being frozen off-screen and covered by the next section. */}
+      {/* Proof strip — pinned to the bottom of the one-screen hero so it's visible on load.
+          Bottom padding clears the fixed StickyCTABar (~56px) so it never covers the strip.
+          On screens too short to fit everything (e.g. phones), useStickyTop still lets the
+          whole hero scroll into view before the next section slides over it. */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, delay: 0.6 }}
-        className="relative z-10 mx-auto max-w-7xl px-5 sm:px-8 pb-6 sm:pb-8"
+        className="relative z-10 mx-auto max-w-7xl w-full px-5 sm:px-8 pb-[72px] sm:pb-[80px]"
       >
-        <div className="rounded-2xl bg-white shadow-xl shadow-black/25 p-3 sm:p-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
+        <div className="rounded-2xl bg-white shadow-xl shadow-black/25 p-2.5 sm:p-3 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-3">
           {proof.map((p) => (
-            <div key={p.label} className="rounded-xl border border-primary/8 px-4 py-3 text-center sm:text-left">
-              <ProofIcon name={p.icon} className="text-accent hidden sm:inline-block mb-1.5" />
-              <div className="font-display text-accent lp-proof-value">{p.value}</div>
-              <div className="text-xs text-slate mt-1 leading-tight">{p.label}</div>
+            <div key={p.label} className="rounded-xl border border-primary/8 px-3 py-2 text-center sm:text-left">
+              <div className="flex items-center justify-center sm:justify-start gap-2">
+                <ProofIcon name={p.icon} className="text-accent hidden sm:inline-block shrink-0" />
+                <div className="font-display text-accent lp-proof-value whitespace-nowrap">{p.value}</div>
+              </div>
+              <div className="text-xs text-slate mt-0.5 leading-tight">{p.label}</div>
             </div>
           ))}
         </div>
@@ -273,20 +275,30 @@ export default function Hero({ variant = 'original' }) {
       <style>{`
         .lp-hero-input {
           background: #f8f9fa;
-          border: 1px solid rgba(26,43,94,0.12);
+          border: 1px solid rgba(11,61,58,0.12);
           border-radius: 0.375rem;
           padding: 0.6rem 1rem;
-          color: #1a2b5e;
+          color: #0b3d3a;
           font-size: 0.9rem;
           outline: none;
           transition: border-color .2s;
         }
-        .lp-hero-input::placeholder { color: rgba(26,43,94,0.4); }
-        .lp-hero-input:focus { border-color: #f97316; }
-        .lp-hero-select { color: rgba(26,43,94,0.4); }
-        .lp-hero-select:valid { color: #1a2b5e; }
-        .lp-hero-select option { color: #1a2b5e; }
-        .lp-proof-value { font-size: 1.4rem; }
+        .lp-hero-input::placeholder { color: rgba(11,61,58,0.4); }
+        .lp-hero-input:focus { border-color: #e11d48; }
+        .lp-hero-select { color: rgba(11,61,58,0.4); }
+        .lp-hero-select:valid { color: #0b3d3a; }
+        .lp-hero-select option { color: #0b3d3a; }
+        .lp-hero-input { min-width: 0; }
+        .lp-proof-value { font-size: 1.25rem; }
+        @media (min-width: 1024px) and (max-height: 820px) {
+          .lp-hero-body { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+          .lp-hero-eyebrow { margin-bottom: 0.6rem; }
+          .lp-hero-h1 { font-size: 2.5rem; }
+          .lp-hero-h1-sub { font-size: 1.85rem; }
+          .lp-hero-gap { margin-top: 1rem; }
+          .lp-hero-card { padding: 1.1rem 1.25rem; }
+          .lp-hero-input { padding: 0.5rem 0.85rem; }
+        }
       `}</style>
     </section>
   )

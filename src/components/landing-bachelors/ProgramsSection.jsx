@@ -111,7 +111,7 @@ export default function ProgramsSection() {
         </div>
 
         {/* Fee Structure — a full-width bar under the grid, not a squeezed sidebar */}
-        <Reveal delay={0.15} className="relative mt-6 rounded-3xl border border-gold-soft/60 bg-gradient-to-br from-white via-[#fffdf7] to-[#fff8e8] text-primary p-7 sm:p-8 shadow-[0_12px_32px_-20px_rgba(26,43,94,0.32)] overflow-hidden">
+        <Reveal delay={0.15} className="relative mt-6 rounded-3xl border border-gold-soft/60 bg-gradient-to-br from-white via-[#fffdf7] to-[#fff8e8] text-primary p-7 sm:p-8 shadow-[0_12px_32px_-20px_rgba(11,61,58,0.32)] overflow-hidden">
           <div className="flex flex-wrap items-center gap-x-8 gap-y-6">
             <div className="max-w-xs">
               <h3 className="font-display text-xl">Fee Structure</h3>
@@ -163,7 +163,7 @@ export default function ProgramsSection() {
           inset: -1.5px;
           border-radius: inherit;
           padding: 1.5px;
-          background: conic-gradient(from var(--lp-angle), transparent 0%, #f97316 12%, transparent 30%);
+          background: conic-gradient(from var(--lp-angle), transparent 0%, #e11d48 12%, transparent 30%);
           -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
           -webkit-mask-composite: xor;
           mask-composite: exclude;

@@ -23,7 +23,7 @@ export default function WhoSection() {
         <Stagger className="grid sm:grid-cols-2 gap-4" stagger={0.08}>
           {audience.map((a, i) => (
             <StaggerItem key={a} direction="up" className={i === audience.length - 1 ? 'sm:col-span-2' : ''}>
-              <div className="h-full flex items-start gap-3 rounded-2xl border border-primary/10 bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:border-accent/30 hover:shadow-[0_16px_32px_-18px_rgba(26,43,94,0.3)]">
+              <div className="h-full flex items-start gap-3 rounded-2xl border border-primary/10 bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:border-accent/30 hover:shadow-[0_16px_32px_-18px_rgba(11,61,58,0.3)]">
                 <Check className="bg-accent/10 text-accent shrink-0 w-6 h-6" />
                 <p className="text-sm text-primary/80 leading-relaxed">{a}</p>
               </div>
