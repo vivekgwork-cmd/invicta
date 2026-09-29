@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400..700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Space+Grotesk:wght@500;600;700&display=swap");
 @import "tailwindcss";
 
 @theme {
@@ -27,6 +28,60 @@
   --color-accent-light: #ff8c5e;
   --color-accent-dark: #e0521f;
   --color-accent-soft: #ffb596;
+
+  /* Homepage, Study Abroad & Test Prep palette (Stitch "Academic Prestige" designs):
+     midnight obsidian base, cobalt blue, champagne gold */
+  --font-outfit: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-jakarta: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-grotesk: "Space Grotesk", ui-monospace, monospace;
+
+  --color-obsidian-950: #060911;
+  --color-obsidian-900: #090d16;
+  --color-obsidian-850: #0d1322;
+  --color-obsidian-800: #111a2e;
+  --color-obsidian-700: #1c2842;
+
+  --color-midnight-950: #040812;
+  --color-midnight-900: #070f1e;
+  --color-midnight-850: #0b192c;
+  --color-midnight-800: #10223d;
+  --color-midnight-700: #18345b;
+
+  --color-cobalt-50: #eff6ff;
+  --color-cobalt-100: #dbeafe;
+  --color-cobalt-200: #bfdbfe;
+  --color-cobalt-400: #60a5fa;
+  --color-cobalt-500: #3b82f6;
+  --color-cobalt-600: #2563eb;
+  --color-cobalt-700: #1d4ed8;
+  --color-cobalt-800: #1e40af;
+  --color-cobalt-900: #1e3a8a;
+  --color-cobalt-950: #172554;
+
+  --color-champagne-400: #fbbf24;
+  --color-champagne-500: #f59e0b;
+  --color-champagne-600: #d97706;
+  --color-champagne-700: #b45309;
+
+  --color-surface: #f8fafc;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f0f3ff;
+  --color-surface-container: #e7eeff;
+  --color-surface-container-high: #dee8ff;
+  --color-surface-container-highest: #d8e3fb;
+  --color-on-surface: #111c2d;
+  --color-on-surface-variant: #44474c;
+  --color-outline: #75777d;
+  --color-outline-variant: #c5c6cd;
+  --color-error: #ba1a1a;
+  --color-error-container: #ffdad6;
+
+  --shadow-card-tech: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.03);
+  --shadow-card-elevated: 0 12px 36px -4px rgba(0, 0, 0, 0.08), 0 4px 12px -2px rgba(0, 0, 0, 0.04);
+  --shadow-card-lift: 0 14px 34px -10px rgba(17, 28, 45, 0.08), 0 2px 6px -1px rgba(17, 28, 45, 0.04);
+  --shadow-glow-cobalt: 0 0 40px -10px rgba(37, 99, 235, 0.4);
+  --shadow-glow-gold: 0 0 35px -8px rgba(245, 158, 11, 0.35);
+  --shadow-glow-amber: 0 0 30px -5px rgba(245, 158, 11, 0.35);
 }
 
 html {
@@ -92,4 +147,16 @@ body {
   --color-gold-soft: #f5c451;
   --color-gold-deep: #a16207;
   --color-slate: #43524f;
+}
+
+@layer components {
+  .site-grid-dots {
+    background-image: radial-gradient(#1e293b 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+  .site-grid-lines {
+    background-size: 40px 40px;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  }
 }

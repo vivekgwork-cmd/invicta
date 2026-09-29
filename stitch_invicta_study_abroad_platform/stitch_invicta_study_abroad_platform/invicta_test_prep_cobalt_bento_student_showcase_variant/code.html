@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Invicta Test Prep — AI-Calibrated Prep &amp; Top 1% Mentors</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "error-container": "#ffdad6",
+            "on-tertiary-fixed": "#081a3c",
+            "outline": "#75777d",
+            "surface-container": "#e7eeff",
+            "primary-fixed": "#d6e3fe",
+            "surface-tint": "#525f75",
+            "surface-bright": "#f9f9ff",
+            "surface-container-high": "#dee8ff",
+            "on-secondary-container": "#714d00",
+            "secondary": "#7e5700",
+            "surface-dim": "#cfdaf2",
+            "primary-container": "#0e1c2f",
+            "on-secondary": "#ffffff",
+            "on-tertiary": "#ffffff",
+            "secondary-fixed-dim": "#fabc4c",
+            "on-tertiary-container": "#7483ab",
+            "outline-variant": "#c5c6cd",
+            "on-secondary-fixed": "#281900",
+            "surface-container-highest": "#d8e3fb",
+            "secondary-container": "#fdbe4f",
+            "primary-fixed-dim": "#bac7e1",
+            "tertiary-container": "#081a3c",
+            "on-background": "#111c2d",
+            "on-secondary-fixed-variant": "#604100",
+            "tertiary": "#000000",
+            "inverse-on-surface": "#ecf1ff",
+            "on-error": "#ffffff",
+            "on-primary-container": "#77849c",
+            "on-tertiary-fixed-variant": "#37466a",
+            "surface-variant": "#d8e3fb",
+            "tertiary-fixed-dim": "#b6c6f1",
+            "primary": "#000000",
+            "error": "#ba1a1a",
+            "on-error-container": "#93000a",
+            "surface-container-lowest": "#ffffff",
+            "on-primary-fixed": "#0e1c2f",
+            "tertiary-fixed": "#d9e2ff",
+            "surface": "#f9f9ff",
+            "on-primary": "#ffffff",
+            "inverse-surface": "#263143",
+            "inverse-primary": "#bac7e1",
+            "secondary-fixed": "#ffdeac",
+            "background": "#f9f9ff",
+            "on-primary-fixed-variant": "#3a475c",
+            "on-surface": "#111c2d",
+            "on-surface-variant": "#44474c",
+            "surface-container-low": "#f0f3ff",
+            "cobalt": {
+              "50": "#eff6ff",
+              "100": "#dbeafe",
+              "500": "#3b82f6",
+              "600": "#2563eb",
+              "700": "#1d4ed8",
+              "800": "#1e40af",
+              "900": "#1e3a8a"
+            },
+            "amber": {
+              "400": "#fbbf24",
+              "500": "#f59e0b",
+              "600": "#d97706",
+              "700": "#b45309"
+            }
+          },
+          fontFamily: {
+            sans: ['Outfit', 'sans-serif'],
+            outfit: ['Outfit', 'sans-serif'],
+            'display-lg': ['Outfit', 'sans-serif'],
+            'headline-lg': ['Outfit', 'sans-serif'],
+            'body-lg': ['Outfit', 'sans-serif'],
+            'label-lg': ['Outfit', 'sans-serif']
+          },
+          borderRadius: {
+            DEFAULT: "0.125rem",
+            lg: "0.375rem",
+            xl: "0.75rem",
+            "2xl": "1rem",
+            "3xl": "1.5rem",
+            full: "9999px"
+          },
+          boxShadow: {
+            'glow-cobalt': '0 0 35px -5px rgba(29, 78, 216, 0.25)',
+            'glow-amber': '0 0 30px -5px rgba(217, 119, 6, 0.3)',
+            'card-lift': '0 14px 34px -10px rgba(17, 28, 45, 0.08), 0 2px 6px -1px rgba(17, 28, 45, 0.04)'
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Outfit', sans-serif;
+      background-color: #f9f9ff;
+      color: #111c2d;
+      letter-spacing: -0.01em;
+    }
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+    }
+    .glass-pill {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(222, 232, 255, 0.9);
+    }
+    .cobalt-gradient {
+      background: linear-gradient(135deg, #1e40af 0%, #1d4ed8 50%, #0e1c2f 100%);
+    }
+    .amber-gradient {
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface antialiased selection:bg-cobalt-100 selection:text-cobalt-800">
+<!-- Top Sticky Navigation Bar -->
+<header class="sticky top-0 z-50 w-full border-b border-surface-container-high bg-white/90 backdrop-blur-md transition-all">
+<div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-12">
+<!-- Logo Container -->
+<a class="flex items-center gap-3 group" href="#">
+<div class="flex h-10 w-10 items-center justify-center rounded-xl bg-cobalt-800 text-white shadow-md shadow-cobalt-800/20 group-hover:scale-105 transition-transform">
+<svg class="h-5 w-5" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M47.2426 24L24 47.2426L0.757355 24L24 0.757355L47.2426 24ZM12.2426 21H35.7574L24 9.24264L12.2426 21Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<div class="flex flex-col">
+<span class="text-xl font-bold tracking-tight text-on-surface font-sans">Invicta Test Prep</span>
+<span class="text-[10px] font-semibold tracking-widest uppercase text-amber-600">AI-Calibrated Mastery</span>
+</div>
+</a>
+<!-- Desktop Nav Links -->
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-semibold text-on-surface-variant hover:text-cobalt-700 transition-colors" href="#how-it-works">How It Works</a>
+<a class="text-sm font-semibold text-on-surface-variant hover:text-cobalt-700 transition-colors" href="#choose-exam">Choose Exam</a>
+<a class="text-sm font-semibold text-on-surface-variant hover:text-cobalt-700 transition-colors" href="#why-invicta">Why Invicta</a>
+<a class="text-sm font-semibold text-on-surface-variant hover:text-cobalt-700 transition-colors" href="#results">Results</a>
+<a class="text-sm font-semibold text-on-surface-variant hover:text-cobalt-700 transition-colors" href="#faq">FAQ</a>
+</nav>
+<!-- Nav CTA Actions -->
+<div class="flex items-center gap-3">
+<button class="hidden sm:inline-flex h-10 px-5 items-center justify-center rounded-xl border border-outline-variant bg-surface text-sm font-bold text-on-surface hover:bg-surface-container-low transition-all">
+<span>Sign In</span>
+</button>
+<a class="inline-flex h-10 px-5 items-center justify-center rounded-xl bg-cobalt-800 text-sm font-bold text-white shadow-md shadow-cobalt-800/25 hover:bg-cobalt-700 transition-all hover:shadow-lg hover:shadow-cobalt-800/30" href="#book-diagnostic">
+<span>Book Diagnostic</span>
+</a>
+</div>
+</div>
+</header>
+<main>
+<!-- HERO SECTION (Asymmetrical Bento & Split) -->
+<section class="relative overflow-hidden pt-10 pb-20 lg:pt-16 lg:pb-28">
+<!-- Glow Gradients in Background -->
+<div class="pointer-events-none absolute -top-40 right-0 h-96 w-96 rounded-full bg-cobalt-600/10 blur-3xl"></div>
+<div class="pointer-events-none absolute top-1/3 left-10 h-80 w-80 rounded-full bg-amber-500/10 blur-3xl"></div>
+<div class="mx-auto max-w-7xl px-6 lg:px-12">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<!-- Hero Left Column: Headline & Action -->
+<div class="lg:col-span-7 flex flex-col gap-6">
+<!-- Eyebrow Badge -->
+<div class="inline-flex items-center gap-2 self-start rounded-full bg-surface-container-high px-3.5 py-1.5 border border-surface-container-highest shadow-sm">
+<span class="inline-block h-2 w-2 rounded-full bg-amber-500 animate-pulse"></span>
+<span class="text-xs font-bold tracking-wide uppercase text-cobalt-800">Top 1% Percentile Prep Engine</span>
+</div>
+<!-- Primary Headline -->
+<h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-on-surface leading-[1.12]">
+              Score Higher, Faster: <span class="text-transparent bg-clip-text bg-gradient-to-r from-cobalt-700 via-cobalt-600 to-amber-600">AI-Calibrated Prep</span> Backed by Top 1% Mentors
+            </h1>
+<!-- Subheading -->
+<p class="text-base sm:text-lg text-on-surface-variant font-normal leading-relaxed max-w-2xl">
+              Studying hard is not the same as studying right. Get a precision diagnostic, personalized mastery roadmap, and elite 1-on-1 coaching for SAT, GRE, GMAT, and IELTS.
+            </p>
+<!-- CTA Button Group -->
+<div class="flex flex-wrap gap-4 pt-2">
+<a class="inline-flex h-12 px-7 items-center justify-center rounded-xl bg-cobalt-800 text-white font-bold text-base shadow-lg shadow-cobalt-800/25 hover:bg-cobalt-700 hover:shadow-xl hover:shadow-cobalt-800/35 transition-all" href="#book-diagnostic">
+<span>Start Free AI Diagnostic</span>
+<span class="material-symbols-outlined ml-2 text-xl" data-icon="arrow_forward">arrow_forward</span>
+</a>
+<a class="inline-flex h-12 px-6 items-center justify-center rounded-xl border border-outline-variant bg-white text-base font-bold text-on-surface hover:bg-surface-container-low transition-all" href="#choose-exam">
+<span>Explore Exam Programs</span>
+</a>
+</div>
+<!-- Quick Trust Metric Strip -->
+<div class="pt-6 border-t border-surface-container-high grid grid-cols-3 gap-4">
+<div class="flex flex-col">
+<span class="text-2xl font-black text-cobalt-800">99.4%</span>
+<span class="text-xs text-on-surface-variant font-medium">Target Score Hit Rate</span>
+</div>
+<div class="flex flex-col border-l border-surface-container-high pl-4">
+<span class="text-2xl font-black text-cobalt-800">14-Day</span>
+<span class="text-xs text-on-surface-variant font-medium">Score Surge Guarantee</span>
+</div>
+<div class="flex flex-col border-l border-surface-container-high pl-4">
+<span class="text-2xl font-black text-amber-600">1:1 Elite</span>
+<span class="text-xs text-on-surface-variant font-medium">Ivy+ Faculty Only</span>
+</div>
+</div>
+</div>
+<!-- Hero Right Column: Dynamic Bento Student Card + Diagnostic Simulation Preview -->
+<div class="lg:col-span-5 relative">
+<div class="relative rounded-3xl border border-surface-container-highest bg-white p-4 shadow-card-lift">
+<!-- Visual Image Container with Student Photo -->
+<div class="relative h-72 sm:h-80 w-full overflow-hidden rounded-2xl bg-surface-container">
+<img class="h-full w-full object-cover" data-alt="A focused student sitting in a well-lit modern university study hall with soft daylight pouring through architectural floor-to-ceiling windows. The student is interacting with an sleek laptop displaying analytical learning metrics, accented with cobalt blue and warm amber study materials. The composition is clean, cinematic, and embodies focused academic rigor in high-key light mode." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbdfc8xa_pw6oubTSnASPWojUT55m-MqTyeCqh385Gdl0e9qAPXokBiRcFaEEYjnbo5iogrsXSg7exg9KUFAcR50KqafzsXXUBj06NdSM0gEAM-8cNh0D1SS_rHl1SsU1JK0d_OTSYnlhsQcMXdXpDXaz2X7eDtbt3vJ-rlNIZPGNMRiCLIIziB8UuJA1v1wTk8cT6D6-VXpTrlRV39iQ41pZhJG9B30X34b86pH7ITiMkBSIJm_DI"/>
+<!-- Floating Overlay Badge -->
+<div class="absolute bottom-4 left-4 right-4 glass-pill p-3.5 rounded-xl border border-white/60 shadow-lg flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="flex h-10 w-10 items-center justify-center rounded-lg bg-amber-500 text-white font-bold">
+<span class="material-symbols-outlined" data-icon="bolt">bolt</span>
+</div>
+<div>
+<p class="text-xs font-bold text-on-surface">Adaptive Diagnostic Simulation</p>
+<p class="text-[11px] text-on-surface-variant">Real-time latency &amp; concept mapping</p>
+</div>
+</div>
+<span class="inline-flex items-center px-2 py-1 rounded bg-cobalt-50 text-[10px] font-bold text-cobalt-700 uppercase tracking-wider">Live Active</span>
+</div>
+</div>
+<!-- Micro Bento Stats below image -->
+<div class="mt-4 grid grid-cols-2 gap-3">
+<div class="rounded-xl bg-surface-container-low p-3.5 border border-surface-container">
+<p class="text-[11px] font-semibold text-on-surface-variant">Baseline Accuracy</p>
+<p class="text-lg font-black text-on-surface mt-0.5">68% → <span class="text-cobalt-700">96%</span></p>
+</div>
+<div class="rounded-xl bg-surface-container-low p-3.5 border border-surface-container">
+<p class="text-[11px] font-semibold text-on-surface-variant">Pacing Optimization</p>
+<p class="text-lg font-black text-amber-600 mt-0.5">-34s / Question</p>
+</div>
+</div>
+</div>
+<!-- Decorative floating micro-card -->
+<div class="absolute -bottom-6 -left-6 hidden sm:flex items-center gap-3 rounded-2xl border border-white bg-white/95 p-3.5 shadow-xl">
+<div class="h-10 w-10 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-600">
+<span class="material-symbols-outlined" data-icon="verified">verified</span>
+</div>
+<div>
+<p class="text-xs font-bold text-on-surface">500+ Top 1% Mentors</p>
+<p class="text-[11px] text-on-surface-variant">Vetted from Stanford, MIT &amp; Harvard</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- KEY RESULTS METRICS BAR (Preserved verbatim values) -->
+<section class="border-y border-surface-container-high bg-white py-10" id="results">
+<div class="mx-auto max-w-7xl px-6 lg:px-12">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Metric 1: Average SAT Increase -->
+<div class="flex flex-col gap-2 rounded-2xl p-6 border border-surface-container bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between">
+<p class="text-on-surface-variant text-sm font-semibold">Average SAT Increase</p>
+<span class="inline-flex items-center rounded-full bg-emerald-50 px-2 py-0.5 text-xs font-bold text-emerald-700">+15%</span>
+</div>
+<p class="tracking-tight text-3xl sm:text-4xl font-black text-cobalt-800 leading-tight">+210 PTS</p>
+<p class="text-xs text-on-surface-variant font-medium">90th percentile verified gain across full cohorts</p>
+</div>
+<!-- Metric 2: Average GRE Gain -->
+<div class="flex flex-col gap-2 rounded-2xl p-6 border border-surface-container bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between">
+<p class="text-on-surface-variant text-sm font-semibold">Average GRE Gain</p>
+<span class="inline-flex items-center rounded-full bg-emerald-50 px-2 py-0.5 text-xs font-bold text-emerald-700">+12%</span>
+</div>
+<p class="tracking-tight text-3xl sm:text-4xl font-black text-cobalt-800 leading-tight">+14 PTS</p>
+<p class="text-xs text-on-surface-variant font-medium">Verbal &amp; Quant composite improvement</p>
+</div>
+<!-- Metric 3: Ivy & T20 Acceptance Rate -->
+<div class="flex flex-col gap-2 rounded-2xl p-6 border border-surface-container bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between">
+<p class="text-on-surface-variant text-sm font-semibold">Ivy &amp; T20 Acceptance Rate</p>
+<span class="inline-flex items-center rounded-full bg-emerald-50 px-2 py-0.5 text-xs font-bold text-emerald-700">+8%</span>
+</div>
+<p class="tracking-tight text-3xl sm:text-4xl font-black text-amber-600 leading-tight">94%</p>
+<p class="text-xs text-on-surface-variant font-medium">First-choice university admissions secured</p>
+</div>
+<!-- Metric 4: Top 1% Mentor Network -->
+<div class="flex flex-col gap-2 rounded-2xl p-6 border border-surface-container bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between">
+<p class="text-on-surface-variant text-sm font-semibold">Top 1% Mentor Network</p>
+<span class="inline-flex items-center rounded-full bg-emerald-50 px-2 py-0.5 text-xs font-bold text-emerald-700">+25%</span>
+</div>
+<p class="tracking-tight text-3xl sm:text-4xl font-black text-cobalt-800 leading-tight">500+ Mentors</p>
+<p class="text-xs text-on-surface-variant font-medium">Exclusive elite faculty across 12 countries</p>
+</div>
+</div>
+</div>
+</section>
+<!-- PROBLEM STATEMENT & COMPARISON (Preserved verbatim headline & body) -->
+<section class="py-20 lg:py-28" id="problem">
+<div class="mx-auto max-w-7xl px-6 lg:px-12">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-surface-container-high">
+<div class="max-w-2xl flex flex-col gap-3">
+<span class="text-xs font-bold uppercase tracking-wider text-amber-600">The Diagnostic Paradigm</span>
+<h2 class="text-3xl sm:text-4xl font-black tracking-tight text-on-surface leading-tight">
+              Studying Hard Is Not the Same as Studying Right
+            </h2>
+<p class="text-base text-on-surface-variant font-normal leading-relaxed">
+              Traditional rote prep wastes 60% of your study hours on concepts you already know or flawed drills. Invicta targets high-yield blind spots.
+            </p>
+</div>
+<a class="inline-flex h-11 px-6 items-center justify-center rounded-xl bg-surface-container-high text-sm font-bold text-cobalt-800 hover:bg-surface-container-highest transition-colors" href="#how-it-works">
+<span>See How It Works</span>
+<span class="material-symbols-outlined ml-1.5 text-lg" data-icon="arrow_downward">arrow_downward</span>
+</a>
+</div>
+<!-- High-Impact Bento Split: Flawed Rote vs. Invicta Method -->
+<div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Flawed Rote Method -->
+<div class="rounded-3xl border border-error-container/60 bg-white p-8 relative shadow-sm">
+<div class="inline-flex items-center gap-2 rounded-full bg-error-container/40 px-3 py-1 text-xs font-bold text-error">
+<span class="material-symbols-outlined text-sm" data-icon="close">close</span>
+              Traditional Prep Centers
+            </div>
+<h3 class="mt-5 text-xl font-bold text-on-surface">Generic Mass-Market Rote Drilling</h3>
+<ul class="mt-6 flex flex-col gap-4 text-sm text-on-surface-variant">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-error mt-0.5 text-base" data-icon="cancel">cancel</span>
+<span>Hundreds of repetitive questions with zero conceptual root-cause analysis.</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-error mt-0.5 text-base" data-icon="cancel">cancel</span>
+<span>One-size-fits-all lecture schedules that ignore your personal pacing gaps.</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-error mt-0.5 text-base" data-icon="cancel">cancel</span>
+<span>Instructors who scored well years ago without verified 99th-percentile certification.</span>
+</li>
+</ul>
+</div>
+<!-- Invicta Method (Glow Cobalt + Amber Highlights) -->
+<div class="rounded-3xl border-2 border-cobalt-600 bg-white p-8 relative shadow-glow-cobalt">
+<div class="inline-flex items-center gap-2 rounded-full bg-cobalt-50 px-3 py-1 text-xs font-bold text-cobalt-700">
+<span class="material-symbols-outlined text-sm" data-icon="check">check</span>
+              The Invicta Adaptive Advantage
+            </div>
+<h3 class="mt-5 text-xl font-bold text-cobalt-900">Precision AI-Calibrated Mastery</h3>
+<ul class="mt-6 flex flex-col gap-4 text-sm text-on-surface">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-amber-600 mt-0.5 text-base" data-icon="check_circle">check_circle</span>
+<span><strong>AI Weak-Spot Mapping:</strong> Pinpoints the precise 12% of concepts causing 80% of score bleed.</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-amber-600 mt-0.5 text-base" data-icon="check_circle">check_circle</span>
+<span><strong>Dynamic High-Yield Sprints:</strong> Time spent solely on your personal score delta frontiers.</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-amber-600 mt-0.5 text-base" data-icon="check_circle">check_circle</span>
+<span><strong>1-on-1 Top 1% Mentors:</strong> Real-time tactical strategy calibration from verified masters.</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- HOW IT WORKS: 5-STEP ROADMAP (Strictly preserved 5 titles and subtitles) -->
+<section class="border-t border-surface-container-high bg-surface-container-low py-20 lg:py-28" id="how-it-works">
+<div class="mx-auto max-w-7xl px-6 lg:px-12">
+<div class="text-center max-w-3xl mx-auto flex flex-col gap-3 mb-16">
+<span class="text-xs font-bold uppercase tracking-wider text-cobalt-700">Proprietary Methodology</span>
+<h2 class="text-3xl sm:text-4xl font-black tracking-tight text-on-surface">
+            How Invicta Re-Engineers Your Score
+          </h2>
+<p class="text-base text-on-surface-variant">
+            From baseline assessment to test-day execution, every milestone is systematically engineered for predictable, maximum score improvement.
+          </p>
+</div>
+<!-- 5-Step Connected Bento Timeline -->
+<div class="grid grid-cols-1 md:grid-cols-5 gap-4 relative">
+<!-- Step 1 -->
+<div class="rounded-2xl border border-surface-container bg-white p-6 flex flex-col justify-between shadow-sm relative group hover:border-cobalt-600 transition-colors">
+<div class="flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<span class="h-8 w-8 rounded-lg bg-cobalt-50 text-cobalt-800 font-bold flex items-center justify-center text-sm">01</span>
+<span class="material-symbols-outlined text-cobalt-600" data-icon="touch_app">touch_app</span>
+</div>
+<div>
+<h4 class="text-base font-bold text-on-surface leading-tight">1. Precision Diagnostic Baseline</h4>
+<p class="mt-2 text-xs text-on-surface-variant font-normal leading-relaxed">Adaptive full-length simulation</p>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-surface-container-low text-[11px] font-semibold text-cobalt-700">
+              Evaluates pace, stamina &amp; micro-patterns
+            </div>
+</div>
+<!-- Step 2 -->
+<div class="rounded-2xl border border-surface-container bg-white p-6 flex flex-col justify-between shadow-sm relative group hover:border-cobalt-600 transition-colors">
+<div class="flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<span class="h-8 w-8 rounded-lg bg-cobalt-50 text-cobalt-800 font-bold flex items-center justify-center text-sm">02</span>
+<span class="material-symbols-outlined text-cobalt-600" data-icon="grid_view">grid_view</span>
+</div>
+<div>
+<h4 class="text-base font-bold text-on-surface leading-tight">2. Adaptive AI Weak-Spot Mapping</h4>
+<p class="mt-2 text-xs text-on-surface-variant font-normal leading-relaxed">Identifies conceptual leaks</p>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-surface-container-low text-[11px] font-semibold text-cobalt-700">
+              Deep taxonomy breakdown
+            </div>
+</div>
+<!-- Step 3 -->
+<div class="rounded-2xl border-2 border-cobalt-600 bg-white p-6 flex flex-col justify-between shadow-md relative group">
+<div class="flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<span class="h-8 w-8 rounded-lg bg-cobalt-800 text-white font-bold flex items-center justify-center text-sm">03</span>
+<span class="material-symbols-outlined text-amber-600" data-icon="person">person</span>
+</div>
+<div>
+<h4 class="text-base font-bold text-cobalt-950 leading-tight">3. 1-on-1 Elite Mentor Calibration</h4>
+<p class="mt-2 text-xs text-on-surface-variant font-normal leading-relaxed">Top 1% percentile instructors</p>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-surface-container-low text-[11px] font-semibold text-amber-700">
+              Tactical mental priming &amp; heuristics
+            </div>
+</div>
+<!-- Step 4 -->
+<div class="rounded-2xl border border-surface-container bg-white p-6 flex flex-col justify-between shadow-sm relative group hover:border-cobalt-600 transition-colors">
+<div class="flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<span class="h-8 w-8 rounded-lg bg-cobalt-50 text-cobalt-800 font-bold flex items-center justify-center text-sm">04</span>
+<span class="material-symbols-outlined text-cobalt-600" data-icon="timer">timer</span>
+</div>
+<div>
+<h4 class="text-base font-bold text-on-surface leading-tight">4. High-Yield Timed Simulation Sprints</h4>
+<p class="mt-2 text-xs text-on-surface-variant font-normal leading-relaxed">Real proctor cadence and pressure</p>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-surface-container-low text-[11px] font-semibold text-cobalt-700">
+              Stress-inoculated execution tests
+            </div>
+</div>
+<!-- Step 5 -->
+<div class="rounded-2xl border border-surface-container bg-white p-6 flex flex-col justify-between shadow-sm relative group hover:border-cobalt-600 transition-colors">
+<div class="flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<span class="h-8 w-8 rounded-lg bg-amber-50 text-amber-700 font-bold flex items-center justify-center text-sm">05</span>
+<span class="material-symbols-outlined text-amber-600" data-icon="workspace_premium">workspace_premium</span>
+</div>
+<div>
+<h4 class="text-base font-bold text-on-surface leading-tight">5. Test-Day Execution &amp; Score Guarantee</h4>
+<p class="mt-2 text-xs text-on-surface-variant font-normal leading-relaxed">Guaranteed score milestone reached</p>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-surface-container-low text-[11px] font-semibold text-emerald-700">
+              Contractually insured outcome
+            </div>
+</div>
+</div>
+</div>
+</section>
+<!-- CHOOSE YOUR EXAM: 4-CARD MATRIX (SAT, GRE, GMAT, IELTS) -->
+<section class="py-20 lg:py-28" id="choose-exam">
+<div class="mx-auto max-w-7xl px-6 lg:px-12">
+<div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
+<div>
+<span class="text-xs font-bold uppercase tracking-wider text-cobalt-700">Comprehensive Coverage</span>
+<h2 class="text-3xl sm:text-4xl font-black tracking-tight text-on-surface mt-1">Choose Exam Program</h2>
+</div>
+<p class="text-sm text-on-surface-variant max-w-md">Every program integrates custom AI diagnostic algorithms tailored to test-maker algorithmic scoring curves.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- SAT Card -->
+<div class="rounded-3xl border border-surface-container bg-white p-6 shadow-card-lift flex flex-col justify-between hover:-translate-y-1 transition-transform">
+<div>
+<div class="flex items-center justify-between">
+<span class="inline-flex rounded-lg bg-cobalt-50 px-3 py-1 text-xs font-bold text-cobalt-800">Digital SAT</span>
+<span class="text-xs font-bold text-amber-600">Top 1% Tutors</span>
+</div>
+<h3 class="mt-4 text-2xl font-black text-on-surface">SAT Prep</h3>
+<p class="mt-2 text-xs text-on-surface-variant leading-relaxed">Master the adaptive multistage testing algorithm, Desmos calculator shortcuts, and high-density Reading module pacing.</p>
+<div class="mt-6 space-y-2 border-t border-surface-container-high pt-4">
+<div class="flex items-center justify-between text-xs">
+<span class="text-on-surface-variant">Avg. Increase:</span>
+<span class="font-bold text-cobalt-800">+210 Points</span>
+</div>
+<div class="flex items-center justify-between text-xs">
+<span class="text-on-surface-variant">Curriculum:</span>
+<span class="font-semibold text-on-surface">32 Practice Modules</span>
+</div>
+<div class="flex items-center justify-between text-xs">
+<span class="text-on-surface-variant">Format:</span>
+<span class="font-semibold text-on-surface">1:1 + AI Platform</span>
+</div>
+</div>
+</div>
+<a class="mt-8 flex h-10 w-full items-center justify-center rounded-xl bg-surface-container text-xs font-bold text-cobalt-800 hover:bg-cobalt-800 hover:text-white transition-colors" href="#book-diagnostic">
+              Explore SAT Program
+            </a>
+</div>
+<!-- GRE Card (Featured) -->
+<div class="rounded-3xl border-2 border-cobalt-700 bg-white p-6 shadow-glow-cobalt flex flex-col justify-between relative hover:-translate-y-1 transition-transform">
+<span class="absolute -top-3 right-6 rounded-full bg-amber-500 px-3 py-0.5 text-[10px] font-black uppercase tracking-wider text-white shadow-sm">Most Popular</span>
+<div>
+<div class="flex items-center justify-between">
+<span class="inline-flex rounded-lg bg-cobalt-100 px-3 py-1 text-xs font-bold text-cobalt-900">Grad Admissions</span>
+<span class="text-xs font-bold text-amber-600">Ivy Network</span>
+</div>
+<h3 class="mt-4 text-2xl font-black text-on-surface">GRE General</h3>
+<p class="mt-2 text-xs text-on-surface-variant leading-relaxed">Targeted vocabulary contextual decoding, advanced Quantitative comparison shortcuts, and analytical writing frameworks.</p>
+<div class="mt-6 space-y-2 border-t border-surface-container-high pt-4">
+<div class="flex items-center justify-between text-xs">
+<span class="text-on-surface-variant">Avg. Increase:</span>
+<span class="font-bold text-cobalt-800">+14 Points</span>
+</div>
+<div class="flex items-center justify-between text-xs">
+<span class="text-on-surface-variant">Curriculum:</span>
+<span class="font-semibold text-on-surface">40+ Timed Sprints</span>
+</div>
+<div class="flex items-center justify-between text-xs">
+<span class="text-on-surface-variant">Format:</span>
+<span class="font-semibold text-on-surface">Intensive 1:1 Coaching</span>
+</div>
+</div>
+</div>
+<a class="mt-8 flex h-10 w-full items-center justify-center rounded-xl bg-cobalt-800 text-xs font-bold text-white hover:bg-cobalt-700 transition-colors shadow-md" href="#book-diagnostic">
+              Explore GRE Program
+            </a>
+</div>
+<!-- GMAT Card -->
+<div class="rounded-3xl border border-surface-container bg-white p-6 shadow-card-lift flex flex-col justify-between hover:-translate-y-1 transition-transform">
+<div>
+<div class="flex items-center justify-between">
+<span class="inline-flex rounded-lg bg-cobalt-50 px-3 py-1 text-xs font-bold text-cobalt-800">GMAT Focus</span>
+<span class="text-xs font-bold text-amber-600">M7 Alumni Mentors</span>
+</div>
+<h3 class="mt-4 text-2xl font-black text-on-surface">GMAT Focus Edition</h3>
+<p class="mt-2 text-xs text-on-surface-variant leading-relaxed">Master the Data Insights section, non-standard problem solving heuristics, and ruthless critical reasoning deduction.</p>
+<div class="mt-6 space-y-2 border-t border-surface-container-high pt-4">
+<div class="flex items-center justify-between text-xs">
+<span class="text-on-surface-variant">Target Score:</span>
+<span class="font-bold text-cobalt-800">685+ (99th %tile)</span>
+</div>
+<div class="flex items-center justify-between text-xs">
+<span class="text-on-surface-variant">Curriculum:</span>
+<span class="font-semibold text-on-surface">Data Insights Focus</span>
+</div>
+<div class="flex items-center justify-between text-xs">
+<span class="text-on-surface-variant">Format:</span>
+<span class="font-semibold text-on-surface">1:1 Executive Prep</span>
+</div>
+</div>
+</div>
+<a class="mt-8 flex h-10 w-full items-center justify-center rounded-xl bg-surface-container text-xs font-bold text-cobalt-800 hover:bg-cobalt-800 hover:text-white transition-colors" href="#book-diagnostic">
+              Explore GMAT Program
+            </a>
+</div>
+<!-- IELTS Card -->
+<div class="rounded-3xl border border-surface-container bg-white p-6 shadow-card-lift flex flex-col justify-between hover:-translate-y-1 transition-transform">
+<div>
+<div class="flex items-center justify-between">
+<span class="inline-flex rounded-lg bg-cobalt-50 px-3 py-1 text-xs font-bold text-cobalt-800">Academic &amp; General</span>
+<span class="text-xs font-bold text-amber-600">Band 8.5+ Faculty</span>
+</div>
+<h3 class="mt-4 text-2xl font-black text-on-surface">IELTS Prep</h3>
+<p class="mt-2 text-xs text-on-surface-variant leading-relaxed">Live oral interview simulators, academic writing Task 2 structural precision, and rapid audio accentuation filters.</p>
+<div class="mt-6 space-y-2 border-t border-surface-container-high pt-4">
+<div class="flex items-center justify-between text-xs">
+<span class="text-on-surface-variant">Avg. Score:</span>
+<span class="font-bold text-cobalt-800">Band 8.0+</span>
+</div>
+<div class="flex items-center justify-between text-xs">
+<span class="text-on-surface-variant">Curriculum:</span>
+<span class="font-semibold text-on-surface">AI Voice Grading</span>
+</div>
+<div class="flex items-center justify-between text-xs">
+<span class="text-on-surface-variant">Format:</span>
+<span class="font-semibold text-on-surface">Live 1:1 Oral Drills</span>
+</div>
+</div>
+</div>
+<a class="mt-8 flex h-10 w-full items-center justify-center rounded-xl bg-surface-container text-xs font-bold text-cobalt-800 hover:bg-cobalt-800 hover:text-white transition-colors" href="#book-diagnostic">
+              Explore IELTS Program
+            </a>
+</div>
+</div>
+</div>
+</section>
+<!-- WHY INVICTA: 5 FEATURE PILLARS -->
+<section class="border-t border-surface-container-high bg-white py-20 lg:py-28" id="why-invicta">
+<div class="mx-auto max-w-7xl px-6 lg:px-12">
+<div class="text-center max-w-3xl mx-auto flex flex-col gap-3 mb-16">
+<span class="text-xs font-bold uppercase tracking-wider text-amber-600">The Pedagogical Pillars</span>
+<h2 class="text-3xl sm:text-4xl font-black tracking-tight text-on-surface">
+            Why Invicta Outperforms Standard Coaching
+          </h2>
+<p class="text-base text-on-surface-variant">
+            Built from cognitive science, advanced response diagnostics, and an unmatched roster of verified 99th-percentile tutors.
+          </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Pillar 1 -->
+<div class="rounded-3xl border border-surface-container bg-surface-container-low p-8 flex flex-col gap-4">
+<div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-cobalt-800 text-white shadow-md">
+<span class="material-symbols-outlined text-2xl" data-icon="psychology">psychology</span>
+</div>
+<h3 class="text-xl font-bold text-on-surface">Adaptive Cognitive Modeling</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+              Our AI engine continuously calibrates difficulty in response to your problem-solving latency, fatigue index, and recurring bias patterns.
+            </p>
+</div>
+<!-- Pillar 2 -->
+<div class="rounded-3xl border border-surface-container bg-surface-container-low p-8 flex flex-col gap-4">
+<div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-500 text-white shadow-md">
+<span class="material-symbols-outlined text-2xl" data-icon="military_tech">military_tech</span>
+</div>
+<h3 class="text-xl font-bold text-on-surface">Top 1% Percentile Mentors</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+              Fewer than 2% of instructor applicants pass our rigorous pedagogical auditions. Learn exclusively from scholars who achieved top scores themselves.
+            </p>
+</div>
+<!-- Pillar 3 -->
+<div class="rounded-3xl border border-surface-container bg-surface-container-low p-8 flex flex-col gap-4">
+<div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-cobalt-800 text-white shadow-md">
+<span class="material-symbols-outlined text-2xl" data-icon="insights">insights</span>
+</div>
+<h3 class="text-xl font-bold text-on-surface">Micro-Targeted Sprints</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+              Never spend an hour on a subject you have already mastered. Study sprints are mathematically prioritized by points-per-hour yield.
+            </p>
+</div>
+<!-- Pillar 4 -->
+<div class="rounded-3xl border border-surface-container bg-surface-container-low p-8 flex flex-col gap-4 md:col-span-2">
+<div class="flex items-center gap-4">
+<div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-500 text-white shadow-md">
+<span class="material-symbols-outlined text-2xl" data-icon="speed">speed</span>
+</div>
+<h3 class="text-xl font-bold text-on-surface">Simulated Exam-Room Proctor Cadence</h3>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+              True mastery requires nervous system conditioning. Invicta full-length practice tests recreate exact digital interface layouts, timer pressures, and section change protocols so test day feels like routine practice.
+            </p>
+</div>
+<!-- Pillar 5 -->
+<div class="rounded-3xl border border-surface-container bg-surface-container-low p-8 flex flex-col gap-4">
+<div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-cobalt-800 text-white shadow-md">
+<span class="material-symbols-outlined text-2xl" data-icon="security">security</span>
+</div>
+<h3 class="text-xl font-bold text-on-surface">Guaranteed Point Increase</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+              We stand firmly behind our curriculum. Complete the assigned diagnostic checkpoints and if you don't hit your target threshold, we refund your tuition.
+            </p>
+</div>
+</div>
+</div>
+</section>
+<!-- TESTIMONIALS & ADMISSIONS PROOF -->
+<section class="border-t border-surface-container-high bg-surface-container-low py-20 lg:py-28">
+<div class="mx-auto max-w-7xl px-6 lg:px-12">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+<div>
+<span class="text-xs font-bold uppercase tracking-wider text-cobalt-700">Verified Outcomes</span>
+<h2 class="text-3xl sm:text-4xl font-black tracking-tight text-on-surface mt-1">Student Transformations</h2>
+</div>
+<p class="text-sm text-on-surface-variant max-w-md">Hear from students who broke through stubborn score plateaus and earned admission to their dream universities.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Testimonial 1 -->
+<div class="rounded-3xl border border-surface-container bg-white p-7 shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex gap-1 text-amber-500 mb-4">
+<span class="material-symbols-outlined text-lg" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-lg" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-lg" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-lg" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-lg" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-sm text-on-surface leading-relaxed italic">
+                "I was stuck at 1330 on the SAT for 6 months using standard prep books. Invicta's diagnostic spotted that my geometry pacing was eating 15 minutes of my test. Jumped to 1540 in 7 weeks."
+              </p>
+</div>
+<div class="mt-6 pt-4 border-t border-surface-container flex items-center justify-between">
+<div>
+<p class="text-sm font-bold text-on-surface">Marcus Vance</p>
+<p class="text-xs text-on-surface-variant">Stanford University Class of '28</p>
+</div>
+<span class="rounded bg-cobalt-50 px-2.5 py-1 text-xs font-bold text-cobalt-800">+210 SAT</span>
+</div>
+</div>
+<!-- Testimonial 2 -->
+<div class="rounded-3xl border border-surface-container bg-white p-7 shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex gap-1 text-amber-500 mb-4">
+<span class="material-symbols-outlined text-lg" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-lg" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-lg" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-lg" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-lg" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-sm text-on-surface leading-relaxed italic">
+                "The GRE Quantitative diagnostic eliminated my anxiety around probability questions within two sessions. My mentor broke down question traps I had failed to spot 10 times prior."
+              </p>
+</div>
+<div class="mt-6 pt-4 border-t border-surface-container flex items-center justify-between">
+<div>
+<p class="text-sm font-bold text-on-surface">Elena Rostova</p>
+<p class="text-xs text-on-surface-variant">Columbia MS Data Science</p>
+</div>
+<span class="rounded bg-cobalt-50 px-2.5 py-1 text-xs font-bold text-cobalt-800">+16 GRE</span>
+</div>
+</div>
+<!-- Testimonial 3 -->
+<div class="rounded-3xl border border-surface-container bg-white p-7 shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex gap-1 text-amber-500 mb-4">
+<span class="material-symbols-outlined text-lg" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-lg" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-lg" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-lg" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-lg" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-sm text-on-surface leading-relaxed italic">
+                "Scoring 725 on the GMAT Focus opened admissions doors I previously deemed impossible. The AI diagnostic roadmap felt like having an elite admissions coach in my pocket 24/7."
+              </p>
+</div>
+<div class="mt-6 pt-4 border-t border-surface-container flex items-center justify-between">
+<div>
+<p class="text-sm font-bold text-on-surface">Devon Chen</p>
+<p class="text-xs text-on-surface-variant">Wharton MBA Class of '26</p>
+</div>
+<span class="rounded bg-amber-50 px-2.5 py-1 text-xs font-bold text-amber-700">725 GMAT</span>
+</div>
+</div>
+</div>
+<!-- University Admissions Banner Strip -->
+<div class="mt-12 rounded-2xl bg-white border border-surface-container-high p-6 flex flex-wrap items-center justify-between gap-6">
+<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Where Our Scholars Enroll:</span>
+<div class="flex flex-wrap items-center gap-8 font-black text-sm text-on-surface/70">
+<span>HARVARD</span>
+<span>STANFORD</span>
+<span>MIT</span>
+<span>OXFORD</span>
+<span>CAMBRIDGE</span>
+<span>YALE</span>
+<span>PRINCETON</span>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ ACCORDION -->
+<section class="py-20 lg:py-28" id="faq">
+<div class="mx-auto max-w-4xl px-6 lg:px-12">
+<div class="text-center flex flex-col gap-3 mb-16">
+<span class="text-xs font-bold uppercase tracking-wider text-cobalt-700">Clear Answers</span>
+<h2 class="text-3xl sm:text-4xl font-black tracking-tight text-on-surface">
+            Frequently Asked Questions
+          </h2>
+<p class="text-sm text-on-surface-variant">
+            Everything you need to know about the AI diagnostic baseline, mentoring sessions, and score guarantees.
+          </p>
+</div>
+<div class="space-y-4">
+<!-- FAQ Item 1 -->
+<details class="group rounded-2xl border border-surface-container bg-white p-6 [&amp;_summary::-webkit-details-marker]:hidden" open="">
+<summary class="flex cursor-pointer items-center justify-between font-bold text-base text-on-surface">
+<span>How does the Invicta Free AI Diagnostic work?</span>
+<span class="ml-4 flex-shrink-0 transition-transform duration-200 group-open:-rotate-180">
+<span class="material-symbols-outlined" data-icon="expand_more">expand_more</span>
+</span>
+</summary>
+<p class="mt-4 text-sm text-on-surface-variant leading-relaxed">
+              The diagnostic is a 45-minute calibrated simulation that isolates your operational speed, stress-points, and conceptual gaps. Rather than just returning a score, it outputs a multi-dimensional matrix showing exactly which sub-skills yield your highest point gains.
+            </p>
+</details>
+<!-- FAQ Item 2 -->
+<details class="group rounded-2xl border border-surface-container bg-white p-6 [&amp;_summary::-webkit-details-marker]:hidden">
+<summary class="flex cursor-pointer items-center justify-between font-bold text-base text-on-surface">
+<span>Who are the 1-on-1 mentors and how are they selected?</span>
+<span class="ml-4 flex-shrink-0 transition-transform duration-200 group-open:-rotate-180">
+<span class="material-symbols-outlined" data-icon="expand_more">expand_more</span>
+</span>
+</summary>
+<p class="mt-4 text-sm text-on-surface-variant leading-relaxed">
+              All Invicta mentors have verified scores in the 99th percentile of their respective exams and degrees from top-tier research universities. Beyond exam prowess, they are trained in cognitive diagnostic debriefing and deliberate practice methodologies.
+            </p>
+</details>
+<!-- FAQ Item 3 -->
+<details class="group rounded-2xl border border-surface-container bg-white p-6 [&amp;_summary::-webkit-details-marker]:hidden">
+<summary class="flex cursor-pointer items-center justify-between font-bold text-base text-on-surface">
+<span>What is the 100% Score Improvement Guarantee?</span>
+<span class="ml-4 flex-shrink-0 transition-transform duration-200 group-open:-rotate-180">
+<span class="material-symbols-outlined" data-icon="expand_more">expand_more</span>
+</span>
+</summary>
+<p class="mt-4 text-sm text-on-surface-variant leading-relaxed">
+              If you complete your personalized program schedule, complete the assigned timed sprints, and do not see the minimum guaranteed score increase over your verified diagnostic baseline, we provide full tuition reimbursement or complimentary continuation until you hit the threshold.
+            </p>
+</details>
+<!-- FAQ Item 4 -->
+<details class="group rounded-2xl border border-surface-container bg-white p-6 [&amp;_summary::-webkit-details-marker]:hidden">
+<summary class="flex cursor-pointer items-center justify-between font-bold text-base text-on-surface">
+<span>How does Invicta adapt to the new Digital SAT and GMAT Focus formats?</span>
+<span class="ml-4 flex-shrink-0 transition-transform duration-200 group-open:-rotate-180">
+<span class="material-symbols-outlined" data-icon="expand_more">expand_more</span>
+</span>
+</summary>
+<p class="mt-4 text-sm text-on-surface-variant leading-relaxed">
+              Our testing environment replicates the exact testing engine of the real exams, including module-level adaptive routing algorithms, on-screen graphing calculators, and time markers. You prepare under the exact conditions you will face on test day.
+            </p>
+</details>
+</div>
+</div>
+</section>
+<!-- BOOK DIAGNOSTIC BOOKING FORM (Preserved action and task flow) -->
+<section class="border-t border-surface-container-high bg-white py-20 lg:py-28" id="book-diagnostic">
+<div class="mx-auto max-w-5xl px-6 lg:px-12">
+<div class="rounded-3xl border-2 border-cobalt-800 bg-white p-8 sm:p-12 shadow-glow-cobalt relative overflow-hidden">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+<!-- Left Info Column -->
+<div class="lg:col-span-6 flex flex-col gap-4">
+<span class="inline-flex items-center gap-2 self-start rounded-full bg-amber-50 px-3 py-1 text-xs font-bold text-amber-700">
+<span class="material-symbols-outlined text-sm" data-icon="bolt">bolt</span>
+                Zero Commitment
+              </span>
+<h2 class="text-3xl sm:text-4xl font-black tracking-tight text-on-surface">
+                Claim Your Free AI Diagnostic Assessment
+              </h2>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+                Take the calibrated 45-minute simulation. Receive a full concept-by-concept diagnostic report and a complimentary 30-minute 1-on-1 strategy call with an Ivy+ faculty mentor.
+              </p>
+<div class="mt-4 space-y-2.5">
+<div class="flex items-center gap-3 text-xs font-semibold text-on-surface">
+<span class="material-symbols-outlined text-emerald-600 text-base" data-icon="check_circle">check_circle</span>
+<span>Instant weak-spot taxonomy breakdown</span>
+</div>
+<div class="flex items-center gap-3 text-xs font-semibold text-on-surface">
+<span class="material-symbols-outlined text-emerald-600 text-base" data-icon="check_circle">check_circle</span>
+<span>Personalized target score feasibility roadmap</span>
+</div>
+<div class="flex items-center gap-3 text-xs font-semibold text-on-surface">
+<span class="material-symbols-outlined text-emerald-600 text-base" data-icon="check_circle">check_circle</span>
+<span>No credit card required</span>
+</div>
+</div>
+</div>
+<!-- Right Form Column -->
+<div class="lg:col-span-6 rounded-2xl bg-surface-container-low p-6 border border-surface-container">
+<form class="flex flex-col gap-4" onsubmit="event.preventDefault(); alert('Diagnostic Scheduled!');">
+<div>
+<label class="block text-xs font-bold text-on-surface mb-1" for="student-name">Full Name</label>
+<input class="w-full rounded-xl border border-surface-container bg-white px-4 py-2.5 text-sm text-on-surface placeholder:text-outline focus:border-cobalt-700 focus:ring-1 focus:ring-cobalt-700" id="student-name" placeholder="Alex Mercer" required="" type="text"/>
+</div>
+<div>
+<label class="block text-xs font-bold text-on-surface mb-1" for="student-email">Email Address</label>
+<input class="w-full rounded-xl border border-surface-container bg-white px-4 py-2.5 text-sm text-on-surface placeholder:text-outline focus:border-cobalt-700 focus:ring-1 focus:ring-cobalt-700" id="student-email" placeholder="alex@example.com" required="" type="email"/>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<div>
+<label class="block text-xs font-bold text-on-surface mb-1" for="exam-select">Target Exam</label>
+<select class="w-full rounded-xl border border-surface-container bg-white px-3 py-2.5 text-sm text-on-surface focus:border-cobalt-700 focus:ring-1 focus:ring-cobalt-700" id="exam-select">
+<option>Digital SAT</option>
+<option>GRE General</option>
+<option>GMAT Focus</option>
+<option>IELTS Academic</option>
+</select>
+</div>
+<div>
+<label class="block text-xs font-bold text-on-surface mb-1" for="test-date">Target Test Date</label>
+<select class="w-full rounded-xl border border-surface-container bg-white px-3 py-2.5 text-sm text-on-surface focus:border-cobalt-700 focus:ring-1 focus:ring-cobalt-700" id="test-date">
+<option>Next 30 Days</option>
+<option>1-3 Months</option>
+<option>3-6 Months</option>
+<option>Flexible</option>
+</select>
+</div>
+</div>
+<button class="mt-2 flex h-12 w-full items-center justify-center rounded-xl bg-cobalt-800 text-sm font-bold text-white shadow-lg shadow-cobalt-800/30 hover:bg-cobalt-700 transition-all" type="submit">
+<span>Start Free AI Diagnostic</span>
+<span class="material-symbols-outlined ml-2 text-lg" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<p class="text-center text-[11px] text-on-surface-variant">
+                  By submitting, you agree to our Terms of Service &amp; Privacy Policy.
+                </p>
+</form>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- FOOTER -->
+<footer class="border-t border-surface-container-high bg-white py-12">
+<div class="mx-auto max-w-7xl px-6 lg:px-12 flex flex-col md:flex-row items-center justify-between gap-6">
+<!-- Brand & Copyright -->
+<div class="flex items-center gap-3">
+<div class="flex h-8 w-8 items-center justify-center rounded-lg bg-cobalt-800 text-white">
+<svg class="h-4 w-4" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M47.2426 24L24 47.2426L0.757355 24L24 0.757355L47.2426 24ZM12.2426 21H35.7574L24 9.24264L12.2426 21Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<p class="text-sm font-bold text-on-surface">Invicta Test Prep</p>
+<span class="text-xs text-on-surface-variant">© 2025 Invicta Prep Inc. All rights reserved.</span>
+</div>
+<!-- Links -->
+<div class="flex items-center gap-6 text-xs text-on-surface-variant font-medium">
+<a class="hover:text-cobalt-800 transition-colors" href="#how-it-works">How It Works</a>
+<a class="hover:text-cobalt-800 transition-colors" href="#choose-exam">Programs</a>
+<a class="hover:text-cobalt-800 transition-colors" href="#results">Results</a>
+<a class="hover:text-cobalt-800 transition-colors" href="#faq">FAQ</a>
+<a class="hover:text-cobalt-800 transition-colors" href="#">Privacy Policy</a>
+</div>
+</div>
+</footer>
+</body></html>

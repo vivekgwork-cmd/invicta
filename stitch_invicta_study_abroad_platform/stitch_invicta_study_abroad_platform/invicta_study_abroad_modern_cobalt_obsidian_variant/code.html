@@ -1,0 +1,850 @@
+<!DOCTYPE html><html lang="en" style="width: 1280px; height: 6659px; overflow: hidden; position: relative;"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta content="web_standard" name="shell-type">
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<!-- High-Tech EdTech Modernist Typography: Outfit (Neo-Grotesque Display) & Plus Jakarta Sans / DM Sans -->
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&amp;family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&amp;family=Space+Grotesk:wght@500;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<style>
+    @layer base {
+      html, body { margin: 0; padding: 0; }
+      body { overscroll-behavior: none; }
+      main > :first-child { margin-top: 0 !important; }
+      main > :last-child { margin-bottom: 0 !important; }
+    }
+    ::-webkit-scrollbar { display: none; }
+  </style>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            // High-Tech Global EdTech Palette: Midnight Obsidian, Cobalt Blue, Champagne Gold
+            obsidian: {
+              950: '#060911',
+              900: '#090d16',
+              850: '#0d1322',
+              800: '#111a2e',
+              700: '#1c2842'
+            },
+            cobalt: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              200: '#bfdbfe',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              800: '#1e40af'
+            },
+            champagne: {
+              400: '#fbbf24',
+              500: '#f59e0b',
+              600: '#d97706',
+              700: '#b45309'
+            },
+            surface: {
+              DEFAULT: '#f8fafc',
+              dim: '#f1f5f9',
+              white: '#ffffff',
+              border: '#e2e8f0'
+            }
+          },
+          fontFamily: {
+            display: ['Outfit', 'sans-serif'],
+            body: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['Space Grotesk', 'monospace']
+          },
+          boxShadow: {
+            'glow-cobalt': '0 0 40px -10px rgba(37, 99, 235, 0.35)',
+            'glow-gold': '0 0 35px -8px rgba(245, 158, 11, 0.35)',
+            'card-tech': '0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.03)'
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-surface font-body text-slate-900 min-h-screen flex flex-col selection:bg-cobalt-600 selection:text-white">
+<!-- ==================== HEADER NAVIGATION ==================== -->
+<header class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-xl border-b border-slate-200/80 shadow-[0_2px_15px_-4px_rgba(0,0,0,0.04)]">
+<div class="h-20 max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between gap-6">
+<!-- Brand Logo & Tech Emblem -->
+<div class="flex items-center gap-3.5">
+<div class="relative flex items-center justify-center p-1 rounded-xl bg-slate-50 border border-slate-200/70 shadow-sm"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhZ3MsBCperqhisTF86YzRemExsE16_mf0WZFGt8r4wlclP6sviMAOl0jpsIQsmfVux0nBmJ-xAGHGb7YfZ9XH3K9OEtRHeN6H-PyRUHH3W2543BCh5dY2EJ7cBPalfUM7S1ELdqFkPmFhVq1mAGBnA-j0hR6po_B37JNxAnNRHltxRZ5og1XO5Y7VNKyU8v_oG57-GVPGFuQHpbnIuIVpINb8pKHffV5J14eC6VroW9ktgCXp7zuWzqICavMICdX0ug" alt="Invicta Career Consultancy" class="h-9 w-auto object-contain"></div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-cobalt-600"></span>
+</div>
+
+</div>
+</div>
+<!-- Navigation Links -->
+<nav class="hidden xl:flex items-center gap-1.5 bg-slate-100/70 p-1.5 rounded-full border border-slate-200/60" data-active-classes="bg-white text-cobalt-700 shadow-sm font-semibold rounded-full">
+<a aria-current="page" class="px-4 py-1.5 text-xs font-semibold rounded-full bg-white text-cobalt-700 shadow-sm transition-all" data-path="programs" href="#">Programs</a>
+<a class="px-4 py-1.5 text-xs font-semibold text-slate-600 hover:text-obsidian-950 rounded-full hover:bg-white/60 transition-all" data-path="test-prep" href="#">Test Prep</a>
+<a class="px-4 py-1.5 text-xs font-semibold text-slate-600 hover:text-obsidian-950 rounded-full hover:bg-white/60 transition-all" data-path="admissions" href="#">Admissions</a>
+<a class="px-4 py-1.5 text-xs font-semibold text-slate-600 hover:text-obsidian-950 rounded-full hover:bg-white/60 transition-all" data-path="success-stories" href="#">Success Stories</a>
+<a class="px-4 py-1.5 text-xs font-semibold text-slate-600 hover:text-obsidian-950 rounded-full hover:bg-white/60 transition-all" data-path="about-us" href="#">About Us</a>
+</nav>
+<!-- Action Buttons -->
+<div class="flex items-center gap-3">
+
+<a class="inline-flex items-center justify-center gap-1.5 bg-gradient-to-r from-champagne-500 to-amber-500 hover:from-champagne-600 hover:to-amber-600 text-obsidian-950 font-bold text-xs px-5 py-2.5 rounded-lg shadow-sm hover:shadow-md transition-all uppercase tracking-wider" data-path="book-free-counselling" href="#">
+<span class="material-symbols-outlined text-[16px]">calendar_today</span>
+          Book Free Counselling
+        </a>
+<div class="w-9 h-9 rounded-lg bg-obsidian-900 border border-obsidian-800 flex items-center justify-center shrink-0 shadow-sm text-white">
+
+</div>
+</div>
+</div>
+</header>
+<!-- ==================== MAIN CONTENT ==================== -->
+<main class="w-full pt-20 bg-surface flex-1">
+<div class="flex flex-col w-full">
+<!-- 1. HIGH-TECH HERO SECTION -->
+<section class="relative overflow-hidden bg-gradient-to-b from-white via-slate-50 to-slate-100/70 pt-16 pb-24 lg:pt-24 lg:pb-32 px-6 lg:px-12 border-b border-slate-200/80">
+<!-- Glowing EdTech Radial Ambience -->
+<div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-gradient-to-br from-cobalt-500/15 via-champagne-400/10 to-transparent rounded-full blur-[120px] pointer-events-none"></div>
+<div class="absolute top-1/3 -right-20 w-80 h-80 bg-cobalt-600/10 rounded-full blur-[90px] pointer-events-none"></div>
+<div class="absolute bottom-10 -left-20 w-80 h-80 bg-champagne-500/10 rounded-full blur-[90px] pointer-events-none"></div>
+<div class="max-w-7xl mx-auto relative z-10 flex flex-col items-center text-center">
+<!-- Eyebrow Pill with Tech Indicator Dot -->
+<div class="inline-flex items-center gap-2 bg-white border border-slate-200/90 px-4 py-1.5 rounded-full shadow-sm mb-6 backdrop-blur-md">
+<span class="flex h-2 w-2 relative">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-champagne-500 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-champagne-600"></span>
+</span>
+<span class="material-symbols-outlined text-champagne-600 text-[16px]">hotel_class</span>
+<span class="font-mono text-[11px] font-bold tracking-[0.16em] uppercase text-obsidian-900">STUDY ABROAD FROM TEST PREP TO IVY-LEVEL COLLEGES</span>
+</div>
+<!-- Main Massive Display Headline with High-Impact Gradient Accent -->
+<h1 class="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl text-obsidian-950 max-w-5xl tracking-tight leading-[1.12] mb-6">
+            Study abroad From Test Prep to Ivy-Level Colleges. 
+            
+</h1>
+<!-- High-Clarity Subtitle -->
+<p class="font-body text-slate-600 text-base sm:text-lg lg:text-xl max-w-2xl mb-10 leading-relaxed font-normal">
+            Expert test-prep and university counselling to help students study abroad affordably, strategically and successfully.
+          </p>
+<!-- Dual CTAs: Electric Cobalt & High-Contrast Obsidian -->
+<div class="flex flex-col sm:flex-row items-center gap-4 w-full justify-center mb-10">
+<a class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-champagne-500 via-amber-500 to-amber-600 hover:from-champagne-600 hover:to-amber-700 text-obsidian-950 font-bold text-sm px-8 py-4 rounded-xl shadow-lg hover:shadow-xl hover:scale-[1.01] transition-all duration-200" href="#counselling">
+<span class="material-symbols-outlined text-[20px]">calendar_month</span>
+              Book Free Counselling
+            </a>
+<a class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-obsidian-900 hover:bg-obsidian-850 text-white font-bold text-sm px-8 py-4 rounded-xl shadow-md hover:shadow-xl hover:scale-[1.01] border border-obsidian-800 transition-all duration-200" href="#guide">
+<span class="material-symbols-outlined text-[20px] text-champagne-400">download</span>
+              Download Study Abroad Guide
+            </a>
+</div>
+<!-- Proof Indicator Card -->
+<div class="flex flex-wrap items-center justify-center gap-2 bg-white/95 border border-slate-200 px-6 py-2.5 rounded-full shadow-sm font-body text-xs sm:text-sm text-slate-600">
+<span class="text-amber-500 font-bold tracking-tight">⭐⭐⭐⭐⭐</span>
+<span class="font-mono font-bold text-obsidian-950 ml-1">4.9/5</span>
+<span class="">from over 10,000+ placed students</span>
+<span class="hidden md:inline text-slate-300">•</span>
+<span class="text-slate-900 font-semibold">Harvard, Oxford, Stanford, MIT alumni mentors</span>
+</div>
+<!-- High-Tech Modular 4-Pill Feature Strip -->
+<div class="mt-16 w-full max-w-7xl flex flex-wrap items-center justify-center gap-3 sm:gap-4 mx-auto"><div class="bg-white rounded-xl p-4 border border-slate-200 shadow-card-tech hover:border-cobalt-500/50 hover:shadow-glow-cobalt transition-all duration-300 flex items-center gap-3 text-left"><div class="w-11 h-11 rounded-lg bg-cobalt-50 text-cobalt-600 flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-[24px]">verified</span></div><div><p class="font-display font-bold text-sm text-obsidian-950 leading-tight">Ivy-League</p><p class="font-body text-xs text-slate-500">Standardized Mentorship</p></div></div><div class="bg-white rounded-xl p-4 border border-slate-200 shadow-card-tech hover:border-champagne-500/50 hover:shadow-glow-gold transition-all duration-300 flex items-center gap-3 text-left"><div class="w-11 h-11 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-[24px]">monetization_on</span></div><div><p class="font-display font-bold text-sm text-obsidian-950 leading-tight">95%</p><p class="font-body text-xs text-slate-500">Success Rates</p></div></div><div class="bg-white rounded-xl p-4 border border-slate-200 shadow-card-tech hover:border-cobalt-500/50 hover:shadow-glow-cobalt transition-all duration-300 flex items-center gap-3 text-left"><div class="w-11 h-11 rounded-lg bg-cobalt-50 text-cobalt-600 flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-[24px]">psychology</span></div><div><p class="font-display font-bold text-sm text-obsidian-950 leading-tight">1:1 Strategy</p><p class="font-body text-xs text-slate-500">Profile Mapping</p></div></div><div class="bg-white rounded-xl p-4 border border-slate-200 shadow-card-tech hover:border-cobalt-500/50 hover:shadow-glow-cobalt transition-all duration-300 flex items-center gap-3 text-left"><div class="w-11 h-11 rounded-lg bg-cobalt-50 text-cobalt-600 flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-[24px]">school</span></div><div><p class="font-display font-bold text-sm text-obsidian-950 leading-tight">500+</p><p class="font-body text-xs text-slate-500">Partner Universities</p></div></div><div class="bg-white rounded-xl p-4 border border-slate-200 shadow-card-tech hover:border-champagne-500/50 hover:shadow-glow-gold transition-all duration-300 flex items-center gap-3 text-left"><div class="w-11 h-11 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-[24px]">workspace_premium</span></div><div><p class="font-display font-bold text-sm text-obsidian-950 leading-tight">Scholarship Guidance</p><p class="font-body text-xs text-slate-500">$45M+ Secured Aid</p></div></div></div>
+</div>
+</section>
+<!-- 2. MIDNIGHT OBSIDIAN PRECISION STATS BAR -->
+<section class="w-full bg-obsidian-950 text-white py-14 px-6 lg:px-12 border-y border-obsidian-800 shadow-2xl relative overflow-hidden">
+<div class="absolute inset-0 bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:24px_24px] opacity-25"></div>
+<div class="max-w-7xl mx-auto relative z-10">
+<div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 pb-8 mb-8 border-b border-obsidian-800/80">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="inline-block w-2 h-2 rounded-full bg-cobalt-500"></span>
+<span class="font-mono text-xs uppercase tracking-widest text-cobalt-400 font-bold">Institutional Eminence</span>
+</div>
+<h2 class="font-display font-bold text-2xl lg:text-3xl text-white">Empowering Global Academic Ambition</h2>
+</div>
+<p class="font-body text-xs sm:text-sm text-slate-400 max-w-md">
+              Proven statistical outcomes verified across leading Ivy-tier and international admissions councils.
+            </p>
+</div>
+<!-- 7-Column Precision Tech Metrics Grid -->
+<div class="flex flex-wrap items-center justify-center gap-4 max-w-5xl mx-auto">
+<div class="bg-obsidian-900/90 border border-obsidian-800 rounded-xl p-4 flex flex-col justify-between hover:border-cobalt-500/60 transition-colors relative overflow-hidden group w-44 sm:w-48 text-center">
+<div class="absolute top-0 left-0 w-full h-[2px] bg-cobalt-500/40 group-hover:bg-cobalt-500 transition-colors"></div>
+<p class="font-display font-extrabold text-3xl sm:text-4xl text-white tracking-tight">10,000+</p>
+<p class="font-mono text-[11px] uppercase tracking-wider text-slate-400 mt-2">Students Placed</p>
+</div>
+
+<div class="bg-obsidian-900/90 border border-obsidian-800 rounded-xl p-4 flex flex-col justify-between hover:border-cobalt-500/60 transition-colors relative overflow-hidden group w-44 sm:w-48 text-center">
+<div class="absolute top-0 left-0 w-full h-[2px] bg-cobalt-500/40 group-hover:bg-cobalt-500 transition-colors"></div>
+<p class="font-display font-extrabold text-3xl sm:text-4xl text-white tracking-tight">Top 50</p>
+<p class="font-mono text-[11px] uppercase tracking-wider text-slate-400 mt-2">QS Ranking Universities</p>
+</div>
+<div class="bg-obsidian-900/90 border border-obsidian-800 rounded-xl p-4 flex flex-col justify-between hover:border-cobalt-500/60 transition-colors relative overflow-hidden group w-44 sm:w-48 text-center">
+<div class="absolute top-0 left-0 w-full h-[2px] bg-cobalt-500/40 group-hover:bg-cobalt-500 transition-colors"></div>
+<p class="font-display font-extrabold text-3xl sm:text-4xl text-white tracking-tight">500+</p>
+<p class="font-mono text-[11px] uppercase tracking-wider text-slate-400 mt-2">Partner Universities</p>
+</div>
+
+<div class="bg-obsidian-900/90 border border-obsidian-800 rounded-xl p-4 flex flex-col justify-between hover:border-cobalt-500/60 transition-colors relative overflow-hidden group w-48 sm:w-56 text-center">
+<div class="absolute top-0 left-0 w-full h-[2px] bg-cobalt-500/40 group-hover:bg-cobalt-500 transition-colors"></div>
+<p class="font-display font-bold text-lg text-white leading-tight">1:1 Counsellors</p>
+<p class="font-body text-xs text-slate-400 mt-2">Dedicated mentors for career planning</p>
+</div>
+<div class="bg-obsidian-900/90 border border-obsidian-800 rounded-xl p-4 flex flex-col justify-between hover:border-champagne-500/60 transition-colors relative overflow-hidden group w-44 sm:w-48 text-center">
+<div class="absolute top-0 left-0 w-full h-[2px] bg-champagne-500/40 group-hover:bg-champagne-500 transition-colors"></div>
+<p class="font-display font-extrabold text-3xl sm:text-4xl text-champagne-400 tracking-tight">30+ Years</p>
+<p class="font-mono text-[11px] uppercase tracking-wider text-slate-400 mt-2">Experience</p>
+</div>
+</div>
+</div>
+</section>
+<!-- 3. DUAL PILLAR OFFERINGS: HIGH-TECH MASTERCARD TILES -->
+<section class="py-24 px-6 lg:px-12 max-w-7xl mx-auto w-full">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cobalt-50 border border-cobalt-200/60 text-cobalt-700 text-xs font-mono font-bold uppercase tracking-wider mb-3">
+            Academic Accelerators
+          </div>
+<h2 class="font-display font-bold text-3xl lg:text-4xl text-obsidian-950 mb-3 tracking-tight">
+            Two Tailored Pathways to Global Admissions
+          </h2>
+<p class="font-body text-slate-600 text-base max-w-xl mx-auto">
+            Architected for ambitious students aiming for elite universities with holistic profile elevation and score maximization.
+          </p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+<!-- Card 1: Test Preparation (Electric Cobalt Accent) -->
+<div class="bg-white rounded-2xl p-8 lg:p-10 border border-slate-200 shadow-card-tech hover:shadow-xl transition-all duration-300 flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-cobalt-500 via-cobalt-600 to-indigo-600"></div>
+<div>
+<div class="flex items-center justify-between mb-6">
+<span class="bg-cobalt-50 text-cobalt-700 border border-cobalt-200/80 px-3.5 py-1 rounded-full font-mono text-xs font-bold uppercase tracking-wider">Flagship Prep</span>
+<div class="w-12 h-12 rounded-xl bg-slate-50 border border-slate-200 text-cobalt-600 flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[26px]">menu_book</span>
+</div>
+</div>
+<h3 class="font-display font-bold text-2xl lg:text-3xl text-obsidian-950 mb-1">Test Preparation</h3>
+<p class="font-body text-base font-semibold text-cobalt-600 mb-4">Master SAT, GRE, GMAT, IELTS</p>
+<p class="font-body text-slate-600 text-sm leading-relaxed mb-6">
+                Master SAT, GRE, GMAT, IELTS through structured lessons, real-like mocks, and personal mentors who know what top universities expect.
+              </p>
+<div class="space-y-3 mb-8 bg-slate-50/70 p-5 rounded-xl border border-slate-100">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-cobalt-600 text-[20px] shrink-0 mt-0.5">check_circle</span>
+<span class="font-body text-xs sm:text-sm text-slate-700">Diagnostic mock exams with AI score forecasting</span>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-cobalt-600 text-[20px] shrink-0 mt-0.5">check_circle</span>
+<span class="font-body text-xs sm:text-sm text-slate-700">99th percentile instructors with certified pedagogical rigor</span>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-cobalt-600 text-[20px] shrink-0 mt-0.5">check_circle</span>
+<span class="font-body text-xs sm:text-sm text-slate-700">Personalized weak-area drill sessions &amp; speed pacing modules</span>
+</div>
+</div>
+</div>
+<a class="inline-flex items-center justify-center gap-2 bg-obsidian-950 hover:bg-cobalt-600 text-white font-bold text-xs uppercase tracking-wider py-4 px-6 rounded-xl shadow-sm hover:shadow-md transition-all w-full" href="#test-prep">
+              Explore Test Prep
+              <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+<!-- Card 2: Undergraduate Programs (Champagne Gold Accent) -->
+<div class="bg-white rounded-2xl p-8 lg:p-10 border border-slate-200 shadow-card-tech hover:shadow-xl transition-all duration-300 flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-champagne-400 via-amber-500 to-amber-600"></div>
+<div>
+<div class="flex items-center justify-between mb-6">
+<span class="bg-amber-50 text-amber-700 border border-amber-200/80 px-3.5 py-1 rounded-full font-mono text-xs font-bold uppercase tracking-wider">Admissions Suite</span>
+<div class="w-12 h-12 rounded-xl bg-slate-50 border border-slate-200 text-amber-600 flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[26px]">school</span>
+</div>
+</div>
+<h3 class="font-display font-bold text-2xl lg:text-3xl text-obsidian-950 mb-1">Undergraduate Programs</h3>
+<p class="font-body text-base font-semibold text-amber-600 mb-4">Comprehensive University Applications</p>
+<p class="font-body text-slate-600 text-sm leading-relaxed mb-6">
+                From creating your profile to applying to the right universities, securing scholarships, and handling visa details, we guide you fully, every step of the way.
+              </p>
+<div class="space-y-3 mb-8 bg-slate-50/70 p-5 rounded-xl border border-slate-100">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-amber-600 text-[20px] shrink-0 mt-0.5">check_circle</span>
+<span class="font-body text-xs sm:text-sm text-slate-700">Ivy League &amp; Oxbridge admissions strategy &amp; narrative design</span>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-amber-600 text-[20px] shrink-0 mt-0.5">check_circle</span>
+<span class="font-body text-xs sm:text-sm text-slate-700">Portfolio &amp; extracurricular spike curation to differentiate you</span>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-amber-600 text-[20px] shrink-0 mt-0.5">check_circle</span>
+<span class="font-body text-xs sm:text-sm text-slate-700">Scholarship application mastery targeting full-ride funding</span>
+</div>
+</div>
+</div>
+<a class="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-champagne-500 to-amber-500 hover:from-champagne-600 hover:to-amber-600 text-obsidian-950 font-bold text-xs uppercase tracking-wider py-4 px-6 rounded-xl shadow-sm hover:shadow-md transition-all w-full" href="#study-abroad">
+              Explore Study Abroad
+              <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</section>
+<!-- 4. GLOBAL DISCOVERY / REACH WITH TECH DATA CARDS -->
+<section class="bg-slate-100/70 py-24 px-6 lg:px-12 border-y border-slate-200">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
+<div class="max-w-2xl">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-700 text-xs font-mono font-bold uppercase tracking-wider mb-3">
+                Worldwide Horizon
+              </div>
+<h2 class="font-display font-bold text-3xl lg:text-4xl text-obsidian-950 mb-3 tracking-tight">
+                Get noticed by top universities across the globe
+              </h2>
+<p class="font-body text-slate-600 text-base">
+                Where you are doesn’t limit where you can go. With strong applications and the right strategy, you can get an admission letter from your dream college.
+              </p>
+</div>
+<a class="inline-flex items-center gap-2 bg-obsidian-950 hover:bg-cobalt-600 text-white font-bold text-xs uppercase tracking-wider px-6 py-3.5 rounded-xl shadow-sm transition-all whitespace-nowrap" href="#programs">
+              Explore Our Programs
+              <span class="material-symbols-outlined text-[18px]">public</span>
+</a>
+</div>
+<!-- Destination Cards Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+<!-- US -->
+<div class="bg-white rounded-xl p-5 border border-slate-200 shadow-card-tech hover:border-cobalt-500 transition-all flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-3">
+<span class="text-2xl">🇺🇸</span>
+
+</div>
+<h4 class="font-display font-bold text-lg text-obsidian-950 mb-1">United States</h4>
+<p class="font-body text-xs text-slate-500 mb-4 leading-relaxed">Ivy League, Stanford, MIT &amp; Top 30 National Universities</p>
+</div>
+<div class="pt-3 border-t border-slate-100 flex items-center justify-between font-mono text-xs">
+<span class="text-slate-500">Acceptance Rate</span>
+<span class="font-bold text-cobalt-600">96.8%</span>
+</div>
+</div>
+<!-- UK -->
+<div class="bg-white rounded-xl p-5 border border-slate-200 shadow-card-tech hover:border-cobalt-500 transition-all flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-3">
+<span class="text-2xl">🇬🇧</span>
+
+</div>
+<h4 class="font-display font-bold text-lg text-obsidian-950 mb-1">United Kingdom</h4>
+<p class="font-body text-xs text-slate-500 mb-4 leading-relaxed">Russell Group, Oxford, Cambridge, Imperial &amp; UCL</p>
+</div>
+<div class="pt-3 border-t border-slate-100 flex items-center justify-between font-mono text-xs">
+<span class="text-slate-500">Acceptance Rate</span>
+<span class="font-bold text-cobalt-600">98.2%</span>
+</div>
+</div>
+<!-- Canada -->
+<div class="bg-white rounded-xl p-5 border border-slate-200 shadow-card-tech hover:border-cobalt-500 transition-all flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-3">
+<span class="text-2xl">🇨🇦</span>
+
+</div>
+<h4 class="font-display font-bold text-lg text-obsidian-950 mb-1">Canada</h4>
+<p class="font-body text-xs text-slate-500 mb-4 leading-relaxed">Toronto, McGill, UBC, Waterloo &amp; Leading Consortia</p>
+</div>
+<div class="pt-3 border-t border-slate-100 flex items-center justify-between font-mono text-xs">
+<span class="text-slate-500">Acceptance Rate</span>
+<span class="font-bold text-cobalt-600">99.1%</span>
+</div>
+</div>
+<!-- Australia -->
+<div class="bg-white rounded-xl p-5 border border-slate-200 shadow-card-tech hover:border-cobalt-500 transition-all flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-3">
+<span class="text-2xl">🇦🇺</span>
+
+</div>
+<h4 class="font-display font-bold text-lg text-obsidian-950 mb-1">Australia</h4>
+<p class="font-body text-xs text-slate-500 mb-4 leading-relaxed">Univ of Melbourne, Sydney, UNSW &amp; ANU Networks</p>
+</div>
+<div class="pt-3 border-t border-slate-100 flex items-center justify-between font-mono text-xs">
+<span class="text-slate-500">Acceptance Rate</span>
+<span class="font-bold text-cobalt-600">99.4%</span>
+</div>
+</div>
+<!-- Europe -->
+<div class="bg-white rounded-xl p-5 border border-slate-200 shadow-card-tech hover:border-cobalt-500 transition-all flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-3">
+<span class="text-2xl">🇪🇺</span>
+
+</div>
+<h4 class="font-display font-bold text-lg text-obsidian-950 mb-1">Europe</h4>
+<p class="font-body text-xs text-slate-500 mb-4 leading-relaxed">ETH Zurich, TU Munich, INSEAD, Bocconi &amp; LERU</p>
+</div>
+<div class="pt-3 border-t border-slate-100 flex items-center justify-between font-mono text-xs">
+<span class="text-slate-500">Acceptance Rate</span>
+<span class="font-bold text-cobalt-600">97.5%</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 5. STUDENT SUCCESS STORIES ('Students who made it') -->
+<section class="py-24 px-6 lg:px-12 max-w-7xl mx-auto w-full">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
+<div class="max-w-2xl">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 border border-amber-200 text-amber-700 text-xs font-mono font-bold uppercase tracking-wider mb-3">
+              Proof of Excellence
+            </div>
+<h2 class="font-display font-bold text-3xl lg:text-4xl text-obsidian-950 mb-3 tracking-tight">
+              Students who made it
+            </h2>
+<p class="font-body text-slate-600 text-base">
+              Your goals aren’t impossible. Meet our students who built strong profiles, aced their exams, and got into top global universities.
+            </p>
+</div>
+<a class="inline-flex items-center gap-2 bg-gradient-to-r from-champagne-500 to-amber-500 hover:from-champagne-600 hover:to-amber-600 text-obsidian-950 font-bold text-xs uppercase tracking-wider px-6 py-3.5 rounded-xl shadow-sm transition-all whitespace-nowrap" href="#counselling">
+<span class="material-symbols-outlined text-[18px]">event_available</span>
+            Book your 1:1 Counselling Session
+          </a>
+</div>
+<!-- 3 Rich Student Showcase Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+<!-- Student Card 1 -->
+<div class="bg-white rounded-2xl p-6 lg:p-7 border border-slate-200 shadow-card-tech hover:shadow-xl hover:border-slate-300 transition-all flex flex-col justify-between relative overflow-hidden">
+<div>
+<div class="flex items-center justify-between mb-5">
+<span class="bg-amber-50 text-amber-700 border border-amber-200/70 px-3 py-1 rounded-full text-[11px] font-mono font-bold uppercase tracking-wider">2.40 Crs Scholarship</span>
+<span class="font-mono text-xs font-bold bg-slate-100 text-obsidian-950 px-2.5 py-1 rounded-md">SAT 1500</span>
+</div>
+<div class="flex items-center gap-3.5 mb-5">
+<div class="w-12 h-12 rounded-xl bg-cobalt-50 text-cobalt-600 border border-cobalt-100 flex items-center justify-center font-display font-bold text-xl shadow-sm">
+                  A
+                </div>
+<div>
+<h4 class="font-display font-bold text-lg text-obsidian-950">Aditya Miriyala&nbsp;</h4>
+<p class="font-body text-xs font-semibold text-cobalt-600">Milwaukee School of Engineering</p>
+</div>
+</div>
+<p class="font-body text-xs sm:text-sm text-slate-600 italic mb-6 leading-relaxed">
+                I appreciate the support of Invicta in securing my admission with 2.4 Crs scholarship. Special thanks to Mr. Vivekananda Mutry for his guidance throughout the process.&nbsp;<br><br>Due to the teachers' excellent coaching, I got of 1500 in SAT and 8 in IELTS. The team's structured approach has made the process smooth. Their expertise in university applications was invaluable.&nbsp;</p>
+</div>
+<div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-600 font-mono">
+<span class="">Presidential Scholarship of 2.40 Crores</span>
+<span class="material-symbols-outlined text-cobalt-600 text-[18px]">verified</span>
+</div>
+</div>
+<!-- Student Card 2 -->
+<div class="bg-white rounded-2xl p-6 lg:p-7 border border-slate-200 shadow-card-tech hover:shadow-xl hover:border-slate-300 transition-all flex flex-col justify-between relative overflow-hidden">
+<div>
+<div class="flex items-center justify-between mb-5">
+<span class="bg-blue-50 text-cobalt-700 border border-cobalt-200/70 px-3 py-1 rounded-full text-[11px] font-mono font-bold uppercase tracking-wider">1.03 Crs scholarship</span>
+<span class="font-mono text-xs font-bold bg-slate-100 text-obsidian-950 px-2.5 py-1 rounded-md">IELTS 8</span>
+</div>
+<div class="flex items-center gap-3.5 mb-5">
+<div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 border border-amber-100 flex items-center justify-center font-display font-bold text-xl shadow-sm">
+                  S
+                </div>
+<div>
+<h4 class="font-display font-bold text-lg text-obsidian-950">Yukta Tata Koganti</h4>
+<p class="font-body text-xs font-semibold text-amber-600">Drexel University</p>
+</div>
+</div>
+<p class="font-body text-xs sm:text-sm text-slate-600 italic mb-6 leading-relaxed">
+                The trainers are so good that every student secured high scores in SAT &amp; IELTS. Just in 6 months, I secured high scores in several universities with high scholarships.&nbsp;</p><div><br></div><div class=""><i>A very big thanks to Mr Murty sir. The way he added value to my profile, my thought process and my critical thinking skills has changed my attitude and I have realised my potential.&nbsp;</i></div><p class=""></p>
+</div>
+<div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-600 font-mono">
+<span class="">SAT 1490/1600 | IELTS 8.0/9</span>
+<span class="material-symbols-outlined text-amber-600 text-[18px]">verified</span>
+</div>
+</div>
+<!-- Student Card 3 -->
+<div class="bg-white rounded-2xl p-6 lg:p-7 border border-slate-200 shadow-card-tech hover:shadow-xl hover:border-slate-300 transition-all flex flex-col justify-between relative overflow-hidden">
+<div>
+<div class="flex items-center justify-between mb-5">
+<span class="bg-amber-50 text-amber-700 border border-amber-200/70 px-3 py-1 rounded-full text-[11px] font-mono font-bold uppercase tracking-wider">got into Multiple colleges</span>
+<span class="font-mono text-xs font-bold bg-slate-100 text-obsidian-950 px-2.5 py-1 rounded-md">IELTS 8.5</span>
+</div>
+<div class="flex items-center gap-3.5 mb-5">
+<div class="w-12 h-12 rounded-xl bg-cobalt-50 text-cobalt-600 border border-cobalt-100 flex items-center justify-center font-display font-bold text-xl shadow-sm">
+                  D
+                </div>
+<div>
+<h4 class="font-display font-bold text-lg text-obsidian-950">Akarsh Chittineni</h4>
+<p class="font-body text-xs font-semibold text-cobalt-600">Duke University | Boston University | Rice University</p>
+</div>
+</div>
+<p class="font-body text-xs sm:text-sm text-slate-600 italic mb-6 leading-relaxed">
+                I am deeply honoured to be an Invictar. Gaining admission to my dream university, a vision I once held close, became a reality only through Invicta's holistic and meticulously crafted approach to my college applications.&nbsp;</p><div><br></div><div class="">Murty Sir's unwavering optimism, coupled with the faculty's tenacious dedication, made this journey both exhilerating and life changing. I am forever grateful.&nbsp;</div><p class=""></p>
+</div>
+<div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-600 font-mono">
+<span class="">SAT 1530/1600 | IELTS 8.5/9</span>
+<span class="material-symbols-outlined text-cobalt-600 text-[18px]">verified</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 6. EXECUTIVE STEWARDSHIP: CEO MESSAGE WITH 3 ILLUMINATED ATTENTION-GRABBING BOXES -->
+<section class="py-24 px-6 lg:px-12 bg-obsidian-950 text-white relative overflow-hidden border-y border-obsidian-800">
+<!-- Background Tech Grid & Glow -->
+<div class="absolute inset-0 bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:24px_24px] opacity-20 pointer-events-none"></div>
+<div class="absolute -top-32 right-10 w-[500px] h-[500px] bg-cobalt-600/15 rounded-full blur-[120px] pointer-events-none"></div>
+<div class="absolute -bottom-32 left-10 w-[500px] h-[500px] bg-champagne-500/15 rounded-full blur-[120px] pointer-events-none"></div>
+<div class="max-w-7xl mx-auto relative z-10">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<span class="font-mono text-xs uppercase tracking-widest text-champagne-400 font-bold">Executive Stewardship</span>
+<h2 class="font-display font-bold text-3xl lg:text-4xl text-white mt-2 tracking-tight">Message from our Director</h2>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center max-w-5xl mx-auto">
+<!-- CEO Portrait & Bio Info (5 Cols) -->
+<div class="lg:col-span-5 flex flex-col items-center lg:items-start text-center lg:text-left">
+<div class="relative mb-8">
+<div class="w-64 h-64 sm:w-72 sm:h-72 rounded-2xl overflow-hidden shadow-2xl border-2 border-obsidian-700 bg-obsidian-900 group">
+<img alt="Vivekananda Murty - Founder &amp; Director" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVJAbvrUincqja1Te79Osi-vrn_KrPP2d0_LnQUsqV_tJra4AyBmaN0W4u9Jj60bfKJz1yYiZKzZgr4SDNDrF4wx3MknFEH5X0SHwonR9XXQlNg2gsKbN5V1e70eOEqyglyk1Rp5WVA9v7fPn1av4Yg64867gvW2vOk6xz7gdcJYBiOsWCUpazjQITBIYMo1TR7EC-XxTUv7yNtcvZUDH4oCtBPhSOtVuG0fe8--5eEP52Iz_13VX7c-Ami04lhWswFA">
+</div>
+
+</div>
+<h3 class="font-display font-bold text-2xl text-white">Vivekananda Murty</h3>
+<p class="font-mono text-xs font-semibold text-champagne-400 uppercase tracking-wider mb-4">Founder &amp; Director</p>
+<p class="font-body text-slate-300 text-base italic leading-relaxed max-w-md mb-8">
+  “Every young mind possesses an extraordinary scholastic narrative. Our mission is to refine, articulate, and present that brilliance before the highest institutional seats in the world.”
+</p>
+<a class="inline-flex items-center gap-2 bg-gradient-to-r from-champagne-500 to-amber-500 hover:from-champagne-600 hover:to-amber-600 text-obsidian-950 font-bold text-xs uppercase tracking-wider px-8 py-3.5 rounded-xl shadow-lg transition-all" href="#contact">
+<span class="material-symbols-outlined text-[18px]">mail</span>
+                Contact me</a>
+</div>
+<!-- 3 HIGH-CONTRAST ATTENTION-GRABBING PILLAR BOXES (7 Cols) -->
+<div class="lg:col-span-7 flex flex-col gap-5">
+<!-- Box 1 -->
+<div class="relative rounded-2xl p-6 lg:p-7 bg-gradient-to-r from-obsidian-900 via-obsidian-850 to-obsidian-900 border-2 border-amber-400/80 shadow-[0_0_25px_rgba(245,158,11,0.22)] hover:shadow-[0_0_35px_rgba(245,158,11,0.35)] transition-all duration-300 group">
+<div class="flex items-start gap-5">
+<div class="w-13 h-13 p-3 rounded-xl bg-gradient-to-br from-champagne-400 to-amber-500 text-obsidian-950 flex items-center justify-center shrink-0 shadow-lg">
+<span class="material-symbols-outlined text-[30px] font-bold">psychology_alt</span>
+</div>
+<div>
+<div class="flex items-center gap-2.5 mb-1.5 flex-wrap">
+<span class="bg-amber-400 text-obsidian-950 text-[10px] font-mono font-bold uppercase tracking-widest px-2.5 py-0.5 rounded shadow-sm">Core Pillar 01</span>
+<h4 class="font-display font-bold text-lg sm:text-xl text-white">Individualized Academic Strategy</h4>
+</div>
+<p class="font-body text-xs sm:text-sm text-slate-300 leading-relaxed">
+                      Tailored roadmaps engineered around each scholar's unique intellectual curiosity and extracurricular spike.
+                    </p>
+</div>
+</div>
+</div>
+<!-- Box 2 -->
+<div class="relative rounded-2xl p-6 lg:p-7 bg-gradient-to-r from-obsidian-900 via-obsidian-850 to-obsidian-900 border-2 border-amber-400/80 shadow-[0_0_25px_rgba(245,158,11,0.22)] hover:shadow-[0_0_35px_rgba(245,158,11,0.35)] transition-all duration-300 group">
+<div class="flex items-start gap-5">
+<div class="w-13 h-13 p-3 rounded-xl bg-gradient-to-br from-champagne-400 to-amber-500 text-obsidian-950 flex items-center justify-center shrink-0 shadow-lg">
+<span class="material-symbols-outlined text-[30px] font-bold">shield</span>
+</div>
+<div>
+<div class="flex items-center gap-2.5 mb-1.5 flex-wrap">
+<span class="bg-amber-400 text-obsidian-950 text-[10px] font-mono font-bold uppercase tracking-widest px-2.5 py-0.5 rounded shadow-sm">Core Pillar 02</span>
+<h4 class="font-display font-bold text-lg sm:text-xl text-white">Uncompromising Ivy-Tier Standards</h4>
+</div>
+<p class="font-body text-xs sm:text-sm text-slate-300 leading-relaxed">
+                      Mentorship led by former top-50 university admissions committee evaluators and certified counselors.
+                    </p>
+</div>
+</div>
+</div>
+<!-- Box 3 -->
+<div class="relative rounded-2xl p-6 lg:p-7 bg-gradient-to-r from-obsidian-900 via-obsidian-850 to-obsidian-900 border-2 border-amber-400/80 shadow-[0_0_25px_rgba(245,158,11,0.22)] hover:shadow-[0_0_35px_rgba(245,158,11,0.35)] transition-all duration-300 group">
+<div class="flex items-start gap-5">
+<div class="w-13 h-13 p-3 rounded-xl bg-gradient-to-br from-champagne-400 to-amber-500 text-obsidian-950 flex items-center justify-center shrink-0 shadow-lg">
+<span class="material-symbols-outlined text-[30px] font-bold">handshake</span>
+</div>
+<div>
+<div class="flex items-center gap-2.5 mb-1.5 flex-wrap">
+<span class="bg-amber-400 text-obsidian-950 text-[10px] font-mono font-bold uppercase tracking-widest px-2.5 py-0.5 rounded shadow-sm">Core Pillar 03</span>
+<h4 class="font-display font-bold text-lg sm:text-xl text-white">Ethical &amp; Accessible Counseling</h4>
+</div>
+<p class="font-body text-xs sm:text-sm text-slate-300 leading-relaxed">
+                      Transparent guidance committed to student welfare, high ROI programs, and substantial scholarship capture.
+                    </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 7. 'STAND OUT OF THE CROWD WITH INVICTA' -->
+<section class="py-24 px-6 lg:px-12 max-w-7xl mx-auto w-full">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
+<div class="max-w-2xl">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cobalt-50 border border-cobalt-200 text-cobalt-700 text-xs font-mono font-bold uppercase tracking-wider mb-3">
+              Competitive Edge
+            </div>
+<h2 class="font-display font-bold text-3xl lg:text-4xl text-obsidian-950 tracking-tight">
+              Stand out of the crowd with Invicta
+            </h2>
+</div>
+<a class="inline-flex items-center gap-2 bg-obsidian-950 hover:bg-cobalt-600 text-white font-bold text-xs uppercase tracking-wider px-6 py-3.5 rounded-xl shadow-sm transition-all whitespace-nowrap" href="#enquire">
+            Enquire Now
+            <span class="material-symbols-outlined text-[18px]">send</span>
+</a>
+</div>
+<!-- 4 Modern Micro-Border Tech Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+<!-- Card 1 -->
+<div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-card-tech hover:shadow-lg transition-all flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute top-0 left-0 right-0 h-1 bg-cobalt-600"></div>
+<div>
+<div class="w-12 h-12 rounded-xl bg-cobalt-50 border border-cobalt-100 flex items-center justify-center text-cobalt-600 mb-5">
+<span class="material-symbols-outlined text-[26px]">workspace_premium</span>
+</div>
+<h4 class="font-display font-bold text-lg text-obsidian-950 mb-2">30+ Years of Expertise</h4>
+<p class="font-body text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
+                With decades of experience guiding students to top global universities, our expert counselors help you craft powerful applications that truly stand out.
+              </p>
+</div>
+<div class="pt-3 border-t border-slate-100 flex items-center gap-1.5 text-cobalt-600 font-mono text-xs font-semibold">
+<span class="">Decades of Proven Track Record</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-card-tech hover:shadow-lg transition-all flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute top-0 left-0 right-0 h-1 bg-amber-500"></div>
+<div>
+<div class="w-12 h-12 rounded-xl bg-amber-50 border border-amber-100 flex items-center justify-center text-amber-600 mb-5">
+<span class="material-symbols-outlined text-[26px]">visibility</span>
+</div>
+<h4 class="font-display font-bold text-lg text-obsidian-950 mb-2">100% Transparency</h4>
+<p class="font-body text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
+                No hidden fees. No surprises. Just a clear, structured process that keeps you informed at every stage of your application journey.
+              </p>
+</div>
+<div class="pt-3 border-t border-slate-100 flex items-center gap-1.5 text-amber-600 font-mono text-xs font-semibold">
+<span class="">Direct Fee Disclosures</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-card-tech hover:shadow-lg transition-all flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute top-0 left-0 right-0 h-1 bg-cobalt-600"></div>
+<div>
+<div class="w-12 h-12 rounded-xl bg-cobalt-50 border border-cobalt-100 flex items-center justify-center text-cobalt-600 mb-5">
+<span class="material-symbols-outlined text-[26px]">all_inclusive</span>
+</div>
+<h4 class="font-display font-bold text-lg text-obsidian-950 mb-2">End-to-End Support</h4>
+<p class="font-body text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
+                From shortlisting universities to crafting exceptional SOPs and securing your visa, our team supports you throughout your entire study abroad journey.
+              </p>
+</div>
+<div class="pt-3 border-t border-slate-100 flex items-center gap-1.5 text-cobalt-600 font-mono text-xs font-semibold">
+<span class="">Holistic Concierge Mentorship</span>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-card-tech hover:shadow-lg transition-all flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute top-0 left-0 right-0 h-1 bg-amber-500"></div>
+<div>
+<div class="w-12 h-12 rounded-xl bg-amber-50 border border-amber-100 flex items-center justify-center text-amber-600 mb-5">
+<span class="material-symbols-outlined text-[26px]">flight_land</span>
+</div>
+<h4 class="font-display font-bold text-lg text-obsidian-950 mb-2">Post-Arrival Help</h4>
+<p class="font-body text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
+                Our support doesn’t end with your visa approval. From settling in to understanding your visa local systems, we guide you in your destination country.
+              </p>
+</div>
+<div class="pt-3 border-t border-slate-100 flex items-center gap-1.5 text-amber-600 font-mono text-xs font-semibold">
+<span class="">Global Alumni Network Assist</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 8. 'YOUR JOURNEY TO SUCCESS' (Interactive Connected Step Tracker) -->
+<section class="py-24 px-6 lg:px-12 bg-slate-100/70 border-t border-slate-200">
+<div class="max-w-7xl mx-auto">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<span class="font-mono text-xs uppercase tracking-widest text-cobalt-600 font-bold">The Strategic Pathway</span>
+<h2 class="font-display font-bold text-3xl lg:text-4xl text-obsidian-950 mt-2 mb-3 tracking-tight">
+              Your journey to success
+            </h2>
+<p class="font-body text-slate-600 text-base max-w-2xl mx-auto">
+              A complete, 360° support system designed to guide you through every stage of your study abroad education journey. From your first consultation to your first day on campus.
+            </p>
+</div>
+<!-- Connected Horizontal Roadmap -->
+<div class="grid grid-cols-1 md:grid-cols-5 gap-4 relative mb-16 max-w-5xl mx-auto">
+<!-- Step 1 -->
+<div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-card-tech hover:border-cobalt-500 transition-all flex flex-col justify-between relative group">
+<div>
+<div class="flex items-center justify-between mb-4">
+<span class="w-8 h-8 rounded-lg bg-obsidian-950 text-white font-mono text-xs flex items-center justify-center font-bold">01</span>
+<span class="material-symbols-outlined text-cobalt-600 text-[22px]">assignment_ind</span>
+</div>
+<h4 class="font-display font-bold text-base text-obsidian-950 mb-2">1:1 Profile Evaluation</h4>
+<p class="font-body text-xs text-slate-600 leading-relaxed">
+                  Meet our expert counselors for a detailed profile assessment covering your academic background, goals, test scores, and preferred destinations.
+                </p>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-card-tech hover:border-cobalt-500 transition-all flex flex-col justify-between relative group">
+<div>
+<div class="flex items-center justify-between mb-4">
+<span class="w-8 h-8 rounded-lg bg-obsidian-950 text-white font-mono text-xs flex items-center justify-center font-bold">02</span>
+<span class="material-symbols-outlined text-amber-600 text-[22px]">account_balance</span>
+</div>
+<h4 class="font-display font-bold text-base text-obsidian-950 mb-2">University &amp; Program Selection</h4>
+<p class="font-body text-xs text-slate-600 leading-relaxed">
+                  We shortlist programs that align perfectly with your profile, career goals, and budget, ensuring you choose options that truly fit.
+                </p>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-card-tech hover:border-cobalt-500 transition-all flex flex-col justify-between relative group">
+<div>
+<div class="flex items-center justify-between mb-4">
+<span class="w-8 h-8 rounded-lg bg-obsidian-950 text-white font-mono text-xs flex items-center justify-center font-bold">03</span>
+<span class="material-symbols-outlined text-cobalt-600 text-[22px]">edit_note</span>
+</div>
+<h4 class="font-display font-bold text-base text-obsidian-950 mb-2">Application Preparation</h4>
+<p class="font-body text-xs text-slate-600 leading-relaxed">
+                  From SOPs and essays to LORs and résumé support, we help you craft a standout application that highlights your strengths and story.
+                </p>
+</div>
+</div>
+<!-- Step 4 -->
+<div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-card-tech hover:border-cobalt-500 transition-all flex flex-col justify-between relative group">
+<div>
+<div class="flex items-center justify-between mb-4">
+<span class="w-8 h-8 rounded-lg bg-obsidian-950 text-white font-mono text-xs flex items-center justify-center font-bold">04</span>
+<span class="material-symbols-outlined text-amber-600 text-[22px]">verified_user</span>
+</div>
+<h4 class="font-display font-bold text-base text-obsidian-950 mb-2">Interview &amp; Visa Guidance</h4>
+<p class="font-body text-xs text-slate-600 leading-relaxed">
+                  Get expert-led visa guidance, mock interviews, and step-by-step support. Our students achieve exceptionally high visa approval rates.
+                </p>
+</div>
+</div>
+<!-- Step 5 -->
+<div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-card-tech hover:border-cobalt-500 transition-all flex flex-col justify-between relative group">
+<div>
+<div class="flex items-center justify-between mb-4">
+<span class="w-8 h-8 rounded-lg bg-obsidian-950 text-white font-mono text-xs flex items-center justify-center font-bold">05</span>
+<span class="material-symbols-outlined text-cobalt-600 text-[22px]">flight_takeoff</span>
+</div>
+<h4 class="font-display font-bold text-base text-obsidian-950 mb-2">Pre-Departure Support</h4>
+<p class="font-body text-xs text-slate-600 leading-relaxed">
+                  We prepare you for life abroad with guidance on housing, insurance, culture, essentials, and everything you need for a confident transition.
+                </p>
+</div>
+</div>
+</div>
+<!-- High-Tech Conversion Banner with Electric Cobalt Glow -->
+<div class="bg-gradient-to-r from-obsidian-950 via-obsidian-900 to-obsidian-950 border border-obsidian-800 rounded-3xl p-10 lg:p-14 text-center text-white relative overflow-hidden shadow-2xl">
+<div class="absolute -top-24 left-1/2 -translate-x-1/2 w-[600px] h-[250px] bg-cobalt-600/20 rounded-full blur-[90px] pointer-events-none"></div>
+<div class="max-w-2xl mx-auto relative z-10">
+<h3 class="font-display font-bold text-3xl sm:text-4xl text-white mb-4 tracking-tight">
+                Ready to study at your dream global university?
+              </h3>
+<p class="font-body text-slate-300 text-sm sm:text-base mb-8">
+                Free 30-minute strategic consultation with a Senior Admissions Advisor
+              </p>
+<a class="inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-champagne-500 via-amber-500 to-amber-600 hover:from-champagne-600 hover:to-amber-700 text-obsidian-950 font-display font-bold text-base sm:text-lg px-9 py-4 rounded-xl shadow-xl hover:scale-[1.02] transition-all" href="#counselling">
+<span class="material-symbols-outlined text-[24px]">rocket_launch</span>
+                Start your Study Abroad Journey
+              </a>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- ==================== FOOTER ==================== -->
+<footer class="w-full bg-slate-900 text-slate-300 pt-16 pb-12 mt-auto border-t border-slate-800">
+<div class="max-w-7xl mx-auto px-6 lg:px-12">
+<!-- Accreditation Strip -->
+<div class="bg-obsidian-950/80 rounded-2xl p-6 mb-14 border border-slate-800">
+<div class="text-center mb-4">
+<span class="font-mono text-xs uppercase tracking-wider text-slate-400">Accredited &amp; Partnered with Global Consulates and Ivy-Tier Institutions</span>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 items-center justify-items-center opacity-85 text-xs font-semibold text-white">
+<div class="flex items-center gap-2"><span class="material-symbols-outlined text-champagne-400 text-[18px]">verified_user</span>AIRC Certified</div>
+<div class="flex items-center gap-2"><span class="material-symbols-outlined text-champagne-400 text-[18px]">school</span>NAFSA Member</div>
+<div class="flex items-center gap-2"><span class="material-symbols-outlined text-champagne-400 text-[18px]">hotel_class</span>Ivy League Alliance</div>
+<div class="flex items-center gap-2"><span class="material-symbols-outlined text-champagne-400 text-[18px]">shield</span>British Council Reg.</div>
+<div class="flex items-center gap-2"><span class="material-symbols-outlined text-champagne-400 text-[18px]">public</span>ICEF Recognized</div>
+<div class="flex items-center gap-2"><span class="material-symbols-outlined text-champagne-400 text-[18px]">verified</span>PTE Academic Core</div>
+</div>
+</div>
+<!-- Links Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-14 border-b border-slate-800">
+<div class="lg:col-span-2">
+<div class="flex items-center gap-3 mb-4">
+<div class="p-1 rounded-lg bg-white border border-slate-200">
+<img alt="Invicta Career Consultancy" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBr2QsDt8UEMgiNckCgAOzMajXK7fs6t5PKXeyjcT2CNTcIfTPsrIc-DKQNsfcaSYQKNZf8FIaiKiK6ObMtQjqLk-4VOErOl0e6mn2xIgLsjwS6mTQ2UMgSANx-fLYNAjsRKck2xi6VMOF_XgmIQ75xleyZx5ZgkgHsJOaHF6TKPuF0mSSGCuquNwA74zr7nuNBzTGAMxkXjcCtVAjHZZPZmLLgUl2-L8tTKIfBI87oGuCafHNaqIjp3I3QB6_COhK9iA">
+</div>
+
+</div>
+<p class="font-body text-xs sm:text-sm text-slate-400 max-w-sm mb-6 leading-relaxed">
+            Premier advisory delivering bespoke placement into Ivy League, Russell Group, and prestigious worldwide institutions with unmatched precision and scholarship achievement.
+          </p>
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-300 hover:bg-cobalt-600 hover:text-white transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-[18px]">mail</span>
+</div>
+<div class="w-9 h-9 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-300 hover:bg-cobalt-600 hover:text-white transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-[18px]">call</span>
+</div>
+<div class="w-9 h-9 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-300 hover:bg-cobalt-600 hover:text-white transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-[18px]">location_on</span>
+</div>
+<div class="w-9 h-9 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-300 hover:bg-cobalt-600 hover:text-white transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-[18px]">language</span>
+</div>
+</div>
+</div>
+<div>
+<h4 class="font-display font-bold text-sm text-white mb-4 uppercase tracking-wider">Destinations</h4>
+<ul class="space-y-2.5 text-xs text-slate-400">
+<li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-champagne-400 text-[14px]">arrow_forward</span><a class="hover:text-white transition-colors" data-path="destinations-usa" href="#">United States (Ivy Plus)</a></li>
+<li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-champagne-400 text-[14px]">arrow_forward</span><a class="hover:text-white transition-colors" data-path="destinations-uk" href="#">United Kingdom (Oxbridge &amp; RG)</a></li>
+<li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-champagne-400 text-[14px]">arrow_forward</span><a class="hover:text-white transition-colors" data-path="destinations-canada" href="#">Canada (U15 Consortium)</a></li>
+<li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-champagne-400 text-[14px]">arrow_forward</span><a class="hover:text-white transition-colors" data-path="destinations-australia" href="#">Australia (Group of Eight)</a></li>
+<li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-champagne-400 text-[14px]">arrow_forward</span><a class="hover:text-white transition-colors" data-path="destinations-europe" href="#">Continental Europe (ETH, TU9, LERU)</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-display font-bold text-sm text-white mb-4 uppercase tracking-wider">Advisory Services</h4>
+<ul class="space-y-2.5 text-xs text-slate-400">
+<li class=""><a class="hover:text-white transition-colors" data-path="admissions" href="#">Profile Evaluation &amp; Audits</a></li>
+<li class=""><a class="hover:text-white transition-colors" data-path="test-prep" href="#">SAT / GRE / GMAT Elite Prep</a></li>
+<li class=""><a class="hover:text-white transition-colors" data-path="programs" href="#">Ivy SOP &amp; Narrative Crafting</a></li>
+<li class=""><a class="hover:text-white transition-colors" data-path="admissions" href="#">Visa &amp; Consulate Interview Prep</a></li>
+<li class=""><a class="hover:text-white transition-colors" data-path="admissions" href="#">Fellowships &amp; Merit Scholarships</a></li>
+</ul>
+</div>
+
+</div>
+<!-- Bottom Legal Row -->
+<div class="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+<div class="">© 2024 Invicta Study Abroad Group LLC. All rights reserved. Registered global educational advisory.</div>
+<div class="flex items-center gap-6">
+<a class="hover:text-slate-300 transition-colors" data-path="privacy-policy" href="#">Privacy Policy</a>
+<a class="hover:text-slate-300 transition-colors" data-path="terms-of-service" href="#">Terms of Service</a>
+<a class="hover:text-slate-300 transition-colors" data-path="code-of-ethics" href="#">Academic Integrity Policy</a>
+</div>
+</div>
+</div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body></html>
