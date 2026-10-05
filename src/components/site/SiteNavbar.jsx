@@ -37,8 +37,8 @@ export default function SiteNavbar({ variant = 'light' }) {
     <header className={`fixed top-0 inset-x-0 z-50 backdrop-blur-xl border-b ${t.header}`}>
       <div className="h-20 max-w-7xl mx-auto px-5 sm:px-6 lg:px-12 flex items-center justify-between gap-6">
         <Link to={ROUTES.home} className="flex items-center shrink-0" aria-label="Invicta home">
-          <span className="p-1.5 rounded-xl bg-white border border-slate-200/70 shadow-sm flex items-center">
-            <img src={img('invicta-career-logo.png')} alt="Invicta Career Consultancy" className="h-8 sm:h-9 w-auto object-contain" />
+          <span className="flex items-center">
+            <img src={img('invicta-career-logo.png')} alt="Invicta Career Consultancy" className="h-8 sm:h-9 w-auto object-contain mix-blend-multiply" />
           </span>
         </Link>
 

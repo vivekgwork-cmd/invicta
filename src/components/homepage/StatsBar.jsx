@@ -1,16 +1,46 @@
-import { motion } from 'framer-motion'
-import { Counter, EASE, Heading, Panel } from '../site/motion.jsx'
+import { useRef } from 'react'
+import { motion, useReducedMotion, useScroll, useSpring, useTransform } from 'framer-motion'
+import { Counter, EASE, Heading } from '../site/motion.jsx'
 
 const stats = [
   { value: '10,000+', label: 'Students placed' },
-  { value: 'Top 50', label: 'QS-ranked universities' },
+  { value: '95%', label: 'Admit success rate' },
   { value: '500+', label: 'Partner universities' },
+  { value: '$45M+', label: 'Scholarships secured', gold: true },
+  { value: 'Top 50', label: 'QS-ranked universities' },
   { value: '30+', label: 'Years of experience', gold: true },
 ]
 
+// The whole band arrives as a tilted card that travels in from the bottom right and settles as
+// an inset rounded card, linked to scroll so it moves with the reader.
+function SlideInCard({ children, className = '' }) {
+  const ref = useRef(null)
+  const reduce = useReducedMotion()
+  const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'start 0.2'] })
+  const progress = useSpring(scrollYProgress, { stiffness: 120, damping: 28, restDelta: 0.001 })
+  const x = useTransform(progress, [0, 1], ['45%', '0%'])
+  const y = useTransform(progress, [0, 1], [220, 0])
+  const rotate = useTransform(progress, [0, 1], [6, 0])
+  const scale = useTransform(progress, [0, 1], [0.8, 1])
+  const borderRadius = useTransform(progress, [0, 1], [48, 32])
+
+  return (
+    // Padding keeps the settled card off the page edges; overflow-x-clip hides its off-screen part
+    // without adding a horizontal scrollbar.
+    <div ref={ref} className="overflow-x-clip px-3 sm:px-6 lg:px-10 py-4">
+      <motion.section
+        style={reduce ? undefined : { x, y, rotate, scale, borderRadius, transformOrigin: '100% 100%' }}
+        className={className}
+      >
+        {children}
+      </motion.section>
+    </div>
+  )
+}
+
 export default function StatsBar() {
   return (
-    <Panel className="w-full bg-obsidian-950 text-white py-20 px-5 sm:px-6 lg:px-12 relative overflow-hidden">
+    <SlideInCard className="w-full bg-obsidian-950 text-white py-16 px-5 sm:px-8 lg:px-12 relative overflow-hidden rounded-[32px] shadow-[0_12px_28px_-12px_rgba(6,9,17,0.45)]">
       <div className="absolute inset-0 site-grid-dots opacity-25" />
       <div className="absolute -top-40 left-1/3 w-[500px] h-[300px] bg-cobalt-600/20 rounded-full blur-[120px] pointer-events-none" />
       <div className="max-w-7xl mx-auto relative z-10">
@@ -21,7 +51,7 @@ export default function StatsBar() {
           className="mb-14"
         />
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 border-t border-l border-obsidian-800">
+        <div className="grid grid-cols-2 lg:grid-cols-3 border-t border-l border-obsidian-800">
           {stats.map((s, i) => (
             <motion.div
               key={s.label}
@@ -46,9 +76,9 @@ export default function StatsBar() {
           ))}
         </div>
         <p className="mt-6 text-xs sm:text-sm text-slate-500">
-          Every student also gets a dedicated 1:1 counsellor for career planning.
+          Every student also gets a 1:1 profile strategy and a dedicated counsellor for career planning.
         </p>
       </div>
-    </Panel>
+    </SlideInCard>
   )
 }

@@ -4,6 +4,7 @@ import Home from './pages/Home.jsx'
 import HomeClassic from './pages/HomeClassic.jsx'
 import StudyAbroad from './pages/StudyAbroad.jsx'
 import TestPrep from './pages/TestPrep.jsx'
+import About from './pages/About.jsx'
 import LandingPage from './pages/LandingPage.jsx'
 import BachelorsLandingPage from './pages/BachelorsLandingPage.jsx'
 
@@ -31,6 +32,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/study-abroad" element={<StudyAbroad />} />
         <Route path="/test-prep" element={<TestPrep />} />
+        <Route path="/about" element={<About />} />
         <Route path="/home-classic" element={<HomeClassic />} />
         <Route path="/landing-page" element={<LandingPage />} />
         <Route path="/landing-page-charcoal" element={<LandingPage heroVariant="charcoal" />} />

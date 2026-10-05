@@ -32,6 +32,7 @@ const pages = [
   { label: 'Home', to: ROUTES.home },
   { label: 'Study Abroad', to: ROUTES.studyAbroad },
   { label: 'Test Prep', to: ROUTES.testPrep },
+  { label: 'About Us', to: ROUTES.about },
   { label: "SEU x MIT Master's", to: '/landing-page' },
 ]
 
@@ -74,7 +75,7 @@ export default function SiteFooter({ variant = 'slate' }) {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-10 pb-14 border-b border-slate-800">
           <motion.div variants={column} className="lg:col-span-2">
-            <Link to={ROUTES.home} className="inline-flex p-1.5 rounded-lg bg-white border border-slate-200 mb-4">
+            <Link to={ROUTES.home} className="inline-flex p-1.5 rounded-lg bg-white mb-4">
               <img src={img('invicta-career-logo.png')} alt="Invicta Career Consultancy" className="h-8 w-auto object-contain" />
             </Link>
             <p className="text-xs sm:text-sm text-slate-400 max-w-sm mb-6 leading-relaxed">

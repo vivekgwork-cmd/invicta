@@ -10,7 +10,7 @@ const field =
 
 const perks = ['A concept-by-concept report on your weak spots', 'A realistic plan for your target score', 'A free 30-minute call with a mentor']
 
-const EXAMS = ['Digital SAT', 'GRE General', 'GMAT Focus', 'IELTS Academic']
+const EXAMS = ['Digital SAT', 'AP Exams', 'GRE General', 'GMAT Focus', 'IELTS Academic']
 
 export default function BookDiagnostic({ exam, onExamChange }) {
   const [submitted, setSubmitted] = useState(false)
@@ -84,7 +84,7 @@ export default function BookDiagnostic({ exam, onExamChange }) {
               >
                 <motion.div variants={fadeUp}>
                   <span className={label}>Target exam</span>
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                     {EXAMS.map((x) => (
                       <button
                         key={x}

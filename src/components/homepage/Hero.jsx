@@ -1,24 +1,75 @@
+import { useLayoutEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Arrow } from '../shared/Glyphs.jsx'
-import { EASE, Words, fadeUp, useScrollOut } from '../site/motion.jsx'
+import { EASE, Marquee, Words, fadeUp, useScrollOut } from '../site/motion.jsx'
 import { btn, size } from '../site/ui.js'
 import { ROUTES } from '../site/links.js'
 
-const highlights = [
-  { value: '95%', label: 'Admit success rate' },
-  { value: '500+', label: 'Partner universities' },
-  { value: '$45M+', label: 'Scholarships secured', gold: true },
-  { value: '1:1', label: 'Profile strategy' },
+// Scorers shown in the running strip. `photo` is a placeholder until real student photos are
+// added; without one the card falls back to the student's initial.
+const PLACEHOLDER_PHOTO = '/images/professional-lady.jpg'
+
+const scorers = [
+  { name: 'Akarsh Chittineni', school: 'Duke University', sat: 1530, photo: PLACEHOLDER_PHOTO },
+  { name: 'Aditya Miriyala', school: 'Milwaukee School of Engineering', sat: 1500, photo: PLACEHOLDER_PHOTO },
+  { name: 'Yukta Tata Koganti', school: 'Drexel University', sat: 1490, photo: PLACEHOLDER_PHOTO },
 ]
+
+const CARD_MIN = 140
+const CARD_MAX = 220
+const FOLD_GAP = 24
+
+// Sizes the scorer cards to the space left between the strip and the bottom of the first screen, so
+// the whole card is visible on load whatever the screen height. offsetTop is used rather than
+// getBoundingClientRect so the hero's entrance transforms don't skew the measurement.
+function useFoldHeight() {
+  const ref = useRef(null)
+  const [height, setHeight] = useState(CARD_MAX)
+
+  useLayoutEffect(() => {
+    const measure = () => {
+      let top = 0
+      for (let el = ref.current; el; el = el.offsetParent) top += el.offsetTop
+      setHeight(Math.round(Math.min(CARD_MAX, Math.max(CARD_MIN, window.innerHeight - top - FOLD_GAP))))
+    }
+    measure()
+    document.fonts?.ready.then(measure)
+    window.addEventListener('resize', measure)
+    return () => window.removeEventListener('resize', measure)
+  }, [])
+
+  return [ref, height]
+}
+
+function ScorerCard({ name, school, sat, photo, height }) {
+  return (
+    <div
+      style={{ height }}
+      className="relative aspect-[4/5] rounded-2xl overflow-hidden border border-slate-200 shadow-card-tech text-left bg-gradient-to-br from-cobalt-600 to-obsidian-950">
+      {photo ? (
+        <img src={photo} alt={name} className="absolute inset-0 w-full h-full object-cover" />
+      ) : (
+        <span className="absolute inset-0 grid place-items-center text-white/90 font-outfit font-bold text-5xl">{name[0]}</span>
+      )}
+      <div className="absolute inset-0 bg-gradient-to-t from-obsidian-950/95 via-obsidian-950/40 to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 p-3">
+        <p className="font-outfit font-bold text-white text-sm leading-tight">{name}</p>
+        <p className="text-[11px] text-slate-300 truncate mt-0.5">{school}</p>
+        <p className="font-outfit font-extrabold text-champagne-400 text-sm mt-1">SAT {sat}</p>
+      </div>
+    </div>
+  )
+}
 
 export default function Hero() {
   const [ref, contentStyle] = useScrollOut()
+  const [stripRef, cardHeight] = useFoldHeight()
 
   return (
     <section
       ref={ref}
-      className="relative overflow-hidden bg-gradient-to-b from-white via-slate-50 to-slate-100/70 pt-16 pb-24 lg:pt-24 lg:pb-32 px-5 sm:px-6 lg:px-12 border-b border-slate-200/80"
+      className="relative overflow-hidden bg-gradient-to-b from-white via-slate-50 to-slate-100/70 pt-[clamp(1.5rem,5svh,3rem)] pb-[clamp(1.5rem,4svh,3rem)] px-5 sm:px-6 lg:px-12 border-b border-slate-200/80"
     >
       <motion.div
         aria-hidden="true"
@@ -41,16 +92,16 @@ export default function Hero() {
         variants={{ show: { transition: { staggerChildren: 0.05, delayChildren: 0.1 } } }}
         className="max-w-7xl mx-auto relative z-10 flex flex-col items-center text-center"
       >
-        <h1 className="font-outfit font-extrabold text-4xl sm:text-5xl lg:text-7xl text-obsidian-950 max-w-5xl tracking-tight leading-[1.08] mb-7 text-balance">
-          <Words text="Study abroad, from test prep to Ivy-level colleges." />
+        <h1 className="font-outfit font-extrabold text-4xl sm:text-5xl lg:text-[clamp(2.75rem,7svh,3.75rem)] text-obsidian-950 max-w-5xl tracking-tight leading-[1.08] mb-[clamp(0.75rem,2.5svh,1.25rem)] text-balance">
+          <Words text="Study abroad, from test prep to Ivy League colleges." />
         </h1>
 
-        <motion.p variants={fadeUp} className="text-slate-600 text-base sm:text-lg lg:text-xl max-w-2xl mb-10 leading-relaxed">
+        <motion.p variants={fadeUp} className="text-slate-600 text-base sm:text-lg lg:text-xl max-w-3xl mb-[clamp(1rem,3.5svh,2rem)] leading-relaxed">
           Expert test prep and university counselling that helps students study abroad affordably, strategically and
           successfully.
         </motion.p>
 
-        <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center gap-4 w-full justify-center mb-10">
+        <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center gap-4 w-full justify-center">
           <Link to={ROUTES.counselling} className={`${btn.gold} ${size.lg} w-full sm:w-auto`}>
             Book Free Counselling
             <Arrow />
@@ -61,34 +112,21 @@ export default function Hero() {
         </motion.div>
 
         <motion.div
-          variants={fadeUp}
-          className="flex flex-wrap items-center justify-center gap-2 bg-white/95 border border-slate-200 px-6 py-2.5 rounded-full shadow-sm text-xs sm:text-sm text-slate-600"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.7, ease: EASE }}
+          className="mt-[clamp(1rem,3.5svh,2rem)] w-full"
         >
-          <span className="text-amber-500 font-bold tracking-tight">★★★★★</span>
-          <span className="font-grotesk font-bold text-obsidian-950 ml-1">4.9/5</span>
-          <span>from 10,000+ placed students</span>
-          <span className="hidden md:inline text-slate-300">•</span>
-          <span className="text-slate-900 font-semibold">Mentors from Harvard, Oxford, Stanford and MIT</span>
+          <p className="font-grotesk text-[11px] uppercase tracking-wider text-slate-500 mb-3">Recent Invicta SAT scorers</p>
+          {/* Doubled so the strip stays full on wide screens while there are only a few scorers. */}
+          <div ref={stripRef}>
+            <Marquee
+              items={[...scorers, ...scorers].map((s, i) => <ScorerCard key={i} {...s} height={cardHeight} />)}
+              itemClassName="!px-2"
+              duration={40}
+            />
+          </div>
         </motion.div>
-
-        <div className="mt-16 w-full max-w-4xl grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
-          {highlights.map((h, i) => (
-            <motion.div
-              key={h.label}
-              initial={{ opacity: 0, y: 30, scale: 0.94 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ duration: 0.7, delay: 0.7 + i * 0.08, ease: EASE }}
-              className={`bg-white rounded-2xl px-5 py-5 border border-slate-200 shadow-card-tech text-left transition-[translate,box-shadow,border-color] duration-300 hover:-translate-y-1 ${
-                h.gold ? 'hover:border-champagne-500/50 hover:shadow-glow-gold' : 'hover:border-cobalt-500/50 hover:shadow-glow-cobalt'
-              }`}
-            >
-              <p className={`font-outfit font-extrabold text-2xl sm:text-3xl tracking-tight ${h.gold ? 'text-amber-600' : 'text-obsidian-950'}`}>
-                {h.value}
-              </p>
-              <p className="font-grotesk text-[11px] uppercase tracking-wider text-slate-500 mt-1">{h.label}</p>
-            </motion.div>
-          ))}
-        </div>
       </motion.div>
     </section>
   )

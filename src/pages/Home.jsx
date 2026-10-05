@@ -4,7 +4,6 @@ import StatsBar from '../components/homepage/StatsBar.jsx'
 import Pathways from '../components/homepage/Pathways.jsx'
 import Destinations from '../components/homepage/Destinations.jsx'
 import Stories from '../components/homepage/Stories.jsx'
-import Director from '../components/homepage/Director.jsx'
 import WhyInvicta from '../components/homepage/WhyInvicta.jsx'
 import Journey from '../components/homepage/Journey.jsx'
 
@@ -16,7 +15,6 @@ export default function Home() {
       <Pathways />
       <Destinations />
       <Stories />
-      <Director />
       <WhyInvicta />
       <Journey />
     </PageShell>
