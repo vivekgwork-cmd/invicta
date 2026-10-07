@@ -2,6 +2,8 @@ import { motion } from 'framer-motion'
 import { Arrow } from '../shared/Glyphs.jsx'
 import { Card, Heading, Panel, Rise } from '../site/motion.jsx'
 import { btn } from '../site/ui.js'
+import { ROUTES } from '../site/links.js'
+import { Link } from 'react-router-dom'
 
 const exams = [
   {
@@ -10,6 +12,7 @@ const exams = [
     body: 'Master the adaptive module format, Desmos calculator shortcuts and pacing for the Reading and Writing section.',
     rows: [['Avg. increase', '+210 points'], ['Curriculum', '32 practice modules'], ['Format', '1:1 + online platform']],
     exam: 'Digital SAT',
+    page: ROUTES.sat,
   },
   {
     perk: 'Ivy network',
@@ -32,6 +35,7 @@ const exams = [
     body: 'Live speaking mock interviews, precise structure for Writing Task 2 and listening practice across accents.',
     rows: [['Avg. score', 'Band 8.0+'], ['Curriculum', 'Graded speaking drills'], ['Format', 'Live 1:1 sessions']],
     exam: 'IELTS Academic',
+    page: ROUTES.ielts,
   },
 ]
 
@@ -121,6 +125,14 @@ export function ChooseExam({ onPick }) {
                 Start with {e.title}
                 <Arrow />
               </a>
+              {e.page && (
+                <Link
+                  to={e.page}
+                  className={`mt-3 text-center text-xs font-semibold underline-offset-4 hover:underline ${e.featured ? 'text-slate-300' : 'text-slate-600'}`}
+                >
+                  Explore the full {e.title} programme
+                </Link>
+              )}
             </Card>
           ))}
         </div>

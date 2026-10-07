@@ -32,6 +32,9 @@ const pages = [
   { label: 'Home', to: ROUTES.home },
   { label: 'Study Abroad', to: ROUTES.studyAbroad },
   { label: 'Test Prep', to: ROUTES.testPrep },
+  { label: 'Digital SAT', to: ROUTES.sat },
+  { label: 'AP Exams', to: ROUTES.ap },
+  { label: 'IELTS Academic', to: ROUTES.ielts },
   { label: 'About Us', to: ROUTES.about },
   { label: "SEU x MIT Master's", to: '/landing-page' },
 ]

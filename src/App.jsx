@@ -7,6 +7,9 @@ import TestPrep from './pages/TestPrep.jsx'
 import About from './pages/About.jsx'
 import LandingPage from './pages/LandingPage.jsx'
 import BachelorsLandingPage from './pages/BachelorsLandingPage.jsx'
+import SATPage from './pages/SATPage.jsx'
+import APPage from './pages/APPage.jsx'
+import IELTSPage from './pages/IELTSPage.jsx'
 
 // Scrolls to the top on page change, or to the #section when the link carries a hash
 // (e.g. "/study-abroad#evaluation-form" from the homepage).
@@ -32,6 +35,9 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/study-abroad" element={<StudyAbroad />} />
         <Route path="/test-prep" element={<TestPrep />} />
+        <Route path="/test-prep/sat" element={<SATPage />} />
+        <Route path="/test-prep/ap" element={<APPage />} />
+        <Route path="/test-prep/ielts" element={<IELTSPage />} />
         <Route path="/about" element={<About />} />
         <Route path="/home-classic" element={<HomeClassic />} />
         <Route path="/landing-page" element={<LandingPage />} />

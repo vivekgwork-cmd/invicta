@@ -208,3 +208,40 @@ body {
     animation: none;
   }
 }
+
+/* Range inputs on the exam pages (SAT score calculator, IELTS band checker). Set --fill to the
+   accent colour and --pct to the filled share of the track. */
+.exam-range {
+  appearance: none;
+  -webkit-appearance: none;
+  height: 8px;
+  border-radius: 999px;
+  cursor: pointer;
+  background: linear-gradient(var(--fill), var(--fill)) no-repeat, #e2e8f0;
+  background-size: var(--pct, 50%) 100%, 100% 100%;
+}
+.exam-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #fff;
+  border: 3px solid var(--fill);
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.2);
+  transition: transform 0.15s;
+}
+.exam-range::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+.exam-range::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fff;
+  border: 3px solid var(--fill);
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.2);
+}
+.exam-range:focus-visible {
+  outline: 2px solid var(--fill);
+  outline-offset: 6px;
+}

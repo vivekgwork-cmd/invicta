@@ -1,0 +1,318 @@
+﻿AP Exam Preparation
+Go further in the subjects that matter to you.
+Explore college-level learning while you’re still in school. With Invicta’s AP preparation, build deeper subject knowledge, practise exam skills and connect your academic interests to your university plans.
+Talk to an AP Expert
+Explore AP Subjects
+
+
+AP exams at a glance
+Maximum score
+	Main exam window
+	Subjects
+	Exam fees
+	5
+	May each year
+	Separate exams for individual subjects
+	Vary by test centre
+	Fees are charged per exam. Confirm the total payable, registration deadline and any additional charges with your school or authorised test centre.
+
+
+What are Advanced Placement exams?
+Advanced Placement, or AP, is a College Board programme offering college-level courses and exams to school students.
+Each exam assesses a specific subject, allowing you to demonstrate knowledge beyond your regular school curriculum. Universities decide how they use AP courses and scores in admissions, credit and placement.
+Whether you’re exploring engineering, economics, computer science or the humanities, AP can help you investigate a subject before choosing your degree.
+
+
+Why consider AP?
+Show academic ambition
+Challenging coursework can give universities more context about your academic interests and readiness. Strong AP results may support your application where the institution considers them.
+Explore a future major
+Enjoy mathematics? Curious about economics? Interested in coding? AP lets you experience the demands of a subject before committing to it at university.
+Build university study skills
+Develop analytical thinking, independent study, time management and clear communication through demanding subject work.
+Explore credit and placement opportunities
+Some universities award credit or let you move beyond introductory courses for qualifying scores. The required score and the benefit differ by institution and subject.
+Create more room in your degree
+Where AP credit counts towards your degree, it may create space for electives or advanced study. Any savings in time or tuition depend on your university’s rules and degree requirements.
+Challenge yourself with a purpose
+Take on a subject because it fits your interests and goals. A manageable combination of relevant exams is more useful than a long list without a clear reason.
+Find the Right AP Subjects for Me
+
+
+AP preparation built around your goals
+Invicta brings subject learning, exam practice and academic planning together. Your preparation should account for your current foundation, school commitments and intended university pathway.
+Subject-focused teaching
+Work through the concepts and skills your chosen AP exam assesses, with attention to both understanding and application.
+Personalised preparation
+Identify stronger topics and areas that need more work. Use that starting point to build a focused study plan.
+Flexible learning
+Discuss weekend classes, intensive preparation and individual support to find a format that fits your schedule.
+Practice that reflects the exam
+Prepare for relevant multiple-choice and free-response tasks. Learn to explain your reasoning, organise written work and manage time.
+Feedback and progress review
+Use practice results to identify gaps, revisit concepts and refine your approach before the next assessment.
+Guidance beyond exam day
+Understand how your subject choices and scores fit into your undergraduate application and potential credit or placement options.
+Discuss My AP Preparation
+
+
+Find the subject that fits your direction
+Subject
+	Main focus
+	AP Calculus AB
+	Core calculus: limits, derivatives and integrals
+	AP Calculus BC
+	AB content plus further calculus topics
+	AP Physics C: Mechanics
+	Calculus-based study of motion, forces and energy
+	AP Physics C: Electricity and Magnetism
+	Electric fields, circuits, magnetism and induction
+	AP Microeconomics
+	Decisions by individuals and firms
+	AP Macroeconomics
+	Growth, inflation, employment and economic policy
+	AP Computer Science A
+	Programming and problem-solving using Java
+	AP English Language and Composition
+	Nonfiction analysis and evidence-based writing
+	
+
+AP Calculus AB and BC
+Build a foundation for quantitative study.
+AP Calculus AB introduces limits, differentiation, integration and their applications. It develops your ability to interpret mathematical relationships and solve problems using calculus.
+AP Calculus BC includes the AB foundation and extends into additional topics such as parametric and polar functions, further integration techniques, and sequences and series.
+Both can support students exploring mathematics, engineering, physical sciences and other quantitative fields. The right choice depends on your existing foundation and the time you can devote to preparation.
+Exam structure: May 2027
+The structure below applies to both AB and BC.
+Section
+	Questions
+	Time
+	Score weighting
+	Calculator
+	Multiple choice — Part A
+	29
+	62 minutes
+	50% across both parts
+	Not permitted
+	Multiple choice — Part B
+	13
+	38 minutes
+	—
+	Required
+	Free response — Part A
+	2
+	30 minutes
+	50% across both parts
+	Required
+	Free response — Part B
+	4
+	60 minutes
+	—
+	Not permitted
+	Total
+	42 multiple choice + 6 free response
+	3 hours 10 minutes
+	100%
+	As specified
+	Format: Hybrid digital. Complete multiple-choice questions in Bluebook and write free-response answers in paper booklets.
+Explore Calculus Preparation
+
+
+AP Physics C
+Understand the physics. Show the reasoning.
+Physics C consists of two separate courses and exams, both using calculus to explore physical systems.
+Mechanics covers motion, forces, energy, momentum, rotation and oscillations. Preparation develops mathematical reasoning and the ability to connect concepts with physical situations.
+Electricity and Magnetism explores electric fields, circuits, magnetic fields and electromagnetic induction.
+These subjects are especially relevant to students considering engineering or physical sciences. A suitable calculus foundation is important.
+Exam structure: May 2027
+Each Physics C exam follows this structure.
+Section
+	Questions
+	Time
+	Score weighting
+	Multiple choice
+	42
+	85 minutes
+	50%
+	Free response
+	4
+	95 minutes
+	50%
+	Total
+	46
+	3 hours
+	100%
+	Format: Hybrid digital. Multiple-choice responses are completed in Bluebook; free-response answers are handwritten.
+Calculators are permitted, subject to College Board rules. Preparation includes solving problems, interpreting representations and explaining experimental reasoning.
+Explore Physics C Preparation
+
+
+AP Microeconomics and Macroeconomics
+Learn to make sense of economic decisions.
+Microeconomics focuses on individuals, firms and markets. Explore supply and demand, production costs, competition, factor markets and the role of government.
+Macroeconomics examines the economy as a whole. Study national income, growth, unemployment, inflation, fiscal policy and monetary policy.
+Both develop your ability to use graphs, models and evidence to explain economic outcomes. They are separate exams, so you can plan for one or both.
+Exam structure
+Section
+	Questions
+	Time
+	Approximate score weighting
+	Multiple choice
+	60
+	70 minutes
+	Two-thirds
+	Free response
+	3: one long, two short
+	60 minutes, including reading time
+	One-third
+	Total
+	63
+	2 hours 10 minutes
+	100%
+	Format: Hybrid digital for both subjects. Free-response work is handwritten.
+Explore Economics Preparation
+
+
+AP Computer Science A
+Turn logical thinking into working solutions.
+Learn to analyse, write and test Java code. Preparation covers objects and methods, selection and iteration, class creation and data collections.
+Develop the ability to trace what a programme does, identify errors and build solutions from a specification. The focus is on understanding how code works and communicating that understanding.
+Exam structure
+Section
+	Questions
+	Time
+	Score weighting
+	Multiple choice
+	42
+	90 minutes
+	55%
+	Free response
+	4
+	90 minutes
+	45%
+	Total
+	46
+	3 hours
+	100%
+	Format: Fully digital in Bluebook. Both multiple-choice and free-response answers are submitted digitally.
+Explore Computer Science Preparation
+
+
+AP English Language and Composition
+Read closely. Think critically. Write convincingly.
+Develop the skills to analyse nonfiction, understand how writers persuade and construct an evidence-based argument.
+Preparation covers reading comprehension, rhetorical analysis, writing revision and the use of sources. These skills carry into university essays, research and classroom discussions.
+Exam structure
+Section
+	Questions
+	Time
+	Score weighting
+	Multiple choice
+	45
+	60 minutes
+	45%
+	Free response
+	3 essays
+	135 minutes, including reading time
+	55%
+	Total
+	48
+	3 hours 15 minutes
+	100%
+	The three essays assess synthesis, rhetorical analysis and argument.
+Format: Fully digital in Bluebook.
+Explore English Language Preparation
+
+
+Understand your AP score
+Score
+	College Board description
+	5
+	Extremely well qualified
+	4
+	Well qualified
+	3
+	Qualified
+	2
+	Possibly qualified
+	1
+	No recommendation
+	Many U.S. universities offer credit or placement for qualifying scores, sometimes starting at 3. Others require higher scores or apply different rules by subject.
+Check the policy for your university and degree before assuming that a score will let you skip a course or reduce tuition.
+Check University Credit Policies
+
+
+Know how your exam will be delivered
+Fully digital exams
+For AP Computer Science A and AP English Language and Composition, students complete both sections in Bluebook.
+Hybrid digital exams
+For the Calculus, Physics C and Economics exams listed here, students complete multiple-choice questions and view free-response prompts in Bluebook, then write their free-response answers in paper booklets.
+Your school or test centre will explain device requirements and exam-day arrangements. Practise in the relevant format before your exam.
+
+
+Plan for the May 2027 exam window
+The main AP exam window runs from May 3–7 and May 10–14, 2027.
+Subject
+	Exam date
+	Physics C: Mechanics
+	May 3, 2027
+	Microeconomics
+	May 4, 2027
+	Physics C: Electricity and Magnetism
+	May 5, 2027
+	Macroeconomics
+	May 7, 2027
+	Calculus AB and Calculus BC
+	May 10, 2027
+	English Language and Composition
+	May 12, 2027
+	Computer Science A
+	May 12, 2027
+	Confirm your exact start time and registration deadline with your AP coordinator or test centre. Local registration deadlines can arrive well before May.
+Calculus AB and BC are scheduled together, so plan to take one of them in the same year.
+View the Official AP Schedule
+
+
+From subject selection to exam day
+1. Choose with your future in mind
+Discuss your academic interests, possible major and university plans. Select subjects that add value to your pathway.
+2. Map your preparation
+Review the syllabus, your current knowledge and the time available alongside school work.
+3. Build understanding
+Strengthen concepts before moving into exam-style questions. Practise applying knowledge to unfamiliar problems.
+4. Practise and review
+Work through timed tasks, study your errors and refine your answers. For written responses, learn how to show the reasoning the question asks for.
+5. Prepare for the actual format
+Become comfortable with Bluebook, permitted materials and any handwritten response requirements.
+Build My AP Preparation Plan
+
+
+Frequently asked questions
+When are AP exams held?
+AP exams are held annually in May. Each subject has a scheduled date, and your coordinator or test centre confirms the time and location.
+How long does an AP exam take?
+The duration varies by subject. The exams listed on this page range from 2 hours 10 minutes to 3 hours 15 minutes, excluding breaks and administrative time.
+How do I register?
+Registration is arranged through a participating school or authorised test centre. Contact the AP coordinator early to confirm availability, payment and deadlines. A College Board account alone does not reserve your exam.
+Can I take an AP exam if my school does not offer the course?
+You may be able to take the exam at a school or centre that accepts external students. Contact possible centres early to confirm whether they can accommodate you.
+How much does an AP exam cost?
+The amount payable varies by school or authorised centre. Ask for the total exam fee, administration charges and any late fees before registering. Coaching fees are separate.
+Are there late or cancellation fees?
+Additional charges may apply. Your coordinator or test centre can explain registration deadlines, cancellation rules and any applicable charges.
+Is there a penalty for incorrect multiple-choice answers?
+Incorrect multiple-choice answers do not attract a guessing penalty. Timed practice can help you make informed choices and use your time effectively.
+Will AP guarantee university admission or credit?
+No. Each institution sets its own admissions and credit policies. AP should support your broader academic plan.
+When will I receive my scores?
+Scores are generally released in July through your College Board account. Check the official release information for your exam year.
+How do I send scores to universities?
+Use College Board’s AP score-sending service. Check the current free score-send deadline and any charges for additional reports.
+How many AP exams should I take?
+There is no single ideal number. Choose a manageable set that fits your interests, school workload and university goals.
+
+
+Ready to take your learning further?
+Tell us which subjects interest you and where you hope to study. We’ll help you connect your AP preparation to a clearer academic plan.
+Talk to an AP Expert
+Explore Undergraduate Admissions Support
