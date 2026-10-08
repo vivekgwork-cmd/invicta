@@ -4,16 +4,14 @@ import { motion } from 'framer-motion'
 import { Arrow } from '../shared/Glyphs.jsx'
 import { EASE, Marquee, Words, fadeUp, useScrollOut } from '../site/motion.jsx'
 import { btn, size } from '../site/ui.js'
-import { ROUTES } from '../site/links.js'
+import { ROUTES, img } from '../site/links.js'
 
-// Scorers shown in the running strip. `photo` is a placeholder until real student photos are
-// added; without one the card falls back to the student's initial.
-const PLACEHOLDER_PHOTO = '/images/professional-lady.jpg'
-
+// Scorers shown in the running strip. `focus` is the object-position that keeps each student's face
+// in frame (same values as the Stories section); without a photo the card falls back to the initial.
 const scorers = [
-  { name: 'Akarsh Chittineni', school: 'Duke University', sat: 1530, photo: PLACEHOLDER_PHOTO },
-  { name: 'Aditya Miriyala', school: 'Milwaukee School of Engineering', sat: 1500, photo: PLACEHOLDER_PHOTO },
-  { name: 'Yukta Tata Koganti', school: 'Drexel University', sat: 1490, photo: PLACEHOLDER_PHOTO },
+  { name: 'Akarsh Chittineni', school: 'Duke University', sat: 1530, photo: 'akarsh-chittineni.jpg', focus: '57% 20%' },
+  { name: 'Aditya Miriyala', school: 'Milwaukee School of Engineering', sat: 1500, photo: 'aditya-m.jpg', focus: '62% 22%' },
+  { name: 'Yukta Tata Koganti', school: 'Drexel University', sat: 1490, photo: 'yuktha-tata.jpg', focus: '50% 30%' },
 ]
 
 const CARD_MIN = 140
@@ -42,13 +40,18 @@ function useFoldHeight() {
   return [ref, height]
 }
 
-function ScorerCard({ name, school, sat, photo, height }) {
+function ScorerCard({ name, school, sat, photo, focus, height }) {
   return (
     <div
       style={{ height }}
       className="relative aspect-[4/5] rounded-2xl overflow-hidden border border-slate-200 shadow-card-tech text-left bg-gradient-to-br from-cobalt-600 to-obsidian-950">
       {photo ? (
-        <img src={photo} alt={name} className="absolute inset-0 w-full h-full object-cover" />
+        <img
+          src={img(`students/${photo}`)}
+          alt={name}
+          style={{ objectPosition: focus }}
+          className="absolute inset-0 w-full h-full object-cover"
+        />
       ) : (
         <span className="absolute inset-0 grid place-items-center text-white/90 font-outfit font-bold text-5xl">{name[0]}</span>
       )}
