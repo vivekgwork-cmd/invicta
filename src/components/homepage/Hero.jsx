@@ -6,12 +6,20 @@ import { EASE, Marquee, Words, fadeUp, useScrollOut } from '../site/motion.jsx'
 import { btn, size } from '../site/ui.js'
 import { ROUTES, img } from '../site/links.js'
 
-// Scorers shown in the running strip. `focus` is the object-position that keeps each student's face
-// in frame (same values as the Stories section); without a photo the card falls back to the initial.
+// Students shown in the running strip. `school` and `sat` are only set where the testimonials give
+// them; `focus` is the object-position that keeps the face in frame (same values as the Stories
+// section) and defaults to the top of the photo. Without a photo the card falls back to the initial.
 const scorers = [
   { name: 'Akarsh Chittineni', school: 'Duke University', sat: 1530, photo: 'akarsh-chittineni.jpg', focus: '57% 20%' },
   { name: 'Aditya Miriyala', school: 'Milwaukee School of Engineering', sat: 1500, photo: 'aditya-m.jpg', focus: '62% 22%' },
+  { name: 'Joshika Challa', photo: 'joshika-challa.jpg' },
   { name: 'Yukta Tata Koganti', school: 'Drexel University', sat: 1490, photo: 'yuktha-tata.jpg', focus: '50% 30%' },
+  { name: 'Keerthika Paturi', photo: 'keerthika-paturi.jpg' },
+  { name: 'Faizah Shaik', school: 'Bryn Mawr College', sat: 1470, photo: 'faizah-shaik.jpg', focus: '50% 45%' },
+  { name: 'Sanjana Goel', photo: 'sanjana-goel.jpg' },
+  { name: 'Shiva Aditya Velagapudi', sat: 1460, photo: 'shiva-aditya.jpg', focus: '50% 22%' },
+  { name: 'Hemanth Ganesh', photo: 'hemanth-ganesh.jpg' },
+  { name: 'Varsha Ramesh', photo: 'varsha-ramesh.jpg' },
 ]
 
 const CARD_MIN = 140
@@ -40,7 +48,7 @@ function useFoldHeight() {
   return [ref, height]
 }
 
-function ScorerCard({ name, school, sat, photo, focus, height }) {
+function ScorerCard({ name, school, sat, photo, focus = '50% 15%', height }) {
   return (
     <div
       style={{ height }}
@@ -58,8 +66,8 @@ function ScorerCard({ name, school, sat, photo, focus, height }) {
       <div className="absolute inset-0 bg-gradient-to-t from-obsidian-950/95 via-obsidian-950/40 to-transparent" />
       <div className="absolute inset-x-0 bottom-0 p-3">
         <p className="font-outfit font-bold text-white text-sm leading-tight">{name}</p>
-        <p className="text-[11px] text-slate-300 truncate mt-0.5">{school}</p>
-        <p className="font-outfit font-extrabold text-champagne-400 text-sm mt-1">SAT {sat}</p>
+        {school && <p className="text-[11px] text-slate-300 truncate mt-0.5">{school}</p>}
+        {sat && <p className="font-outfit font-extrabold text-champagne-400 text-sm mt-1">SAT {sat}</p>}
       </div>
     </div>
   )
@@ -120,13 +128,12 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.7, ease: EASE }}
           className="mt-[clamp(1rem,3.5svh,2rem)] w-full"
         >
-          <p className="font-grotesk text-[11px] uppercase tracking-wider text-slate-500 mb-3">Recent Invicta SAT scorers</p>
-          {/* Doubled so the strip stays full on wide screens while there are only a few scorers. */}
+          <p className="font-grotesk text-[11px] uppercase tracking-wider text-slate-500 mb-3">Recent Invicta students</p>
           <div ref={stripRef}>
             <Marquee
-              items={[...scorers, ...scorers].map((s, i) => <ScorerCard key={i} {...s} height={cardHeight} />)}
+              items={scorers.map((s) => <ScorerCard key={s.name} {...s} height={cardHeight} />)}
               itemClassName="!px-2"
-              duration={40}
+              duration={65}
             />
           </div>
         </motion.div>
